@@ -37,3 +37,6 @@ Approached in stages, not built all at once.
 
 ## Next step
 Mapsly's account status is resolved (above) — that unlocks the next-level checklist for actually going into the Mapsly and MyBlindCo accounts, see [01-mapsly-myblindco-investigation-checklist.md](01-mapsly-myblindco-investigation-checklist.md). The remaining three "still needed" items above are unchanged.
+
+## Proposal built 2026-09-06
+The Week 3-4 mapping/proposal deliverable is now written up as a real client-facing document: `../../docs/2026-09-06_proposal_item2-customer-journey-integration.html/.pdf`. Covers the customer journey, cross-system matching, what each platform exposes, the proposed data map, the minimum viable integration order (fix the existing webhook's reliability first, then carry order/install status back into GHL, then add QuickBooks last), the reporting schema, the read-only scheduling-intelligence design, and Mapsly sequencing. Closes with the same "still open" list as above (MyBlindCo API/export/webhook access, my5starz, the webhook's known failures, the unconfirmed matching key, and the unexplained 27-stop Mapsly route). Nothing here has been built, this is the plan Josh needs to review before any of it starts.

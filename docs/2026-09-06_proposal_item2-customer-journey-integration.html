@@ -1,0 +1,107 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Customer Journey &amp; Cross-System Integration</title>
+<style>
+@page { size: Letter; margin: 0.85in 0.8in; }
+* { box-sizing: border-box; }
+body { font-family: "Segoe UI", -apple-system, Helvetica, Arial, sans-serif;
+  color: #1c2b33; font-size: 10.5pt; line-height: 1.55; margin: 0; }
+.eyebrow { color: #2f7d5f; font-size: 8.5pt; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; margin-bottom: 6px; }
+h1 { font-size: 26pt; font-weight: 700; margin: 0 0 6px; color: #12222c; letter-spacing: -.4px; }
+.subtitle { font-size: 11.5pt; color: #4a5b66; margin: 0 0 6px; }
+.byline { font-size: 8.5pt; color: #8a97a0; margin: 0 0 22px; }
+.intro { background: #f4f6f6; border-left: 3px solid #2f7d5f;
+  padding: 14px 18px; margin: 0 0 26px; font-size: 10.5pt; }
+h2 { background: #16232b; color: #fff; font-size: 13pt; font-weight: 700;
+  padding: 11px 18px; margin: 30px 0 16px; border-radius: 3px; }
+h2 .num { color: #4fbf8b; margin-right: 8px; }
+.note { background: #f4f6f6; padding: 13px 17px; margin: 0 0 18px; font-size: 10pt; border-radius: 2px; }
+.blocker { background: #fdf1f1; padding: 13px 17px; margin: 0 0 18px;
+  font-size: 10pt; color: #9d2f2f; border-radius: 2px; }
+p { margin: 0 0 14px; }
+ol, ul { padding-left: 22px; margin: 0 0 16px; }
+li { margin-bottom: 9px; }
+li b { color: #12222c; }
+table { width: 100%; border-collapse: collapse; margin: 0 0 18px; font-size: 9.5pt; }
+th { background: #16232b; color: #fff; text-align: left; padding: 8px 11px; font-weight: 600; }
+td { border-bottom: 1px solid #e3e8ea; padding: 8px 11px; vertical-align: top; }
+tr:nth-child(even) td { background: #fafbfb; }
+.footer { margin-top: 34px; padding-top: 12px; border-top: 1px solid #e3e8ea;
+  font-size: 8pt; color: #98a4ac; }
+h2, .note, .blocker { break-after: avoid; page-break-after: avoid; }
+li, tr { break-inside: avoid; page-break-inside: avoid; }
+</style></head>
+<body>
+<div class="eyebrow">Week 3-4 &middot; Item 2</div>
+<h1>Customer Journey &amp; Cross-System Integration</h1>
+<p class="subtitle">A proposal for connecting GHL, MyBlindCo, QuickBooks, and Mapsly around one customer journey</p>
+<p class="byline">Prepared for Josh LeClair by John Carlo Caintic &middot; Marketing Strategy &amp; Automation &middot; September 6, 2026</p>
+<div class="intro">This is the mapping and proposal work for Item 2, following a customer from the first lead through the completed sale to the actual financial result. Nothing here gets built yet; this lays out the journey as it stands today, what each system actually exposes, a proposed data map, and a recommended order to build in, so the next phase has a real plan to build against instead of four systems each doing their own thing.</div>
+
+<h2><span class="num">1.</span> The Customer Journey Today</h2>
+<p>Four systems, four different jobs. Splitting them this way was already the right call; the goal here is connecting them, not merging them.</p>
+<table>
+<tr><th>System</th><th>Owns</th></tr>
+<tr><td><b>GHL</b></td><td>Front end of the customer journey: leads, source and attribution, communication, follow-up, sales appointments, salesperson assignment, pipeline, cancellations and no-shows, marketing automation. Stays the CRM and lead-management system.</td></tr>
+<tr><td><b>MyBlindCo</b></td><td>Everything after the sales appointment: quotes, products, measurements, pricing, orders, jobs, installation scheduling, job status. The installation calendar lives here, separate from GHL's sales-appointment calendar.</td></tr>
+<tr><td><b>QuickBooks</b></td><td>Financial accounting: revenue, payments, expenses, the financial result of each job.</td></tr>
+<tr><td><b>Mapsly</b></td><td>Geographic intelligence, eventually surfacing best ZIP codes, revenue and profit clusters, and partner or marketing opportunities.</td></tr>
+</table>
+<p>Walking a customer through all four: a lead comes in and becomes a GHL contact, tagged by source. A sales appointment gets booked and assigned to a salesperson. Once sold, that customer needs to become a MyBlindCo customer with a quote, then an order, moving through production and shipping to a scheduled installation. Once the job is complete, the financial side of it, the invoice, payment, and true cost, lives in QuickBooks. Today, the handoff from GHL into MyBlindCo happens through one custom one-way webhook; nothing currently carries MyBlindCo's order or installation status back into GHL, and nothing currently connects a specific job to its QuickBooks financial result automatically.</p>
+
+<h2><span class="num">2.</span> Cross-System Customer Matching</h2>
+<p>No single ID ties a customer together across all three systems today. GHL has its own contact ID and opportunity ID. MyBlindCo has its own contact, quote, and order records, structured around its own IDs that haven't been directly confirmed yet, since that needs access to MyBlindCo's own admin panel or API to see. QuickBooks' native GHL connector handles its own matching internally, most likely by name or email, standard for that kind of connector, but the exact logic hasn't been confirmed either.</p>
+<p>The proposed practical match key for now is email plus phone together, since those are the two fields most likely to exist cleanly in all three systems regardless of how each one structures its own internal IDs. This should be treated as a working assumption, not a final answer, until MyBlindCo's actual customer record structure is confirmed directly.</p>
+
+<h2><span class="num">3.</span> What Each Platform Actually Exposes</h2>
+<p><b>GHL:</b> well understood already, opportunity fields, tags, pipeline stages, and workflow logic have all been catalogued in detail through the account's own workflow review.</p>
+<p><b>MyBlindCo:</b> the visible navigation confirms the real entity types it tracks, Quotes, Orders, Purchase Orders, Receive Shipment, Installation, Repair, Calendar, and Contacts, which maps directly onto this journey. What's not yet confirmed is field-level access: whether there's a usable API, a webhook-receiving capability, or at minimum a data export, since MyBlindCo doesn't publicly document one. A few specific screens still need checking before ruling that out: Company Profile, User Profile, Reports, and especially Order Status, which is likely where MyBlindCo's own order and job stages live, the exact thing that needs to map onto GHL's order-tracking pipeline. There's also an unconfirmed "my5starz" reference, possibly a separate review-request tool rather than something inside MyBlindCo itself, worth asking Audra or MyBlindCo directly rather than guessing.</p>
+<p><b>QuickBooks:</b> native GHL integration confirmed already connected (Settings, Integrations, QB Connect). This is a configuration task, not something that needs to be built.</p>
+<p><b>Mapsly:</b> native, bi-directional connector for HighLevel confirmed live, and it's already syncing real data today, GHL's partner-tag categories are showing up as populated map layers right now, not sitting unused. Enterprise plan confirmed active, 3 seats, with routing and AI capacity still mostly untouched.</p>
+
+<h2><span class="num">4.</span> Proposed Data Map</h2>
+<p>What connects to what, stage by stage, as this journey should flow once built. Confirmed pieces are marked; the rest is the proposed shape pending MyBlindCo's own data access being confirmed. "N/A" in a cell just means that system has no role at that particular stage, not a gap, each stage naturally belongs to one or two systems, not all three.</p>
+<table>
+<tr><th>Stage</th><th>GHL</th><th>MyBlindCo</th><th>QuickBooks</th></tr>
+<tr><td>Lead</td><td>Contact created, source and UTM tagged (confirmed)</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>Appointment booked</td><td>Opportunity created, salesperson assigned (confirmed)</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>Sale</td><td>Opportunity marked Sold (confirmed)</td><td>Customer and quote created via the existing one-way webhook (confirmed, but currently unreliable, see section 5)</td><td>N/A</td></tr>
+<tr><td>Order and production</td><td>A dedicated order-tracking pipeline exists on the GHL side but every workflow built for it is currently sitting inactive, so nothing here is actually live yet</td><td>Order created, production and shipping stages tracked (entities confirmed, field-level detail pending)</td><td>N/A</td></tr>
+<tr><td>Installation</td><td>N/A</td><td>Installation calendar, job marked complete, review request sent (entities confirmed)</td><td>N/A</td></tr>
+<tr><td>Financial result</td><td>N/A</td><td>N/A</td><td>Invoice and payment tied to the job (native connector confirmed, exact linkage to a specific job not yet confirmed)</td></tr>
+</table>
+
+<h2><span class="num">5.</span> Minimum Viable Integration</h2>
+<p>Josh's own instinct on this, which this proposal agrees with: GHL opportunity to MyBlindCo quote and order first, QuickBooks financials after that, not all at once. In concrete order:</p>
+<ol>
+<li><b>Make the existing GHL-to-MyBlindCo connection reliable before adding anything new to it.</b> This one-way sync already has real, confirmed failures, at least two known contacts never made it across in the past month. Fixing the connection that already exists is the actual first build task here, not a nice-to-have on top of something new.</li>
+<li><b>Extend that connection to carry MyBlindCo's order and installation status back into a GHL field.</b> This is the minimum handshake needed for GHL reporting to reflect real order status without ever writing back into MyBlindCo's own calendar or order system, staying fully within the read-only scheduling rule below.</li>
+<li><b>Add the QuickBooks financial layer last,</b> once the GHL-to-MyBlindCo link is proven reliable. QuickBooks' native connector already exists and mainly needs a trustworthy upstream customer or job link to attach to.</li>
+</ol>
+
+<h2><span class="num">6.</span> Reporting Structure Design</h2>
+<p>This is the schema, not a built dashboard, and it depends on section 4's data map being real rather than proposed. Once the minimum viable integration above is in place, the following fields become reportable in one place instead of scattered across three systems: lead source, salesperson, appointments, quotes, sales, closing percentage, average sale, revenue, gross profit, gross profit percentage, ZIP code, product type, and install status.</p>
+
+<h2><span class="num">7.</span> Scheduling Intelligence, Read-Only Only</h2>
+<div class="blocker">
+<p><b>Hard constraint: never a two-way GHL-MyBlindCo calendar or appointment sync.</b> A previous team built exactly that, and it was shut down after causing double bookings and cancellations that didn't propagate across systems, a cancellation on one side left a stale appointment live on the other. Splitting sales appointments (GHL) from installs (MyBlindCo) into two separate calendars was a deliberate, hard-won fix, not an oversight to correct.</p>
+</div>
+<p>Any scheduling intelligence here, Mapsly included, stays read-only: surfacing suggestions across both calendars, geography, drive time, existing appointments, salesperson and installer availability, job duration, workload, never writing back into either one automatically. The technical foundation for this already exists today, the native Mapsly-GHL connector is live and already populating real map data, so this is a reporting and suggestion layer to design on top of what's already connected, not something to build from scratch.</p>
+
+<h2><span class="num">8.</span> Sequencing Mapsly</h2>
+<p>Mapsly's full rollout, best ZIP codes, revenue and profit clusters, partner and marketing opportunities, waits until the GHL-to-MyBlindCo data foundation above actually lands, since profit-based clustering only means something once real order and financial data is flowing through. That said, early routing and territory exploration can start now, since the connector is already live: there's an existing plotted route in Mapsly, roughly 27 stops, under a user called "Marketing," and it's worth confirming what that route is actually for before assuming Mapsly's paid capacity is sitting fully idle. It may already be a reusable pattern worth building on rather than starting from nothing.</p>
+
+<h2><span class="num">9.</span> Still Open Before This Moves to Building</h2>
+<ul>
+<li>MyBlindCo's own API, webhook, or export capability is not yet confirmed, the Order Status, Company Profile, User Profile, and Reports screens still need checking before ruling anything in or out.</li>
+<li>The "my5starz" reference is still unclear, worth asking Audra or MyBlindCo directly rather than guessing at what it connects to.</li>
+<li>The existing one-way MyBlindCo webhook's reliability gap needs fixing regardless of what gets built next, it's already losing real customer records today.</li>
+<li>The actual matching key MyBlindCo can expose (customer ID, email, or phone) needs confirming once their API access is confirmed, rather than assuming email and phone will be enough.</li>
+<li>What the "Marketing" user's plotted 27-stop route in Mapsly is actually for, real use or a leftover sample, before assuming anything about how much of Mapsly's paid capacity is genuinely unused.</li>
+</ul>
+
+<h2><span class="num">10.</span> What We're Asking Josh to Decide</h2>
+<p>Two things would let this move forward. First, sign off on the build order in section 5, fixing the existing webhook's reliability, then adding order and install status back into GHL, then QuickBooks last, so the next phase has a clear starting point instead of guessing at priority. Second, help closing the open items in section 9, most of them just need either a few more minutes inside MyBlindCo's own admin screens, or a quick answer from Audra on the my5starz question. Once both are in hand, the next step is turning this proposal into an actual build plan with dates.</p>
+
+<div class="footer">The Window Valet &middot; Week 3-4 roadmap, Item 2</div>
+</body></html>
