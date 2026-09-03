@@ -1,0 +1,4 @@
+# Never commit credentials
+LOGINSACCESS*
+*credentials*
+*.env

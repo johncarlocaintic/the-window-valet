@@ -1,0 +1,74 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Workflow Cleanup &amp; Documentation</title>
+<style>
+@page { size: Letter; margin: 0.85in 0.8in; }
+* { box-sizing: border-box; }
+body { font-family: "Segoe UI", -apple-system, Helvetica, Arial, sans-serif;
+  color: #1c2b33; font-size: 10.5pt; line-height: 1.55; margin: 0; }
+.eyebrow { color: #2f7d5f; font-size: 8.5pt; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; margin-bottom: 6px; }
+h1 { font-size: 26pt; font-weight: 700; margin: 0 0 6px; color: #12222c; letter-spacing: -.4px; }
+.subtitle { font-size: 11.5pt; color: #4a5b66; margin: 0 0 6px; }
+.byline { font-size: 8.5pt; color: #8a97a0; margin: 0 0 22px; }
+.intro { background: #f4f6f6; border-left: 3px solid #2f7d5f;
+  padding: 14px 18px; margin: 0 0 26px; font-size: 10.5pt; }
+h2 { background: #16232b; color: #fff; font-size: 13pt; font-weight: 700;
+  padding: 11px 18px; margin: 30px 0 16px; border-radius: 3px; }
+h2 .num { color: #4fbf8b; margin-right: 8px; }
+.note { background: #f4f6f6; padding: 13px 17px; margin: 0 0 18px; font-size: 10pt; border-radius: 2px; }
+.blocker { background: #fdf1f1; padding: 13px 17px; margin: 0 0 18px;
+  font-size: 10pt; color: #9d2f2f; border-radius: 2px; }
+ol, ul { padding-left: 22px; margin: 0 0 16px; }
+li { margin-bottom: 9px; }
+li b { color: #12222c; }
+li ul li, li ol li { color: #5d6d77; font-size: 10pt; margin-top: 6px; }
+table { width: 100%; border-collapse: collapse; margin: 0 0 18px; font-size: 9.5pt; }
+th { background: #16232b; color: #fff; text-align: left; padding: 8px 11px; font-weight: 600; }
+td { border-bottom: 1px solid #e3e8ea; padding: 8px 11px; vertical-align: top; }
+tr:nth-child(even) td { background: #fafbfb; }
+.status-done { color: #2f7d5f; font-weight: 600; }
+.status-open { color: #b07d2a; font-weight: 600; }
+.status-blocked { color: #9d2f2f; font-weight: 600; }
+.footer { margin-top: 34px; padding-top: 12px; border-top: 1px solid #e3e8ea;
+  font-size: 8pt; color: #98a4ac; }
+h2, .note, .blocker { break-after: avoid; page-break-after: avoid; }
+li, tr { break-inside: avoid; page-break-inside: avoid; }
+</style></head>
+<body>
+<div class="eyebrow">Week 3-4 &middot; Item 1 &middot; Work Log</div>
+<h1>Workflow Cleanup &amp; Documentation</h1>
+<p class="subtitle">Inventory structure established, audit pull outstanding</p>
+<p class="byline">Prepared for Josh LeClair by John Carlo Caintic · Marketing Strategy &amp; Automation · August 31, 2026</p>
+<div class="intro">Item 1 of the Week 3-4 roadmap covers building a documented inventory of every workflow in the account, so that problems like a workflow silently stuck in Draft become visible instead of sitting unnoticed. This log records the structure put in place for that inventory, the four audit items still to be confirmed against the live account, and the single next step required to move forward.</div>
+<h2><span class="num">1.</span> What Was Done</h2>
+<div class="note"><b>Scope note:</b> this session set up the structure for the workflow inventory. The inventory itself cannot be pulled without access to the live GHL workflow list, so this covers preparation and the capture format, not the audit findings.</div>
+<ol>
+<li><b>Created a dedicated, self-contained workspace for this account.</b> All Window Valet files live in one isolated folder. Nothing related to this account is stored alongside or shared with any other work.</li>
+<li><b>Built the workflow inventory capture format.</b> A single reference index covering, per workflow: name, status, last updated, folder, category, trigger, what it does, who it notifies, how it exits, anomaly flag, and recommended action. This is the lookup table from step 7 of the roadmap, built up front so it fills in as the audit runs rather than being assembled at the end.</li>
+<li><b>Pre-sorted the documentation into the seven functional categories.</b> Lead intake, appointment lifecycle, response and escalation, nurture, partner, recovery, and internal/admin. Sorting the structure first is what makes duplication visible, which is how the two mismatched reminder emails surfaced in the first place.</li>
+<li><b>Wrote the capture guide.</b> Exact navigation path in GoHighLevel and the precise fields to record, so the inventory pull is a mechanical step rather than a judgement call, and so it produces the same result if someone else runs it later.</li>
+<li><b>Established the documentation pipeline.</b> Every task from here produces a written record in this format, source file plus PDF. This document is the first one.</li>
+</ol>
+
+<h2><span class="num">2.</span> Carried Forward From the Audit</h2>
+<div class="note">Four items were identified in the Week 3-4 audit. Each needs its current state confirmed against the live account before any fix is applied, since conditions may have changed since the audit.</div>
+<table>
+<tr><th>Item</th><th>Status</th><th>What confirmation requires</th></tr>
+<tr><td>A workflow sitting in Draft that should be live</td><td class="status-open">To confirm</td><td>Identify which workflow, and whether it is still in Draft</td></tr>
+<tr><td>A workflow with no exclusion for existing customers</td><td class="status-open">To confirm</td><td>Identify which workflow, and what the exclusion should check</td></tr>
+<tr><td>Two appointment reminder emails disagreeing on appointment type</td><td class="status-open">To confirm</td><td>Locate both, record the exact wording of each before changing either</td></tr>
+<tr><td>"My Blind Co, GHL Erica/Justin" webhook</td><td class="status-done">Confirmed live</td><td>Pushes data one way, confirmed not sending SMS. Feeds Item 2, leave unchanged for now</td></tr>
+</table>
+
+<h2><span class="num">3.</span> Open and Blocked</h2>
+<ol>
+<li><b>The inventory pull itself is outstanding.</b> Steps 1 and 2 of the roadmap require working directly in the live workflow list. Everything downstream depends on this.</li>
+<li><b>Steps 5 and 6 are deliberately held.</b> Fixing overlaps and archiving obsolete workflows should not happen until the full inventory has been reviewed and signed off. Archiving is the one step here that is difficult to reverse, and a workflow that looks dead may still be enrolling contacts.</li>
+<li><b>One open question:</b> are workflows currently organised into folders, or is it a single flat list? This determines whether the seven categories become real folders in the account or stay as a documentation-only structure.</li>
+</ol>
+
+<h2><span class="num">4.</span> Next Step</h2>
+<div class="note">Pull the complete workflow list from the account, unfiltered, capturing name, status, and last-updated date for every workflow. Categorisation, the plain-English write-ups, and the completed reference index follow directly from that list.</div>
+
+<div class="footer">Part of the ongoing GHL stabilization work under the Week 3-4 roadmap. The Window Valet.</div>
+</body></html>

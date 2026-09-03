@@ -1,0 +1,617 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Workflow Cleanup &amp; Documentation</title>
+<style>
+@page { size: Letter; margin: 0.85in 0.8in; }
+* { box-sizing: border-box; }
+body { font-family: "Segoe UI", -apple-system, Helvetica, Arial, sans-serif;
+  color: #1c2b33; font-size: 10.5pt; line-height: 1.6; margin: 0; }
+.eyebrow { color: #2f7d5f; font-size: 8.5pt; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; margin-bottom: 6px; }
+h1 { font-size: 26pt; font-weight: 700; margin: 0 0 6px; color: #12222c; letter-spacing: -.4px; }
+.byline { font-size: 8.5pt; color: #8a97a0; margin: 0 0 22px; }
+h2 { background: #16232b; color: #fff; font-size: 13pt; font-weight: 700;
+  padding: 11px 18px; margin: 30px 0 16px; border-radius: 3px; }
+h2 .num { color: #4fbf8b; margin-right: 8px; }
+.note { background: #f4f6f6; padding: 13px 17px; margin: 0 0 18px; font-size: 10pt; border-radius: 2px; }
+.blocker { background: #fdf1f1; padding: 13px 17px; margin: 0 0 18px;
+  font-size: 10pt; color: #9d2f2f; border-radius: 2px; }
+p { margin: 0 0 14px; }
+ol, ul { padding-left: 22px; margin: 0 0 16px; }
+li { margin-bottom: 9px; }
+li b { color: #12222c; }
+table { width: 100%; border-collapse: collapse; margin: 0 0 18px; font-size: 9.5pt; }
+th { background: #16232b; color: #fff; text-align: left; padding: 8px 11px; font-weight: 600; }
+td { border-bottom: 1px solid #e3e8ea; padding: 8px 11px; vertical-align: top; }
+tr:nth-child(even) td { background: #fafbfb; }
+.footer { margin-top: 34px; padding-top: 12px; border-top: 1px solid #e3e8ea;
+  font-size: 8pt; color: #98a4ac; }
+h2, .note, .blocker { break-after: avoid; page-break-after: avoid; }
+li, tr, .wf { break-inside: avoid; page-break-inside: avoid; }
+h3.cat { color: #16232b; font-size: 11.5pt; font-weight: 700; margin: 26px 0 12px;
+  border-bottom: 2px solid #e3e8ea; padding-bottom: 6px; }
+.wf { border: 1px solid #e3e8ea; border-radius: 4px; padding: 14px 17px; margin: 0 0 16px; }
+.wf-name { font-size: 10.5pt; font-weight: 700; color: #12222c; margin: 0 0 8px; }
+.wf-name .status { font-weight: 600; font-size: 8.5pt; text-transform: uppercase; letter-spacing: .04em; margin-left: 8px; padding: 2px 7px; border-radius: 3px; }
+.wf-name .status.published { background: #e6f4ec; color: #2f7d5f; }
+.wf-name .status.draft { background: #f2ecdf; color: #8a6d1f; }
+.wf p { margin: 0; }
+.progress { font-size: 9.5pt; color: #5d6d77; margin: 0 0 16px; }
+</style></head>
+<body>
+<div class="eyebrow">Week 3-4 &middot; Item 1</div>
+<h1>Workflow Cleanup &amp; Documentation</h1>
+<p class="byline">Prepared for Josh LeClair by John Carlo Caintic &middot; Marketing Strategy &amp; Automation &middot; September 5, 2026</p>
+
+<h2><span class="num">1.</span> Full Inventory</h2>
+<p>The account currently holds <b>85 workflows</b> across six folders. Just over half of them, 44, are still sitting in Draft. Nearly half of everything, 43 workflows, lives inside a single folder called "6. Inactive Automations," which turns out to matter a lot more than the name suggests (more on that in Anomalies below).</p>
+<table>
+<tr><th>Metric</th><th>Count</th></tr>
+<tr><td>Total workflows</td><td>85</td></tr>
+<tr><td>Published / live</td><td>41</td></tr>
+<tr><td>Draft</td><td>44</td></tr>
+<tr><td>Sitting inside "6. Inactive Automations"</td><td>43</td></tr>
+</table>
+
+<p>Every workflow in the account, listed exactly as it sits in GHL, grouped by the folder it's actually filed under.</p>
+<h3 class="cat">1. Lead Pipeline (New)</h3>
+<table><tr><th>Name</th><th>Status</th><th>Last Modified</th></tr>
+<tr><td>New Lead</td><td>Published</td><td>2026-08-27 3:27 PM</td></tr>
+<tr><td>1.1 New Lead Follow-Up Task Chain</td><td>Published</td><td>2026-08-24 11:50 AM</td></tr>
+<tr><td>2. Attempting Contact</td><td>Published</td><td>2026-08-24 9:10 AM</td></tr>
+<tr><td>3. Drip/Nurture</td><td>Published</td><td>2026-08-28 9:30 AM</td></tr>
+<tr><td>4. Unqualified</td><td>Published</td><td>2026-08-21 1:06 PM</td></tr>
+<tr><td>5. Spam</td><td>Published</td><td>2026-08-21 1:06 PM</td></tr>
+<tr><td>6. Future Appointments</td><td>Published</td><td>2026-08-24 9:18 AM</td></tr>
+<tr><td>7. Customer Reply Response and Escalation</td><td>Published</td><td>2026-08-25 10:17 AM</td></tr>
+<tr><td>7.1 Reply Task Completed, Exit</td><td>Published</td><td>2026-08-26 10:29 AM</td></tr>
+</table>
+<h3 class="cat">2. Sales Pipeline (New)</h3>
+<table><tr><th>Name</th><th>Status</th><th>Last Modified</th></tr>
+<tr><td>1. Appointment Booked</td><td>Published</td><td>2026-08-28 1:23 PM</td></tr>
+<tr><td>2. Appointment Completed</td><td>Published</td><td>2026-08-18 10:16 AM</td></tr>
+<tr><td>3. Proposal Sent</td><td>Published</td><td>2026-08-28 2:57 PM</td></tr>
+<tr><td>4. Follow Up</td><td>Published</td><td>2026-08-20 3:27 PM</td></tr>
+<tr><td>5. Sold</td><td>Published</td><td>2026-08-19 11:47 AM</td></tr>
+<tr><td>6. Not sold</td><td>Published</td><td>2026-08-18 10:22 AM</td></tr>
+<tr><td>7. Not Booked Workflow</td><td>Published</td><td>2026-08-19 1:00 PM</td></tr>
+<tr><td>8. Cancelled Appointment</td><td>Published</td><td>2026-08-27 10:00 AM</td></tr>
+<tr><td>9. No Show Recovery</td><td>Published</td><td>2026-08-27 9:59 AM</td></tr>
+<tr><td>Appointment Cancellation Workflow</td><td>Published</td><td>2026-08-21 10:57 AM</td></tr>
+<tr><td>Self-Booked Appointment Confirmation</td><td>Published</td><td>2026-08-24 11:55 AM</td></tr>
+</table>
+<h3 class="cat">3. Lead Sources</h3>
+<table><tr><th>Name</th><th>Status</th><th>Last Modified</th></tr>
+<tr><td>After Business Hours</td><td>Published</td><td>2026-05-28 10:33 AM</td></tr>
+<tr><td>Auto Missed Call Text-Back</td><td>Published</td><td>2026-08-24 9:20 AM</td></tr>
+<tr><td>Exterior Screens Facebook Lead Form</td><td>Published</td><td>2026-08-24 9:35 AM</td></tr>
+<tr><td>Google Ad (Exterior) to GHL</td><td>Published</td><td>2026-05-28 9:52 AM</td></tr>
+<tr><td>Google Ads (home page) to GHL</td><td>Published</td><td>2026-05-28 9:56 AM</td></tr>
+<tr><td>New Lead Landing Page</td><td>Published</td><td>2026-08-24 3:15 PM</td></tr>
+<tr><td>Partner New Leads Opt-in</td><td>Published</td><td>2026-08-20 11:23 AM</td></tr>
+<tr><td>Phone Number Tracking</td><td>Published</td><td>2026-06-10 3:39 PM</td></tr>
+<tr><td>QR Code and Landing Pages Lead Tracker</td><td>Published</td><td>2026-06-12 3:04 PM</td></tr>
+<tr><td>Version 3 Facebook Lead Form</td><td>Published</td><td>2026-08-24 9:36 AM</td></tr>
+</table>
+<h3 class="cat">4. My Blind Co</h3>
+<table><tr><th>Name</th><th>Status</th><th>Last Modified</th></tr>
+<tr><td>My Blind Co - GHL Erica</td><td>Published</td><td>2026-06-09 11:03 AM</td></tr>
+<tr><td>My Blind Co - GHL Justin</td><td>Draft</td><td>2026-07-15 3:28 PM</td></tr>
+</table>
+<h3 class="cat">5. Partner Automations</h3>
+<table><tr><th>Name</th><th>Status</th><th>Last Modified</th></tr>
+<tr><td>(Partners) Map Partner Data to Contact</td><td>Published</td><td>2026-03-02 6:37 AM</td></tr>
+<tr><td>(Partners) Write Partner Details to Opportunity</td><td>Draft</td><td>2026-03-15 5:30 PM</td></tr>
+<tr><td>(Partners) Write Referral Email to Opportunity</td><td>Published</td><td>2026-08-21 11:56 AM</td></tr>
+<tr><td>Trigger Partner Data Sync</td><td>Published</td><td>2026-03-01 5:04 PM</td></tr>
+</table>
+<h3 class="cat">5. Partner Automations &rsaquo; Mapsly</h3>
+<table><tr><th>Name</th><th>Status</th><th>Last Modified</th></tr>
+<tr><td>(Partners) Workflow: Send Partner Objects to Mapsly</td><td>Published</td><td>2026-04-19 1:44 PM</td></tr>
+<tr><td>(Partners) Workflow: Sync contacts to Mapsly</td><td>Published</td><td>2026-04-19 1:44 PM</td></tr>
+</table>
+<h3 class="cat">5. Partner Automations &rsaquo; Partner Communications</h3>
+<table><tr><th>Name</th><th>Status</th><th>Last Modified</th></tr>
+<tr><td>(Partners) Installation Complete - Add Partner Contact to Workflow</td><td>Published</td><td>2026-05-23 8:05 AM</td></tr>
+<tr><td>(Partners) Installation Complete - Send Communication</td><td>Published</td><td>2026-05-23 8:05 AM</td></tr>
+<tr><td>(Partners) Lead Confirmation - Add Partner Contact to Workflow</td><td>Published</td><td>2026-05-23 8:05 AM</td></tr>
+<tr><td>(Partners) Lead Confirmation - Send Communication</td><td>Published</td><td>2026-05-23 8:05 AM</td></tr>
+</table>
+<h3 class="cat">6. Inactive Automations</h3>
+<table><tr><th>Name</th><th>Status</th><th>Last Modified</th></tr>
+<tr><td>Appointment Confirmation Workflow</td><td>Draft</td><td>2026-02-25 11:30 AM</td></tr>
+<tr><td>Form submission follow up workflow</td><td>Draft</td><td>2026-02-25 11:30 AM</td></tr>
+<tr><td>Internal: Opportunity Assignment Notification</td><td>Draft</td><td>2026-02-25 11:30 AM</td></tr>
+<tr><td>Map closing date from opportunity to contact</td><td>Draft</td><td>2026-02-25 11:30 AM</td></tr>
+<tr><td>Quote Follow Up Workflow</td><td>Draft</td><td>2026-02-25 11:30 AM</td></tr>
+<tr><td>Scouting report workflow</td><td>Draft</td><td>2026-02-25 11:31 AM</td></tr>
+<tr><td>Temporary form automation</td><td>Draft</td><td>2026-03-16 12:57 PM</td></tr>
+<tr><td>Update Opportunity to Appointment Scheduled & Update Opportunity Owner</td><td>Draft</td><td>2026-02-25 11:31 AM</td></tr>
+</table>
+<h3 class="cat">6. Inactive Automations &rsaquo; Customer Order Flow Pipeline</h3>
+<table><tr><th>Name</th><th>Status</th><th>Last Modified</th></tr>
+<tr><td>01. Sold Workflow</td><td>Draft</td><td>2026-05-28 10:43 AM</td></tr>
+<tr><td>02. Deposit Received Workflow</td><td>Draft</td><td>2026-05-28 10:44 AM</td></tr>
+<tr><td>03. Ordered | In Production Workflow</td><td>Draft</td><td>2026-05-28 10:44 AM</td></tr>
+<tr><td>04. Production Complete Workflow</td><td>Draft</td><td>2026-05-28 10:44 AM</td></tr>
+<tr><td>05. Order Shipped Workflow</td><td>Draft</td><td>2026-05-28 10:52 AM</td></tr>
+<tr><td>06. Order Complete | Ready for Install</td><td>Draft</td><td>2026-05-28 10:52 AM</td></tr>
+<tr><td>07. Installation Scheduled Workflow</td><td>Draft</td><td>2026-05-28 10:52 AM</td></tr>
+<tr><td>08. Installation Complete + Google Review Request</td><td>Draft</td><td>2026-05-28 10:52 AM</td></tr>
+<tr><td>09. Incomplete | Remake | Reorder Workflow</td><td>Draft</td><td>2026-03-09 10:22 AM</td></tr>
+</table>
+<h3 class="cat">6. Inactive Automations &rsaquo; Lead Flow Pipeline</h3>
+<table><tr><th>Name</th><th>Status</th><th>Last Modified</th></tr>
+<tr><td>01. New Lead Opt in Workflow</td><td>Published</td><td>2026-08-24 9:44 AM</td></tr>
+<tr><td>02. Appointment Booked Workflow</td><td>Draft</td><td>2026-05-28 10:27 AM</td></tr>
+<tr><td>02. Appointment Booked Workflow - v19 - copy</td><td>Draft</td><td>2026-04-16 9:07 AM</td></tr>
+<tr><td>04. No Show Workflow</td><td>Draft</td><td>2026-05-28 10:56 AM</td></tr>
+<tr><td>05. Measured/Pending Service Workflow</td><td>Draft</td><td>2026-05-28 12:51 PM</td></tr>
+<tr><td>06. Sold Workflow</td><td>Draft</td><td>2026-05-28 12:51 PM</td></tr>
+<tr><td>07. Not Sold Workflow</td><td>Draft</td><td>2026-05-28 12:51 PM</td></tr>
+<tr><td>08. Drip Campaign Workflow</td><td>Draft</td><td>2026-05-28 12:52 PM</td></tr>
+<tr><td>Exterior Screens Facebook Lead Form Workflow</td><td>Draft</td><td>2026-05-28 10:58 AM</td></tr>
+<tr><td>Google Ad (Exterior) to GHL</td><td>Draft</td><td>2026-05-28 10:58 AM</td></tr>
+<tr><td>Google Ads (home page) to GHL</td><td>Draft</td><td>2026-05-28 10:58 AM</td></tr>
+<tr><td>Version 3 Facebook Lead Form Workflow</td><td>Draft</td><td>2026-08-20 10:41 AM</td></tr>
+</table>
+<h3 class="cat">6. Inactive Automations &rsaquo; Lead Tracker Workflows</h3>
+<table><tr><th>Name</th><th>Status</th><th>Last Modified</th></tr>
+<tr><td>After Business Hours Workflow</td><td>Draft</td><td>2026-05-28 10:36 AM</td></tr>
+<tr><td>Auto Missed Call Text-Back</td><td>Draft</td><td>2026-05-28 10:37 AM</td></tr>
+<tr><td>Facebook Comments on a Post</td><td>Draft</td><td>2026-04-06 9:44 AM</td></tr>
+<tr><td>GHL to Myblindco</td><td>Draft</td><td>2026-03-02 1:59 PM</td></tr>
+<tr><td>Leads from Landing Page (Disabled)</td><td>Draft</td><td>2026-03-12 9:33 AM</td></tr>
+<tr><td>My Blind Co - GHL</td><td>Draft</td><td>2026-02-25 11:28 AM</td></tr>
+<tr><td>Phone Number Tracking</td><td>Draft</td><td>2026-05-28 10:37 AM</td></tr>
+<tr><td>Promotions and Discounts</td><td>Draft</td><td>2026-03-02 2:56 AM</td></tr>
+<tr><td>QR Code and Landing Pages Lead Tracker</td><td>Draft</td><td>2026-05-28 10:37 AM</td></tr>
+</table>
+<h3 class="cat">6. Inactive Automations &rsaquo; Sales Order Pipeline</h3>
+<table><tr><th>Name</th><th>Status</th><th>Last Modified</th></tr>
+<tr><td>01. Partially Sold Interior Workflow</td><td>Draft</td><td>2026-03-05 12:20 PM</td></tr>
+<tr><td>02. Partially Sold exterior Workflow</td><td>Draft</td><td>2026-03-04 9:11 AM</td></tr>
+<tr><td>03. Whole House Sold - Exterior Workflow</td><td>Draft</td><td>2026-03-04 9:12 AM</td></tr>
+<tr><td>04. Whole House Sold - Both Workflow</td><td>Draft</td><td>2026-03-04 9:12 AM</td></tr>
+<tr><td>05. Whole House Sold - Interior Workflow</td><td>Draft</td><td>2026-03-04 9:14 AM</td></tr>
+</table>
+
+<h2><span class="num">2.</span> Anomalies</h2>
+
+<p><b>Sitting in Draft when it should be live:</b> "My Blind Co - GHL Justin" has 308 past enrollments, so it clearly ran for a while before someone reverted it to Draft. Its counterpart, "My Blind Co - GHL Erica," is still Published, and opening both shows they're structurally near-identical: same four booking-source tags, same dedup check, same MyBlindCo webhook, same field update. Since "1. Appointment Booked" assigns leads to either Erica or Justin by name, these look like parallel, salesperson-specific copies of the same sync logic rather than genuinely different automations. That changes the fix here from a simple republish to a real decision for Josh: republish Justin's copy as-is and keep maintaining two nearly identical workflows, or consolidate into one shared MyBlindCo sync that isn't tied to a specific salesperson. Two more Draft workflows still have real, currently-active contacts inside them right now, which is even stronger evidence something here isn't behaving like a retired workflow should: "Appointment Booked Workflow" has 19 people active in it, and "Drip Campaign Workflow" has 2. Before either gets touched, those contacts need to be accounted for, either they finish naturally, or someone moves them, or there's a reason this old version is still doing something the new one isn't. Two more Draft workflows are worth a decision from Josh for the same reason: "(Partners) Write Partner Details to Opportunity" (24 past enrollments, sitting in the current Partner Automations folder) and "05. Measured/Pending Service Workflow" (41 past enrollments, no live counterpart found anywhere else in the account under that name).</p>
+
+<p><b>Untouched for months:</b> six live workflows are still enrolling people but haven't been opened or touched in months. <b>Trigger Partner Data Sync</b> (185 days), <b>Map Partner Data to Contact</b> (184 days), and all four Partner Communications workflows (102 days each). None of them are confirmed broken, but none have been checked either, and that's exactly the kind of thing that sits quietly until it isn't quiet anymore.</p>
+
+<div class="blocker">
+<p><b>Found along the way, not something the roadmap named up front:</b> GHL's own "Needs Review" list flags two workflows with unresolved errors from the past 30 days, and both are ones this audit already leaned on as evidence that things were working. "My Blind Co - GHL Erica" (the live webhook to MyBlindCo) has failed webhook calls for at least two contacts, Brett Driscoll (Aug 28) and Nicholas Carey (Aug 24). It's live, but it isn't reliably getting data to MyBlindCo. "(Partners) Workflow: Send Partner Objects to Mapsly" failed to send three partner records on August 12th: Fischer Homes - Hampton Walk, Fischers Homes - The Townes at Hampton Walk, and Lennar - Ravinia. Neither error has been marked as read or looked into yet.</p>
+<p>Also found along the way: the customer-journey mapping plan assumes GHL already has a live pipeline tracking order and installation status (stages like Production Complete, Order Shipped, Installation Scheduled). That pipeline exists, but every one of its nine workflows is sitting in Draft, inside the inactive folder. Right now, nothing on the GHL side is actually tracking order or install status.</p>
+</div>
+
+<p><b>Still open, not yet resolved:</b> the missing existing-customer exclusion the roadmap flagged hasn't been found yet. "New Lead" looked like the obvious candidate and was opened specifically to check; it turns out to already handle that correctly, so it's ruled out rather than confirmed. The two mismatched appointment reminder emails turned out to have a likely explanation once "1. Appointment Booked" was opened: its own builder left a note saying the reminder sequence is repeated four separate times, once per lead source, instead of one shared sequence. Four near-identical copies drifting apart from each other is a simpler explanation than two different workflows disagreeing, though it still needs the four copies compared directly to confirm.</p>
+
+<p><b>Found while documenting the workflows themselves:</b> "7. Not Booked Workflow" lives in the current "2. Sales Pipeline (New)" folder and is Published, but its own trigger watches stage changes on a pipeline called "Lead Flow Pipeline," not "1. Lead Pipeline (NEW)" or "2. Sales Pipeline (NEW)." That name matches the legacy workflow folder full of Draft duplicates documented in Sort By Function. Either this live workflow was never updated when the account was rebuilt onto the new pipelines, or "Lead Flow Pipeline" is still a real, separate pipeline object quietly running in parallel. What's now confirmed: both "Exterior Screens Facebook Lead Form" and "Version 3 Facebook Lead Form" explicitly enroll contacts into "7. Not Booked Workflow" directly through an Add to Workflow action, bypassing its trigger entirely, so this workflow is almost certainly still receiving contacts through that direct path even if its own trigger never fires. Still worth confirming with Josh whether "Lead Flow Pipeline" itself is dead weight or something still in use, especially since "(Partners) Write Partner Details to Opportunity" also triggers off the same pipeline, so this isn't a one-off reference.</p>
+
+<h2><span class="num">3.</span> Sort By Function</h2>
+<p>Every workflow, current and legacy, sorted into the seven categories the roadmap names. This is what actually makes the duplication visible: sorted this way, it's obvious the account is carrying a second copy of itself in several categories, not just one folder that happens to be named "Inactive."</p>
+<table>
+<tr><th>Category</th><th>In Current Folders</th><th>In Legacy Folder</th><th>Notes</th></tr>
+<tr><td>Lead Intake</td><td>12</td><td>11</td><td>Nearly one-for-one duplication; see the exact-name matches below</td></tr>
+<tr><td>Appointment Lifecycle</td><td>6</td><td>19</td><td>The biggest overlap in the account by far, most of the old Sales Order and Customer Order Flow pipelines</td></tr>
+<tr><td>Response &amp; Escalation</td><td>2</td><td>0</td><td>Clean, no legacy duplicates</td></tr>
+<tr><td>Nurture</td><td>2</td><td>3</td><td>Includes Drip/Nurture, the reference pattern for the Week 7-8 Partner nurture build</td></tr>
+<tr><td>Partner</td><td>11</td><td>0</td><td>Clean, no legacy duplicates</td></tr>
+<tr><td>Recovery</td><td>5</td><td>3</td><td></td></tr>
+<tr><td>Internal / Admin</td><td>4</td><td>7</td><td>Includes the MyBlindCo webhook; the legacy side includes three of the four dead MyBlindCo-named workflows</td></tr>
+</table>
+
+<p>Sorted this way, "6. Inactive Automations" isn't just a folder of old workflows, it's most of a second copy of the account, and Appointment Lifecycle is where that shows up hardest: 19 legacy workflows against only 6 current ones. At least eight workflows share the exact same name as something that's live today: <b>Google Ad (Exterior) to GHL</b>, <b>Google Ads (home page) to GHL</b>, <b>Auto Missed Call Text-Back</b>, <b>Phone Number Tracking</b>, and <b>QR Code and Landing Pages Lead Tracker</b> all exist twice, word for word, once Published and once Draft. A few more are near-matches with "Workflow" tacked onto the end. This looks like the leftover of an earlier rebuild that was never fully cleaned up.</p>
+
+<h3 class="cat">Lead Intake</h3>
+<table><tr><th>Name</th><th>Status</th><th>Folder</th></tr>
+<tr><td>1.1 New Lead Follow-Up Task Chain</td><td>Published</td><td>1. Lead Pipeline (New)</td></tr>
+<tr><td>2. Attempting Contact</td><td>Published</td><td>1. Lead Pipeline (New)</td></tr>
+<tr><td>4. Unqualified</td><td>Published</td><td>1. Lead Pipeline (New)</td></tr>
+<tr><td>5. Spam</td><td>Published</td><td>1. Lead Pipeline (New)</td></tr>
+<tr><td>After Business Hours</td><td>Published</td><td>3. Lead Sources</td></tr>
+<tr><td>Auto Missed Call Text-Back</td><td>Published</td><td>3. Lead Sources</td></tr>
+<tr><td>Exterior Screens Facebook Lead Form</td><td>Published</td><td>3. Lead Sources</td></tr>
+<tr><td>Google Ad (Exterior) to GHL</td><td>Published</td><td>3. Lead Sources</td></tr>
+<tr><td>Google Ads (home page) to GHL</td><td>Published</td><td>3. Lead Sources</td></tr>
+<tr><td>New Lead</td><td>Published</td><td>1. Lead Pipeline (New)</td></tr>
+<tr><td>New Lead Landing Page</td><td>Published</td><td>3. Lead Sources</td></tr>
+<tr><td>Version 3 Facebook Lead Form</td><td>Published</td><td>3. Lead Sources</td></tr>
+<tr><td>01. New Lead Opt in Workflow <i>(legacy)</i></td><td>Published</td><td>Inactive &rsaquo; Lead Flow Pipeline</td></tr>
+<tr><td>After Business Hours Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Tracker Workflows</td></tr>
+<tr><td>Auto Missed Call Text-Back <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Tracker Workflows</td></tr>
+<tr><td>Exterior Screens Facebook Lead Form Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Flow Pipeline</td></tr>
+<tr><td>Facebook Comments on a Post <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Tracker Workflows</td></tr>
+<tr><td>Form submission follow up workflow <i>(legacy)</i></td><td>Draft</td><td>6. Inactive Automations</td></tr>
+<tr><td>Google Ad (Exterior) to GHL <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Flow Pipeline</td></tr>
+<tr><td>Google Ads (home page) to GHL <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Flow Pipeline</td></tr>
+<tr><td>Leads from Landing Page (Disabled) <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Tracker Workflows</td></tr>
+<tr><td>Temporary form automation <i>(legacy)</i></td><td>Draft</td><td>6. Inactive Automations</td></tr>
+<tr><td>Version 3 Facebook Lead Form Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Flow Pipeline</td></tr>
+</table>
+<h3 class="cat">Appointment Lifecycle</h3>
+<table><tr><th>Name</th><th>Status</th><th>Folder</th></tr>
+<tr><td>1. Appointment Booked</td><td>Published</td><td>2. Sales Pipeline (New)</td></tr>
+<tr><td>2. Appointment Completed</td><td>Published</td><td>2. Sales Pipeline (New)</td></tr>
+<tr><td>3. Proposal Sent</td><td>Published</td><td>2. Sales Pipeline (New)</td></tr>
+<tr><td>5. Sold</td><td>Published</td><td>2. Sales Pipeline (New)</td></tr>
+<tr><td>6. Future Appointments</td><td>Published</td><td>1. Lead Pipeline (New)</td></tr>
+<tr><td>Self-Booked Appointment Confirmation</td><td>Published</td><td>2. Sales Pipeline (New)</td></tr>
+<tr><td>01. Partially Sold Interior Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Sales Order Pipeline</td></tr>
+<tr><td>01. Sold Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Customer Order Flow Pipeline</td></tr>
+<tr><td>02. Appointment Booked Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Flow Pipeline</td></tr>
+<tr><td>02. Appointment Booked Workflow - v19 - copy <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Flow Pipeline</td></tr>
+<tr><td>02. Deposit Received Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Customer Order Flow Pipeline</td></tr>
+<tr><td>02. Partially Sold exterior Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Sales Order Pipeline</td></tr>
+<tr><td>03. Ordered | In Production Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Customer Order Flow Pipeline</td></tr>
+<tr><td>03. Whole House Sold - Exterior Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Sales Order Pipeline</td></tr>
+<tr><td>04. Production Complete Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Customer Order Flow Pipeline</td></tr>
+<tr><td>04. Whole House Sold - Both Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Sales Order Pipeline</td></tr>
+<tr><td>05. Measured/Pending Service Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Flow Pipeline</td></tr>
+<tr><td>05. Order Shipped Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Customer Order Flow Pipeline</td></tr>
+<tr><td>05. Whole House Sold - Interior Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Sales Order Pipeline</td></tr>
+<tr><td>06. Order Complete | Ready for Install <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Customer Order Flow Pipeline</td></tr>
+<tr><td>06. Sold Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Flow Pipeline</td></tr>
+<tr><td>07. Installation Scheduled Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Customer Order Flow Pipeline</td></tr>
+<tr><td>08. Installation Complete + Google Review Request <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Customer Order Flow Pipeline</td></tr>
+<tr><td>Appointment Confirmation Workflow <i>(legacy)</i></td><td>Draft</td><td>6. Inactive Automations</td></tr>
+<tr><td>Update Opportunity to Appointment Scheduled & Update Opportunity Owner <i>(legacy)</i></td><td>Draft</td><td>6. Inactive Automations</td></tr>
+</table>
+<h3 class="cat">Response and Escalation</h3>
+<table><tr><th>Name</th><th>Status</th><th>Folder</th></tr>
+<tr><td>7. Customer Reply Response and Escalation</td><td>Published</td><td>1. Lead Pipeline (New)</td></tr>
+<tr><td>7.1 Reply Task Completed, Exit</td><td>Published</td><td>1. Lead Pipeline (New)</td></tr>
+</table>
+<h3 class="cat">Nurture</h3>
+<table><tr><th>Name</th><th>Status</th><th>Folder</th></tr>
+<tr><td>3. Drip/Nurture</td><td>Published</td><td>1. Lead Pipeline (New)</td></tr>
+<tr><td>4. Follow Up</td><td>Published</td><td>2. Sales Pipeline (New)</td></tr>
+<tr><td>08. Drip Campaign Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Flow Pipeline</td></tr>
+<tr><td>Promotions and Discounts <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Tracker Workflows</td></tr>
+<tr><td>Quote Follow Up Workflow <i>(legacy)</i></td><td>Draft</td><td>6. Inactive Automations</td></tr>
+</table>
+<h3 class="cat">Partner</h3>
+<table><tr><th>Name</th><th>Status</th><th>Folder</th></tr>
+<tr><td>(Partners) Installation Complete - Add Partner Contact to Workflow</td><td>Published</td><td>Partner Automations &rsaquo; Partner Communications</td></tr>
+<tr><td>(Partners) Installation Complete - Send Communication</td><td>Published</td><td>Partner Automations &rsaquo; Partner Communications</td></tr>
+<tr><td>(Partners) Lead Confirmation - Add Partner Contact to Workflow</td><td>Published</td><td>Partner Automations &rsaquo; Partner Communications</td></tr>
+<tr><td>(Partners) Lead Confirmation - Send Communication</td><td>Published</td><td>Partner Automations &rsaquo; Partner Communications</td></tr>
+<tr><td>(Partners) Map Partner Data to Contact</td><td>Published</td><td>5. Partner Automations</td></tr>
+<tr><td>(Partners) Workflow: Send Partner Objects to Mapsly</td><td>Published</td><td>Partner Automations &rsaquo; Mapsly</td></tr>
+<tr><td>(Partners) Workflow: Sync contacts to Mapsly</td><td>Published</td><td>Partner Automations &rsaquo; Mapsly</td></tr>
+<tr><td>(Partners) Write Partner Details to Opportunity</td><td>Draft</td><td>5. Partner Automations</td></tr>
+<tr><td>(Partners) Write Referral Email to Opportunity</td><td>Published</td><td>5. Partner Automations</td></tr>
+<tr><td>Partner New Leads Opt-in</td><td>Published</td><td>3. Lead Sources</td></tr>
+<tr><td>Trigger Partner Data Sync</td><td>Published</td><td>5. Partner Automations</td></tr>
+</table>
+<h3 class="cat">Recovery</h3>
+<table><tr><th>Name</th><th>Status</th><th>Folder</th></tr>
+<tr><td>6. Not sold</td><td>Published</td><td>2. Sales Pipeline (New)</td></tr>
+<tr><td>7. Not Booked Workflow</td><td>Published</td><td>2. Sales Pipeline (New)</td></tr>
+<tr><td>8. Cancelled Appointment</td><td>Published</td><td>2. Sales Pipeline (New)</td></tr>
+<tr><td>9. No Show Recovery</td><td>Published</td><td>2. Sales Pipeline (New)</td></tr>
+<tr><td>Appointment Cancellation Workflow</td><td>Published</td><td>2. Sales Pipeline (New)</td></tr>
+<tr><td>04. No Show Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Flow Pipeline</td></tr>
+<tr><td>07. Not Sold Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Flow Pipeline</td></tr>
+<tr><td>09. Incomplete | Remake | Reorder Workflow <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Customer Order Flow Pipeline</td></tr>
+</table>
+<h3 class="cat">Internal/Admin</h3>
+<table><tr><th>Name</th><th>Status</th><th>Folder</th></tr>
+<tr><td>My Blind Co - GHL Erica</td><td>Published</td><td>4. My Blind Co</td></tr>
+<tr><td>My Blind Co - GHL Justin</td><td>Draft</td><td>4. My Blind Co</td></tr>
+<tr><td>Phone Number Tracking</td><td>Published</td><td>3. Lead Sources</td></tr>
+<tr><td>QR Code and Landing Pages Lead Tracker</td><td>Published</td><td>3. Lead Sources</td></tr>
+<tr><td>GHL to Myblindco <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Tracker Workflows</td></tr>
+<tr><td>Internal: Opportunity Assignment Notification <i>(legacy)</i></td><td>Draft</td><td>6. Inactive Automations</td></tr>
+<tr><td>Map closing date from opportunity to contact <i>(legacy)</i></td><td>Draft</td><td>6. Inactive Automations</td></tr>
+<tr><td>My Blind Co - GHL <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Tracker Workflows</td></tr>
+<tr><td>Phone Number Tracking <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Tracker Workflows</td></tr>
+<tr><td>QR Code and Landing Pages Lead Tracker <i>(legacy)</i></td><td>Draft</td><td>Inactive &rsaquo; Lead Tracker Workflows</td></tr>
+<tr><td>Scouting report workflow <i>(legacy)</i></td><td>Draft</td><td>6. Inactive Automations</td></tr>
+</table>
+
+
+<p>MyBlindCo has its own version of this: there are <b>four</b> separate MyBlindCo-named workflows spread across two folders, not two. Beyond the live "Erica" and Draft "Justin" pair, "GHL to Myblindco" and "My Blind Co - GHL" are both sitting in the old folder, both at zero enrollments, and both look genuinely dead.</p>
+
+<p>Not everything in that legacy folder is actually dead, though. "01. New Lead Opt in Workflow" is the one Published workflow sitting inside "6. Inactive Automations/Lead Flow Pipeline," and it turns out to still receive live traffic: both "Google Ad (Exterior) to GHL" and "Google Ads (home page) to GHL," two current lead-source workflows, explicitly enroll new contacts into it directly. It can't be treated as a safe archive candidate the way the rest of that folder can, and it raises its own question worth resolving: is it doing the same job as "1. New Lead" in the current Lead Pipeline (New) folder, with two separate active new-lead paths now running side by side?</p>
+
+<p>Not everything is old-versus-new, either. Inside the current, live "2. Sales Pipeline (New)" folder, both <b>"8. Cancelled Appointment"</b> and <b>"Appointment Cancellation Workflow"</b> are Published and confirmed to be real duplicates, not just similarly named: both fire on a cancelled appointment and both start by removing the contact from "1. Appointment Booked." But the builds have drifted apart since. "8. Cancelled Appointment" opens with a text message and runs three SMS touches over roughly three days, ending in a personal follow-up task if the contact still hasn't rebooked. "Appointment Cancellation Workflow" opens with an actual cancellation email instead, runs only two SMS touches, and ends by tagging the contact "nurture" instead of creating a task. Two different recovery strategies for the same trigger, both live at once.</p>
+
+<h2><span class="num">4.</span> Plain-English Descriptions</h2>
+<div class="note">One paragraph per workflow: what triggers it, what it does, who it notifies, and how someone exits it. Built up as each workflow gets opened and reviewed; this section grows over time rather than all at once.</div>
+<p class="progress"><b>51 of 85 documented so far (11 partial, see "6. Future Appointments," "7. Customer Reply Response &amp; Escalation," "2. Appointment Completed," "4. Follow Up," "5. Sold," "8. Cancelled Appointment," "Self-Booked Appointment Confirmation," "After Business Hours," "Auto Missed Call Text-Back," "New Lead Landing Page," and "Partner New Leads Opt-in")</b></p>
+
+<h3 class="cat">1. Lead Pipeline (New)</h3>
+
+<div class="wf">
+<p class="wf-name">1. New Lead <span class="status published">Published</span></p>
+<p>New Lead fires when someone submits either the Strategy-Hero Lead Form or the Strategy-Contact Us Form. The first thing it does is check whether the person is already tagged as an existing customer. If so, it stops right there and does nothing further, which is worth calling out because this was the leading suspect for the roadmap's missing-exclusion problem, and it turns out to already handle that correctly. Everyone else gets an opportunity created in the new Lead Pipeline, gets assigned to Renee, and gets tagged and welcomed by email while Kelli Martin, Main Office, and Renee Isley get an internal text. If half an hour goes by and the lead hasn't moved off the New Lead stage, Josh gets a personal text at his own number warning that the lead has gone untouched for an hour; ten minutes after that, if it's still stuck, the lead just gets tagged as escalated with no further outreach visible from there. Two smaller things worth a look while someone's in there: a branch partway through the workflow appears to do the same thing regardless of which way it goes, and duplicate opportunities are allowed on the same contact, which could in theory double up if someone submits the form twice.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">1.1 New Lead Follow-Up Task Chain <span class="status published">Published</span></p>
+<p>This one runs alongside New Lead, but it's triggered differently: it fires whenever a task assigned to either Erica Stephenson or Renee Isley gets marked complete. From there it just keeps checking: is this contact now sitting in Appointment Booked or Sold? If yes, it's done. If not, it creates another task for Renee asking her to reach out within ten minutes, then checks again, and again, with at least five rounds of this visible in what was captured. It's a solid, deliberately-built safety net, which is exactly why it's odd that it shows zero enrollments ever. Either tasks in this account rarely get completed by Erica or Renee specifically, or this workflow has simply never had the chance to run. Worth asking Josh which it is.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">2. Attempting Contact <span class="status published">Published</span></p>
+<p>Attempting Contact picks up in one of two ways: either the opportunity's stage actually changes to Attempting Contact, or an outgoing call comes back busy, voicemail, or no-answer. Either way, the contact gets pulled out of whatever workflow it was in before, assigned to Renee, and matched to an opportunity, updating one if it exists or creating one if not. From there, Main Office, Renee, and Kelli all get an email, then another a day later, and after that second day the contact gets tagged "nurture," which is what hands it off to Drip/Nurture below. There's a sticky note on the canvas explaining more of the reasoning here, but too much of it was cropped out of what could be captured to quote directly. This one's clearly in active use: 147 people have passed through it, two are in it right now.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">5. Spam <span class="status published">Published</span></p>
+<p>Spam fires either when a contact gets tagged "spam" directly, or when its opportunity's pipeline stage changes to Spam on its own. Either way, the contact comes out of whatever workflow it was in, and the opportunity gets found or created and set to the Spam stage with a status of Abandoned, using the same efficient shared-sequence design as Drip/Nurture, where the "just created" path jumps back into the same next step rather than repeating it. From there it moves into an Enable/Disable DND step, though which direction that toggle actually goes wasn't visible in what was captured. Worth a follow-up look, since that's the difference between correctly shutting off marketing to a spam contact and accidentally leaving it on. Nobody gets notified anywhere in this one; it's a quiet cleanup workflow, unlike the others documented so far.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">6. Future Appointments <span class="status published">Published</span></p>
+<p>Future Appointments fires when an opportunity's pipeline stage changes to "Future Appointment" within Lead Pipeline (NEW). It assigns the contact to Renee, pulls it out of whatever workflow it was in before, then finds or creates the opportunity and sets it to the Future Appointment stage with an Open status, the same duplicate-opportunities-allowed pattern seen elsewhere in this account. <i>What happens after that isn't confirmed. The canvas continues past the point captured, so who gets notified and how someone exits this workflow are both still open questions.</i></p>
+</div>
+
+<div class="wf">
+<p class="wf-name">7. Customer Reply Response &amp; Escalation <span class="status published">Published</span></p>
+<p>This one fires when a customer replies specifically over SMS. It waits 15 minutes, creates a follow-up task, waits another 15 minutes, and if nothing's changed by then, texts Kelli Martin, Main Office, and Renee Isley: "ESCALATION: [Contact] replied 30 minutes ago and still hasn't been followed up on. Please check Conversations and respond now." <i>What the task itself says, and what happens after the escalation text goes out, isn't confirmed. The canvas continues past the point captured.</i></p>
+</div>
+
+<div class="wf">
+<p class="wf-name">7.1 Reply Task Completed, Exit <span class="status published">Published</span></p>
+<p>This one fires when a task gets marked complete, but only if the task's assigned user is not Renee Isley. It removes the contact from whatever workflow it was in, then marks something as read. <i>The canvas continues past that point; what's captured stops there.</i> It reads as the exit companion to "7. Customer Reply Response &amp; Escalation" above: when someone other than Renee completes the follow-up task that workflow creates, this pulls the contact out of the escalation chain and clears the notification, so the 30-minute escalation text doesn't keep firing once a reply has actually been handled.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">3. Drip/Nurture <span class="status published">Published</span></p>
+<p>Drip/Nurture is the workhorse of the account: 810 contacts have gone through it and 717 are in it today. It kicks off the moment a contact gets tagged "nurture," though if that contact already looks booked, it skips the whole thing immediately. Otherwise it settles into a simple rhythm: send an email, wait thirty days, check whether the contact has booked an appointment yet, and if not, send the next one. That repeats for eleven emails in a row, almost a full year of content, and the only way out early is booking an appointment. It's also a cleaner build than New Lead: instead of duplicating all eleven rounds for both the "opportunity already existed" and "opportunity just got created" paths, it uses a single jump step to merge them back into one shared sequence. The one thing that couldn't be confirmed is what happens after email eleven; the trail ends at another jump step whose destination wasn't visible in what was captured. Since this is the exact pattern the Week 7-8 plan wants to reuse for partner nurturing, it's worth getting a clean look at that last step before building the copy.</p>
+</div>
+
+<h3 class="cat">2. Sales Pipeline (New)</h3>
+
+<div class="wf">
+<p class="wf-name">1. Appointment Booked <span class="status published">Published</span></p>
+<p>This one comes with its own sticky note left on the canvas by whoever built it, so this description is theirs, not a reverse-engineered guess. It runs automatically whenever an appointment's status is confirmed. From there: it assigns the booked lead to Erica or Justin; checks whether the contact already has a deal on file, updating it if so or creating one if not, with the rest of the workflow running the same either way; checks where the lead came from (Facebook, Google, Phone Call Lead, or another source) and tags it accordingly; sends a booking confirmation email right away; and sends reminders at three points before the appointment (1 day before, 2 hours before, and 1 hour before), each paired with an internal alert to staff. The builder's own note explains why: every appointment needs a confirmation and a reminder sequence regardless of where the lead came from, the source only changes which tag gets applied, not the reminder steps themselves.</p>
+<p><b>The builder also left a warning for whoever edits this next: the entire reminder sequence is currently repeated four separate times, once per lead source, instead of one shared sequence used by all four.</b> That is directly relevant to the still-open "two mismatched reminder emails" item from Anomalies: with four near-identical copies of the same reminder sequence sitting inside one workflow, it would only take one of those four drifting out of sync with the others for two reminder emails to disagree on what kind of appointment is happening, without needing a second workflow at all. Worth comparing the four copies against each other directly before looking anywhere else.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">2. Appointment Completed <span class="status published">Published</span></p>
+<p>Fires either when an appointment's status changes to "Showed" (Normal event type, contact-only enrollment, specifically in "!The Window Valet Appointment Booking Calendar"), or when the opportunity's pipeline stage changes to "Appointment Completed" in Sales Pipeline (New). Either way: pulls the contact out of whatever workflow it was in before, finds or creates the opportunity, waits 30 minutes, then sends a "Thank you Email after Appt" to the contact. <i>What happens after that isn't confirmed, the canvas continues past the thank-you email.</i></p>
+</div>
+
+<div class="wf">
+<p class="wf-name">3. Proposal Sent <span class="status published">Published</span></p>
+<p>Fires when the opportunity's stage changes to "Proposal Sent" in Sales Pipeline (New). Finds or creates the opportunity, sends an internal notification email to Kelli Martin right away, then settles into a check-then-nudge rhythm: wait 3 days, check if the contact has moved to Sold, and if so exit immediately. If not, text the contact (SMS #1), wait 4 more days, check again, text again (SMS #2), wait 7 more days, check a third time, text once more (SMS #3), and if still not sold, create a task, "Proposal follow-up needed: [Contact]," describing exactly what happened: "[Contact]'s proposal has had 3 automated follow-ups over 2 weeks with no response. Please reach out personally to check where things stand before this goes cold."</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">4. Follow Up <span class="status published">Published</span></p>
+<p>Fires when the opportunity's stage changes to "Follow Up" in Sales Pipeline (New). Finds or creates the opportunity, sends a follow-up email and a text to the contact, waits 2 days, then sends an internal notification email to Kelli Martin, Renee Isley, and Main Office. <i>What happens after that isn't confirmed, the canvas continues past that notification.</i></p>
+</div>
+
+<div class="wf">
+<p class="wf-name">5. Sold <span class="status published">Published</span></p>
+<p>Fires when the opportunity's stage changes to "Sold" in Sales Pipeline (New). Finds or creates the opportunity, sets its stage to Sold and status to Won either way, then tags the contact "active client." <i>What happens after that isn't confirmed, the canvas continues past the tag step.</i></p>
+</div>
+
+<div class="wf">
+<p class="wf-name">6. Not sold <span class="status published">Published</span></p>
+<p>This one comes with its own sticky note left on the canvas, so this is the builder's own account of what it does: it runs when a deal's pipeline stage changes to "Not Sold." It checks whether a deal exists (the next steps run the same either way), tags the contact "not sold," waits a day, sends a follow-up email, then adds the contact directly into the Drip/Nurture automation. The builder's own reasoning: a "not sold" outcome isn't necessarily final, so this gives the lead one more nudge before rolling them into ongoing nurture instead of dropping them entirely.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">7. Not Booked Workflow <span class="status published">Published</span></p>
+<p>Fires when an opportunity's stage changes to "Not Booked," but its trigger watches the "Lead Flow Pipeline" pipeline, not "1. Lead Pipeline (NEW)" or "2. Sales Pipeline (NEW)," despite this workflow living in the current "2. Sales Pipeline (New)" folder (flagged in Anomalies above). Waits a day, round-robin assigns the contact to Kelli or Renee if unassigned, finds or creates the opportunity in that same Lead Flow Pipeline, sends a re-engagement email ("Still Thinking About Window Treatments, [First Name]"), waits another day, notifies the contact's assigned owner by both email and SMS to call the lead, waits an hour, then creates a task to update the lead's status. <i>What happens after that task isn't confirmed, the canvas ends there.</i></p>
+</div>
+
+<div class="wf">
+<p class="wf-name">8. Cancelled Appointment <span class="status published">Published</span></p>
+<p>Fires when an appointment's status changes to "cancelled" (Normal event type, contact-only, specifically "!The Window Valet Appointment Booking Calendar"). First removes the contact from "1. Appointment Booked." Waits an hour, then texts them: "Hey [Contact], sorry we couldn't connect today. Want to grab a new time?" with a booking link. Checks if they've rebooked (active in Appointment Booked); if so, ends. If not: waits a day, texts again, checks again; if still not rebooked, waits 2 more days, texts a third time, then creates a task. <i>What happens after that task isn't confirmed, the canvas ends there.</i></p>
+</div>
+
+<div class="wf">
+<p class="wf-name">9. No Show Recovery <span class="status published">Published</span></p>
+<p>Mirrors "8. Cancelled Appointment" above, but triggers on "no-show" appointment status instead of cancelled, with the same calendar/event-type filters. Same three-touch SMS and rebook-check pattern, and if still not rebooked after the third text, creates a task assigned specifically to Renee Isley: "Reschedule needed: [Contact]," describing exactly what happened: "[Contact] no-showed and hasn't rebooked after 3 automated reminder texts over 2 days. Please follow up personally, this lead is still worth reaching." Ends there, confirmed.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">Appointment Cancellation Workflow <span class="status published">Published</span></p>
+<p>Also fires on cancelled appointment status, with the same first step as "8. Cancelled Appointment": removing the contact from "1. Appointment Booked." From there the build diverges. This one opens with an actual cancellation email rather than a text, waits 2 hours before checking if the contact has rebooked, then runs two SMS touches a day apart (not three). If still not rebooked after both, it tags the contact "nurture" and ends, handing off to Drip/Nurture, instead of creating a personal follow-up task the way "8. Cancelled Appointment" does. See Sort By Function and Fix Or Consolidate Overlaps for what this means for the two workflows together.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">Self-Booked Appointment Confirmation <span class="status published">Published</span></p>
+<p>Fires when an appointment's status changes to "confirmed," same Normal event type, contact-only, same specific booking calendar as the other appointment-status workflows here. First checks whether the booking is running as a guest booking; if so, creates a task, waits 2 hours, then checks again whether the contact is now active in "1. Appointment Booked." If not, sends an internal SMS reminder to Kelli Martin, Main Office, and Renee Isley: "Reminder: [Contact]'s self-booked appointment ([date]) still needs confirmation. Please reach..." <i>What happens on the non-guest path, and the rest of that reminder message, isn't confirmed; both were cut off in what was captured.</i></p>
+</div>
+
+<h3 class="cat">3. Lead Sources</h3>
+
+<div class="wf">
+<p class="wf-name">After Business Hours <span class="status published">Published</span></p>
+<p>Fires when a customer replies through any of four channels: chat widget, email, SMS, or call. Checks whether it's currently after business hours; if so, sends an SMS. If it's during business hours, the workflow just ends, since staff already see the reply directly. <i>What the after-hours text actually says, and what happens after it's sent, isn't confirmed, the canvas continues past that point.</i></p>
+</div>
+
+<div class="wf">
+<p class="wf-name">Auto Missed Call Text-Back <span class="status published">Published</span></p>
+<p>Fires on a missed call. First excludes a specific list of named partner and team contacts from getting the automated text-back, ending immediately for them. For everyone else: waits a slight delay (the step is literally named so it "doesn't feel like a bot"), assigns to Renee if unassigned, tags the contact, texts the lead back automatically, pushes a notification to whoever's assigned, then sends an internal SMS to Kelli Martin, Main Office, and Renee Isley. <i>What that internal message says in full, and what happens after, isn't confirmed, the canvas continues past that point.</i></p>
+</div>
+
+<div class="wf">
+<p class="wf-name">Exterior Screens Facebook Lead Form <span class="status published">Published</span></p>
+<p>Fires when someone submits the "Exterior Screens Book Schedule - Window Valet Lead Form" on the Window Valet Studio Facebook page. Assigns to Renee, sends an internal notification email to Renee, Main Office, and Kelli, creates an opportunity in Lead Pipeline (NEW) at the New Lead stage, tags the contact for this specific ad source, emails a booking link, waits 2 minutes, texts the same booking link, waits 35 minutes, sends an internal SMS reminder to staff, then waits a full day and checks whether the pipeline stage shows an appointment booked. If so, it ends. If not, it explicitly enrolls the contact into "7. Not Booked Workflow" using an Add to Workflow action, then ends. This confirms "7. Not Booked Workflow" gets contacts two ways: its own pipeline-stage trigger (flagged as possibly mismatched in Anomalies), and direct enrollment like this one, so it's likely still receiving contacts even if that trigger never fires on its own.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">Google Ad (Exterior) to GHL <span class="status published">Published</span></p>
+<p>Fires on an inbound webhook from an external ad platform (a premium, paid trigger). Extracts first name, last name, email, phone, and postal code from the payload, creates the contact, tags it "google_ads_exterior," then explicitly enrolls the contact into "01. New Lead Opt in Workflow" using an Add to Workflow action, and ends. That target sits in the legacy "6. Inactive Automations/Lead Flow Pipeline" folder, documented as legacy earlier, but this confirms it's actually still receiving live traffic from this workflow (see the correction in Sort By Function).</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">Google Ads (home page) to GHL <span class="status published">Published</span></p>
+<p>Nearly identical to "Google Ad (Exterior) to GHL" above: same inbound webhook trigger, same first name, last name, email, phone, and postal code extraction, creates the contact, tags it "google_ads_homepage" instead, and also enrolls it into "01. New Lead Opt in Workflow." A second confirmed source feeding that same legacy-folder workflow.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">New Lead Landing Page <span class="status published">Published</span></p>
+<p>Fires when a contact gets tagged with any of four specific promo tags from what looks like a landing page: exterior screens, free motorization, buy 2 get 1 free, or buy 1 get 1 50% off. Creates an opportunity, assigns it to Kelli, and sends an internal SMS notification, ending there. <i>Who that SMS goes to and what it says wasn't confirmed, only the canvas structure was captured.</i></p>
+</div>
+
+<div class="wf">
+<p class="wf-name">Partner New Leads Opt-in <span class="status published">Published</span></p>
+<p>Fires when a contact gets tagged "partner lead." Assigns to Renee and Kelli, creates an opportunity, texts the contact, waits 3 minutes, sends an introduction email, waits 3 days, sends a follow-up text, then tags the contact "Drip." This confirms exactly what the Week 7-8 roadmap already flagged: this workflow applies an interim "Drip" tag stopgap rather than a proper partner nurture sequence. <i>What happens after that tag isn't confirmed, the canvas continues past it.</i></p>
+</div>
+
+<div class="wf">
+<p class="wf-name">Phone Number Tracking <span class="status published">Published</span></p>
+<p>This one has its own sticky note, so this is the builder's own account: it runs whenever a call comes in on one of six tracked phone numbers (main number, website, or one of four landing pages). It waits a minute, checks which specific number the call came in on and tags the contact accordingly, then adds the contact directly into the New Lead automation. The builder's own reasoning: this tells them exactly which number, and which ad or page, brought in each call, without needing six separate follow-up automations, since everyone funnels into the same New Lead process once tagged. <i>Which specific "New Lead" workflow it enrolls into wasn't confirmed directly, but given the pattern from the two Google Ads workflows above, it may well be "01. New Lead Opt in Workflow" as well.</i></p>
+</div>
+
+<div class="wf">
+<p class="wf-name">QR Code and Landing Pages Lead Tracker <span class="status published">Published</span></p>
+<p>Fires when a customer books an appointment (same specific Window Valet booking calendar as the appointment-status workflows). Checks which UTM campaign or source parameter is attached, covering six landing-page and QR-code sources: upgrade, buy-2-get-1, buy-1-get-1, exterior, and neighborhood landing pages, or a QR code scan. Tags the contact with a source-specific booking tag, then explicitly enrolls it into "1. Appointment Booked" via an Add to Workflow action. If none of the six sources match, it just ends without tagging or enrolling. This is a confirmed source feeding landing-page and QR bookings into "1. Appointment Booked."</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">Version 3 Facebook Lead Form <span class="status published">Published</span></p>
+<p>Fires on Facebook lead form submission, but consolidates four different form versions into one trigger ("V.3 Questions and Book Schedule," "V.2 Questions and Book Schedule," "V.2 Book Schedule," and the original "Book Schedule" form) rather than needing four separate workflows. From there it mirrors "Exterior Screens Facebook Lead Form" almost exactly: assigns to Renee, notifies staff, creates an opportunity, tags the source, emails and texts a booking link two minutes apart, waits 35 minutes for another internal notification, then waits a day and checks if an appointment got booked. If not, it enrolls the contact into "7. Not Booked Workflow" the same way. That's now three confirmed sources feeding that workflow directly, on top of its own trigger.</p>
+</div>
+
+<h3 class="cat">4. My Blind Co</h3>
+
+<div class="wf">
+<p class="wf-name">My Blind Co - GHL Erica <span class="status published">Published</span></p>
+<p>This one has its own sticky note, so this is the builder's own account: it runs when a contact gets tagged as booked from Google, Facebook, the appointment form, or phone. It checks whether the contact has already been synced to MyBlindCo, stopping immediately if so to avoid duplicates. If not yet synced, it sends the contact's info to MyBlindCo through a custom webhook, tags the contact to mark it as sent, then updates a contact field (My Blind Co Contact ID) with the ID MyBlindCo sends back. The builder's own note flags something specific: there's a second webhook step further down that's currently switched off, and needs a decision on whether to turn it back on or remove it, since it isn't doing anything right now either way.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">My Blind Co - GHL Justin <span class="status draft">Draft</span></p>
+<p>Structurally near-identical to "My Blind Co - GHL Erica" above: same four booking-source tags, same dedup check against an "mbc" tag, same webhook send to MyBlindCo, same tag-as-sent, same contact field update. Given "1. Appointment Booked" assigns leads to either Erica or Justin by name, these two workflows look like they were built as parallel, salesperson-specific copies of the same MyBlindCo sync logic rather than genuinely different automations (see Anomalies and Fix Or Consolidate Overlaps for what this means for the Draft-that-should-be-live decision).</p>
+</div>
+
+<h3 class="cat">5. Partner Automations</h3>
+
+<div class="wf">
+<p class="wf-name">(Partners) Map Partner Data to Contact <span class="status published">Published</span></p>
+<p>This one has its own sticky note. It has no trigger of its own; it's entered only when "Trigger Partner Data Sync" below adds the associated Partner Object to it. Once entered, it updates the Partner Contact's record with the Partner's details: name and record ID. The builder's own note: the sync requires Partner Contacts and Partner Objects to already be associated for this mapping to work.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">(Partners) Write Partner Details to Opportunity <span class="status draft">Draft</span></p>
+<p>Fires when an opportunity in "Lead Flow Pipeline" changes stage (with a Partner Referral Email present) or gets created with that field already set, the same "Lead Flow Pipeline" reference flagged as a possible legacy mismatch in "7. Not Booked Workflow," now seen a second time here. Finds the associated contact; ends if none found. Then checks whether that contact's own Contact Type is "Partner," only writing partner details onto the opportunity if so, ending without doing anything otherwise. <i>Worth a second look: "(Partners) Write Referral Email to Opportunity" below does a similar-sounding job without ever checking Contact Type at all, just whether an opportunity exists. Checking for Contact Type = Partner here looks like it might be testing the wrong thing, which could be exactly why this one was left in Draft rather than published.</i></p>
+</div>
+
+<div class="wf">
+<p class="wf-name">(Partners) Write Referral Email to Opportunity <span class="status published">Published</span></p>
+<p>This one has its own sticky note: it copies a partner's referral email onto the opportunity of the lead they referred. It fires when a contact's "Partner Referral Email" field is added or changed (or a matching opportunity or contact gets created with it already set), waits a minute, looks for an existing opportunity tied to that contact, and if one exists, updates a field on it with the Partner Referral Email. If no opportunity exists yet, nothing happens.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">Trigger Partner Data Sync <span class="status published">Published</span></p>
+<p>This one has its own sticky note too, and it's the trigger half of the pair with "(Partners) Map Partner Data to Contact" above: someone manually associates a Partner Object with its matching Partner Contact, then adds the tag "sync partner data" to make the association official. That tag firing this workflow, which adds the Partner Object into "(Partners) Map Partner Data to Contact" to actually write the details over.</p>
+</div>
+
+<h3 class="cat">6. Inactive Automations &rsaquo; Customer Order Flow Pipeline</h3>
+<div class="note">All nine workflows in this sub-folder are Draft (see Anomalies), so nothing here is currently live. Documented anyway per the roadmap's literal instruction, and because it shows exactly what this dormant pipeline was built to do if it's ever revived.</div>
+
+<div class="wf">
+<p class="wf-name">01. Sold Workflow <span class="status draft">Draft</span></p>
+<p>Fires when a contact gets tagged "sold." Finds or creates the matching opportunity and ends there either way. No notifications, just keeping the record in sync.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">02. Deposit Received Workflow <span class="status draft">Draft</span></p>
+<p>Fires either when the opportunity's stage changes to "Deposit Received," or when an external payment succeeds. Finds or creates the opportunity. If found, assigns it to Erica or Justin, emails the sales rep internally, and removes the "sold" tag. <i>What happens after that isn't confirmed, the canvas continues past it.</i> If no opportunity is found, it just ends.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">03. Ordered | In Production Workflow <span class="status draft">Draft</span></p>
+<p>Fires when a contact gets tagged "ordered." Finds or creates the opportunity; if found, updates it and emails the customer an order update, then ends. If not found, it just ends without emailing.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">04. Production Complete Workflow <span class="status draft">Draft</span></p>
+<p>Fires when the opportunity's stage changes to "Production Complete." Waits 5 minutes, finds or creates the opportunity, removes the "ordered" tag, waits 1 day, assigns the contact to Brittany (a name not seen in any other workflow documented so far), then sends an internal SMS. <i>What that message says and what happens after isn't confirmed, the canvas continues past it.</i></p>
+</div>
+
+<div class="wf">
+<p class="wf-name">05. Order Shipped Workflow <span class="status draft">Draft</span></p>
+<p>Fires either on a specific link-click trigger tied to "Order Shipped," or when the opportunity's stage changes to "Order Shipped." Finds or creates the opportunity; if found, emails the customer. <i>Whether it ends after that email wasn't confirmed, no END was visible on that path in what was captured.</i> If not found, it ends.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">06. Order Complete | Ready for Install <span class="status draft">Draft</span></p>
+<p>Fires when the opportunity's stage changes to "Order Complete | Ready for Install." Waits 5 minutes, finds or creates the opportunity; if found, sends an internal email notification and ends. If not found, it just ends.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">07. Installation Scheduled Workflow <span class="status draft">Draft</span></p>
+<p>Fires when a customer books an appointment specifically on the Installation Appointment Calendar, contact-only enrollment. Finds or creates the opportunity; if found, emails Kelli internally, then sends an internal SMS. <i>What that message says and what happens after isn't confirmed, the canvas continues past it.</i> If not found, it ends.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">08. Installation Complete + Google Review Request <span class="status draft">Draft</span></p>
+<p>The best-built workflow in this dormant folder. Fires either when the opportunity's stage changes to "Installation Complete," or when the contact gets tagged the same. Assigns the contact, finds or creates the opportunity; if found, sends an internal email, waits 24 hours, sends another internal notification, then texts the customer a thank-you message with a review request. It waits a day and reads their reply: a 9 or 10 rating gets an actual Google review request link, an 8-or-below rating gets a feedback acknowledgment instead of a public review ask (screening low scores out of public reviews on purpose), and anything else gets a generic follow-up text. All three paths end cleanly. If no opportunity is found, it just ends.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">09. Incomplete | Remake | Reorder Workflow <span class="status draft">Draft</span></p>
+<p>Fires when a contact gets tagged "reorder," "remake," or "incomplete," any of the three. Waits 5 minutes, assigns the contact to Brittany, finds or creates the opportunity; if found, checks which of the three tags actually fired and sends a matching email tailored to that specific situation, then ends. If not found, it just ends.</p>
+</div>
+
+<h3 class="cat">5. Partner Automations &rsaquo; Mapsly</h3>
+
+<div class="wf">
+<p class="wf-name">(Partners) Workflow: Sync contacts to Mapsly <span class="status published">Published</span></p>
+<p>This one has its own sticky note, so this is the builder's own account: it fires either when a contact is created with the Contact Type of "Partner," or when a contact gets tagged "mapsly contact sync." It waits one minute to make sure the record is up to date, then sends the contact's details (name, phone, email, address) to Mapsly using a webhook, and ends.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">(Partners) Workflow: Send Partner Objects to Mapsly <span class="status published">Published</span></p>
+<p>This one also has its own sticky note: it starts whenever a Partner record is created or changed. It waits a minute, then checks whether the Partner's ID field is empty, filling it in first if so, and checks whether the Partner has an address either way. If the address is missing, nothing happens and the workflow ends. If there's an address, it sends the Partner's info to Mapsly. The builder's own summary: this makes sure the ID is set and sends the info to Mapsly whenever there's an address; if either the ID or address is missing, it skips sending until both are present.</p>
+</div>
+
+<h3 class="cat">5. Partner Automations &rsaquo; Partner Communications</h3>
+
+<div class="wf">
+<p class="wf-name">(Partners) Installation Complete - Add Partner Contact to Workflow <span class="status published">Published</span></p>
+<p>Fires when a contact gets tagged "installation complete." Checks whether that same contact is also tagged "partner lead"; if not, it ends immediately, since there's no partner to notify. If it is, it looks up the associated partner contact through the "Partner Source - Partner Client" relationship and adds that partner into "(Partners) Installation Complete - Send Communication." This workflow's whole job is finding the right partner and routing them into the one that actually sends anything.</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">(Partners) Installation Complete - Send Communication <span class="status published">Published</span></p>
+<p>This one has no trigger of its own; it only gets entered when the workflow above adds a partner contact to it directly. Once entered: texts the partner, waits 2 hours, then emails them an installation-complete notice. <i>What happens after that email isn't confirmed, the canvas continues past it.</i></p>
+</div>
+
+<div class="wf">
+<p class="wf-name">(Partners) Lead Confirmation - Add Partner Contact to Workflow <span class="status published">Published</span></p>
+<p>Fires when a new contact is created already tagged "partner lead" (the tag is baked into the trigger itself, so no separate check is needed the way the Installation Complete version has one). Looks up the associated partner contact through the same "Partner Source - Partner Client" relationship and adds them into "(Partners) Lead Confirmation - Send Communication."</p>
+</div>
+
+<div class="wf">
+<p class="wf-name">(Partners) Lead Confirmation - Send Communication <span class="status published">Published</span></p>
+<p>Also has no trigger of its own, entered only via the workflow above. Texts the partner, waits 2 hours, then emails them a lead-confirmation notice, and ends. Same shape as "Installation Complete - Send Communication," just for a different event, and confirmed to end cleanly here.</p>
+</div>
+
+<h2><span class="num">5.</span> Fix Or Consolidate Overlaps</h2>
+<p>Not started. This step only happens once Josh has seen the anomalies above and confirmed what should actually be merged or corrected. The candidates found so far:</p>
+<ul>
+<li>At least eight exact or near-exact name duplicates between the live folders and "6. Inactive Automations" (see Sort By Function above)</li>
+<li>Four separate MyBlindCo-named workflows across two folders, where two are meant to exist</li>
+<li>"My Blind Co - GHL Erica" and "My Blind Co - GHL Justin" are structurally near-identical MyBlindCo sync workflows, likely built as parallel per-salesperson copies rather than genuinely different automations; consolidating into one shared workflow may be simpler than maintaining two</li>
+<li>"8. Cancelled Appointment" and "Appointment Cancellation Workflow" confirmed as real duplicates with diverged builds (see Sort By Function): different opening channel, different touch count, and different ending (task vs. nurture tag)</li>
+<li>"1. Appointment Booked" repeats its entire reminder sequence four times, once per lead source, instead of sharing one sequence across all four; flagged by the workflow's own builder as something to fix</li>
+<li>"7. Not Booked Workflow" is live but triggers off a pipeline called "Lead Flow Pipeline" rather than either current pipeline; needs confirming with Josh whether that pipeline still exists or this workflow needs repointing</li>
+<li>"01. New Lead Opt in Workflow" (sitting in the legacy Lead Flow Pipeline folder) is actively fed by two current lead-source workflows; needs a decision on whether it should be merged into "1. New Lead" or kept as a genuinely separate intake path</li>
+</ul>
+<p>Nothing has been merged or changed yet.</p>
+
+<h2><span class="num">6.</span> Archive What's Genuinely Dead</h2>
+<p>Not started. This step also waits on Josh's sign-off. The clearest candidates so far are the workflows sitting at zero enrollment with a live replacement already confirmed elsewhere, including "GHL to Myblindco," "My Blind Co - GHL," and most of the Customer Order Flow Pipeline and Sales Order Pipeline sub-folders. One important exception inside that same legacy area: "01. New Lead Opt in Workflow" is still actively fed by current lead-source workflows (see Sort By Function) and is not an archive candidate despite sitting in the legacy folder. Nothing here should be archived before the two Draft workflows with people still active inside them (see Anomalies above) are sorted out first, and before confirming no other "legacy" workflow is quietly still receiving traffic the same way.</p>
+
+<h2><span class="num">7.</span> Reference Index</h2>
+<p>This step is being assembled progressively rather than built separately. The Full Inventory (section 1) already has name, status, and last-modified date for all 85 workflows. Plain-English Descriptions (section 4) is adding purpose and trigger as each workflow gets opened, 7 of 85 so far. Once section 4 is further along, this document and the underlying spreadsheet together will serve as the finished lookup table.</p>
+
+<h2><span class="num">8.</span> Recurring Review Cadence</h2>
+<p>Not yet set. This needs a decision from Josh on how often the account gets reviewed once cleanup is finished; the roadmap suggests quarterly.</p>
+
+<div class="footer">The Window Valet &middot; Week 3-4 roadmap, Item 1</div>
+</body></html>
