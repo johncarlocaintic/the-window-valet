@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Window Valet — Inactive Workflows Summary</title>
+<style>
+  @page { size: Letter; margin: 18mm 16mm 16mm 16mm; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #1c2230; font-size: 10.5pt; line-height: 1.55; margin: 0; }
+  h1 { font-size: 20pt; color: #14202b; margin: 0 0 4px 0; }
+  .sub { color: #4a5566; font-size: 11pt; margin-bottom: 16px; }
+  .meta { color: #6b7484; font-size: 9pt; margin-bottom: 20px; }
+  h2 { font-size: 13.5pt; color: #14202b; border-bottom: 2px solid #3d6b52; padding-bottom: 4px; margin: 22px 0 8px 0; }
+  .stat-row { display: flex; gap: 10px; margin: 10px 0 16px 0; }
+  .stat { flex: 1; background: #f4f6f4; border: 1px solid #dde3dd; border-radius: 6px; padding: 8px 10px; }
+  .stat .n { font-size: 15pt; font-weight: 700; color: #14202b; }
+  .stat .l { font-size: 8pt; color: #6b7484; }
+  .callout { background: #f4f6f4; border-left: 3px solid #3d6b52; padding: 8px 12px; margin: 10px 0; font-size: 9.5pt; }
+  .callout.urgent { background: #2a0e0e; color: #fdeeee; border-left: 4px solid #ff5c5c; }
+  .callout.good { background: #eef4ef; border-left-color: #3d6b52; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0 14px 0; font-size: 9pt; }
+  th { background: #14202b; color: #fff; text-align: left; padding: 5px 8px; }
+  td { padding: 5px 8px; border-bottom: 1px solid #e4e7ea; }
+  tr:nth-child(even) td { background: #f7f8f9; }
+  .verdict { font-weight: 700; font-size: 8pt; padding: 2px 7px; border-radius: 8px; display: inline-block; }
+  .v-reactivate { background: #e3f2e6; color: #1f6b3a; }
+  .v-repair { background: #fff3d6; color: #8a5a00; }
+  .v-archive { background: #eef0f2; color: #4a5566; }
+  .v-hold { background: #fdeeee; color: #a12727; }
+</style>
+</head>
+<body>
+
+<h1>Inactive Workflows Summary</h1>
+<div class="sub">The Window Valet</div>
+<div class="meta">August 20, 2026</div>
+
+<div class="stat-row">
+  <div class="stat"><div class="n">27</div><div class="l">Inactive/legacy workflows reviewed today</div></div>
+  <div class="stat"><div class="n">4</div><div class="l">Share one root-cause broken reference</div></div>
+  <div class="stat"><div class="n">3</div><div class="l">Pipelines affected</div></div>
+</div>
+
+<div class="callout urgent">
+<strong>Root cause found:</strong> a pipeline or set of stages was likely deleted or restructured at some point. "My Blind Co - GHL," "Appointment Confirmation Workflow," "Quote Follow Up Workflow," and "Scouting report workflow" all point at a stage that no longer resolves to a name, two of them point at the exact same broken ID. Worth asking whoever's been in the account longest if they recall a pipeline getting deleted or reorganized, one answer likely explains four findings at once.
+</div>
+
+<div class="callout good">
+<strong>The good news:</strong> two whole pipelines found inactive today represent real opportunity, not just cleanup. The Customer Order Flow Pipeline (deposit through installation) means every paying customer's post-sale experience can be reactivated at once, a relationship-repair and review-generation opportunity. The Sales Order Pipeline is a direct upsell engine for customers who only bought part of their home. And "Scouting report workflow" is a working AI prototype already built, tying directly into the account's future AI roadmap.
+</div>
+
+<h2>Reactivate as-is</h2>
+<table>
+<tr><th>Workflow</th><th>Why</th></tr>
+<tr><td>Internal: Opportunity Assignment Notification</td><td>No errors, complements the round-robin assignment fix already made.</td></tr>
+<tr><td>Map closing date from opportunity to contact</td><td>No errors, simple field sync. Confirm the field is actually used somewhere first.</td></tr>
+</table>
+
+<h2>Repair, then reactivate (valuable, not duplicated elsewhere)</h2>
+<table>
+<tr><th>Workflow</th><th>What needs fixing</th></tr>
+<tr><td>Customer Order Flow Pipeline (9 workflows)</td><td>Not Found branch gaps; two "Assign to user: Brittany" references (orphaned user); "07. Installation Scheduled" trigger error; time-based auto-complete tagging should be a real confirmation instead.</td></tr>
+<tr><td>Sales Order Pipeline (5 workflows)</td><td>Dual error indicators on every workflow; confirm "02. Partially Sold Exterior" isn't still pointed at the interior trigger link; confirm the tracked links themselves exist somewhere customers would see them.</td></tr>
+<tr><td>Quote Follow Up Workflow</td><td>Every condition check in the sequence references the same broken stage ID; core logic likely fails silently end to end. High priority, this is the only thing currently designed to prevent sent quotes from going stale.</td></tr>
+<tr><td>Scouting report workflow</td><td>Same broken-reference root cause. Repair unlocks a working AI example for the Week 8 roadmap.</td></tr>
+</table>
+
+<h2>Archive (broken and/or superseded)</h2>
+<table>
+<tr><th>Workflow</th><th>Why</th></tr>
+<tr><td>Appointment Confirmation Workflow</td><td>Broken reference, and "1. Appointment Booked" already covers this, fixed.</td></tr>
+<tr><td>After Business Hours Workflow (draft copy)</td><td>Duplicate of the already-reviewed published version.</td></tr>
+<tr><td>Auto Missed Call Text-Back (draft copy)</td><td>Duplicate of the already-reviewed published version.</td></tr>
+<tr><td>Leads from Landing Page (Disabled)</td><td>Already self-marked disabled by its name.</td></tr>
+<tr><td>My Blind Co - GHL (base draft)</td><td>Broken reference and superseded by the working "-Erica" version.</td></tr>
+<tr><td>GHL to Myblindco</td><td>Likely superseded by "My Blind Co - GHL Erica" (more robust). Confirm before archiving.</td></tr>
+</table>
+
+<h2>Hold, needs a decision or more info first</h2>
+<table>
+<tr><th>Workflow</th><th>Open question</th></tr>
+<tr><td>Form submission follow up workflow</td><td>References another workflow by name that needs confirming still exists; two near-identical triggers need clarifying.</td></tr>
+<tr><td>Facebook Comments on a Post</td><td>May fall under Shade Strategy's retained marketing scope rather than ours to fix.</td></tr>
+<tr><td>Promotions and Discounts</td><td>Unassigned "Assign to user" step; needs a decision on whether this promo automation is still wanted at all.</td></tr>
+</table>
+
+</body>
+</html>

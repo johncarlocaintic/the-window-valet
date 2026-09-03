@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Window Valet, Workflow Automation Audit</title>
+<style>
+  @page { size: Letter; margin: 20mm 16mm 18mm 16mm; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #1c2230; font-size: 10.5pt; line-height: 1.55; margin: 0; }
+  .cover { height: 228mm; display: flex; flex-direction: column; justify-content: center; page-break-after: always; overflow: hidden; }
+  .cover .kicker { color: #3d6b52; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 10pt; margin-bottom: 10px; }
+  .cover h1 { font-size: 30pt; margin: 0 0 8px 0; color: #14202b; }
+  .cover .sub { font-size: 13pt; color: #4a5566; margin-bottom: 40px; }
+  .cover table.meta { border-collapse: collapse; margin-top: 20px; }
+  .cover table.meta td { padding: 6px 18px 6px 0; font-size: 10.5pt; }
+  .cover table.meta td.label { color: #6b7484; width: 170px; }
+  .cover table.meta td.value { font-weight: 600; color: #14202b; }
+  h2.section { font-size: 17pt; color: #14202b; border-bottom: 3px solid #3d6b52; padding-bottom: 6px; margin: 0 0 4px 0; page-break-before: always; }
+  .folder-banner { page-break-before: always; background: #14202b; color: #fff; padding: 16px 20px; border-radius: 8px; margin: 0 0 18px 0; }
+  .folder-banner .f-kicker { font-size: 8.5pt; letter-spacing: 1.5px; text-transform: uppercase; color: #9fd6b5; font-weight: 600; margin-bottom: 4px; }
+  .folder-banner .f-name { font-size: 19pt; font-weight: 700; }
+  .folder-banner .f-path { font-size: 9.5pt; color: #b7c0cc; margin-top: 4px; }
+  h3.wf-title { font-size: 14.5pt; color: #14202b; margin: 26px 0 4px 0; }
+  h3.wf-title.first { margin-top: 0; }
+  .section-intro { color: #4a5566; margin: 10px 0 18px 0; font-size: 10pt; }
+  .wf-card { background: #f4f6f4; border: 1px solid #dde3dd; border-radius: 8px; padding: 12px 16px; margin: 6px 0 16px 0; }
+  .wf-card .wf-name { font-size: 12pt; font-weight: 700; color: #14202b; margin-bottom: 4px; }
+  .wf-meta { display: flex; gap: 18px; font-size: 9pt; color: #6b7484; flex-wrap: wrap; }
+  .wf-meta span strong { color: #14202b; }
+  .badge { display: inline-block; font-size: 7.5pt; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+  .badge.published { background: #e3f2e6; color: #1f6b3a; }
+  .badge.draft { background: #fff3d6; color: #8a5a00; }
+  h4.sub { font-size: 11.5pt; color: #14202b; margin: 14px 0 6px 0; padding-left: 10px; border-left: 4px solid #3d6b52; }
+  h4.sub.bad { border-left-color: #a12727; }
+  h4.sub.opt { border-left-color: #c98f00; }
+  h4.sub.build { border-left-color: #2c5aa0; }
+  h3.sub { font-size: 12.5pt; color: #14202b; margin: 20px 0 8px 0; padding-left: 10px; border-left: 4px solid #3d6b52; }
+  ul.clean { margin: 4px 0 10px 0; padding-left: 20px; }
+  ul.clean li { margin-bottom: 6px; }
+  p { margin: 6px 0; }
+  code { background: #eef1ee; padding: 1px 5px; border-radius: 3px; font-size: 9pt; }
+  .callout { background: #f4f6f4; border-left: 3px solid #3d6b52; padding: 10px 14px; margin: 14px 0; font-size: 9.5pt; }
+  .callout.warn { background: #fff8e8; border-left-color: #c98f00; }
+  .callout.bad { background: #fdeeee; border-left-color: #a12727; }
+  .callout.urgent { background: #2a0e0e; color: #fdeeee; border-left: 4px solid #ff5c5c; }
+  .callout.urgent strong { color: #ffb3b3; }
+  table.progress { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 9pt; }
+  table.progress th { background: #14202b; color: #fff; text-align: left; padding: 5px 8px; }
+  table.progress td { padding: 5px 8px; border-bottom: 1px solid #e4e7ea; }
+  table.progress tr:nth-child(even) td { background: #f7f8f9; }
+  .footer-note { margin-top: 40px; font-size: 8.5pt; color: #8892a0; }
+  .divider { border: none; border-top: 1px solid #e4e7ea; margin: 18px 0; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">GoHighLevel Workflow Automation Audit</div>
+  <h1>The Window Valet</h1>
+  <div class="sub">What's working, what's not, and where to simplify, organized by folder, reviewed workflow by workflow from live builder screenshots</div>
+  <table class="meta">
+    <tr><td class="label">Location</td><td class="value">Indianapolis, IN</td></tr>
+    <tr><td class="label">Report date</td><td class="value">August 17, 2026</td></tr>
+    <tr><td class="label">Workflows reviewed so far</td><td class="value">60 fully reviewed, of 77 total</td></tr>
+    <tr><td class="label">Scope note</td><td class="value">Inactive/draft workflows are intentionally excluded from review</td></tr>
+    <tr><td class="label">Prepared by</td><td class="value">John Carlo Caintic</td></tr>
+  </table>
+</div>
+
+<h2 class="section">Executive Summary</h2>
+<p class="section-intro">This is a rolling audit: each workflow is reviewed directly from its Builder canvas as screenshots come in, and scored against four questions: what's working, what's not, how to optimize it, and what should be simplified, consolidated, or rebuilt. This document is organized to match the account's own folder structure (Lead Pipeline, Sales Pipeline, Lead Sources, My Blind Co, Partner Automations). Inactive/draft workflows spotted in the folder listings are intentionally left out of this review rather than audited as if they were live. See the note at the bottom of each folder section for which ones were skipped and why. It covers 60 workflows sent for review so far, 33 active, 9 inactive (Customer Order Flow Pipeline), 7 misc/legacy (Lead Tracker Workflows folder), 5 inactive (Sales Order Pipeline upsell), and 6 more misc/legacy workflows with a shared broken-reference root cause, and will grow as more are reviewed.</p>
+
+<div class="callout urgent">
+<strong>Fix this one first, it's not a design opinion, it's a live error.</strong> "(Partners) Write Partner Details to Opportunity" (a draft workflow in the Partner Automations folder) shows a visible red error indicator directly on its "Find Contact" step. Every other finding in this document is a judgment call about design; this one is GHL itself flagging that something is currently misconfigured. Worth checking before anything else here, regardless of the workflow's draft status.
+</div>
+
+<div class="callout bad">
+<strong>Headline finding: the "Opportunity Not Found" (or "Contact Not Found") branch is broken or inconsistent in 10 of the 14 workflows that include a lookup-then-branch step.</strong> Every one of these workflows checks whether a record already exists, and every one of them treats the "Found" path as complete while the "Not Found" path is either a dead end or skips a step the found-path gets. Affected workflows: "2. Attempting Contact," "3. Drip/Nurture," "4. Unqualified," "5. Spam," "3. Proposal Sent," "5. Sold," "2. Appointment Completed," "4. Follow Up," "6. Not sold," and "(Partners) Write Referral Email to Opportunity." The consequences scale with what gets skipped, from a missing tag up to <strong>"5. Spam" skipping the DND step</strong> (a deliverability/compliance risk) and <strong>"5. Sold" skipping the "active client" tag</strong> (a closed deal falling outside every post-sale workflow). This is the same structural gap, copy-pasted and re-broken across the large majority of workflows that use this pattern, and remains the single highest-value fix in this audit.
+</div>
+
+<h3 class="sub">Counter-examples: workflows that avoid the bug</h3>
+<p>Several workflows sidestep this issue, each a different way, worth learning from: <strong>"6. Future Appointments"</strong> is symmetrical because neither branch does anything beyond updating the opportunity. <strong>"1. Appointment Booked"</strong> is symmetrical because it fully duplicates its entire downstream sequence on both sides (a different problem, see its write-up). <strong>"Appointment Cancellation Workflow," "After Business Hours," "Auto Missed Call Text-Back," "Exterior Screens Facebook Lead Form," "Google Ad (Exterior) to GHL," "Google Ads (home page) to GHL,"</strong> and the Partner Automations folder's sync workflows all avoid the issue entirely by not doing a Find-then-branch lookup at all.</p>
+
+<h3 class="sub">Pattern: single-assignee bottleneck (7 workflows now)</h3>
+<p>"1. New Lead," "2. Attempting Contact," "6. Future Appointments," "4. Follow Up," "Auto Missed Call Text-Back," "Exterior Screens Facebook Lead Form," and "Version 3 Facebook Lead Form" all hardcode <strong>"Assign to user: Kelli"</strong> with no round-robin, backup assignee, or availability check. By contrast, <strong>"1. Appointment Booked" assigns to two people (Erica/Justin)</strong>, <strong>"Partner New Leads Opt-in" assigns to a different person entirely (Renee)</strong> for partner-sourced leads, and "Auto Missed Call Text-Back" sends its downstream notifications to "Assigned User" dynamically rather than hardcoding a name. All three are patterns worth extending account-wide once the core assignment step is fixed.</p>
+
+<h3 class="sub">Pattern: a working idea gets copy-pasted instead of parameterized (3 dimensions, 8+ workflows)</h3>
+<p>The same anti-pattern shows up three separate ways: <strong>per marketing source</strong> ("Google Ad (Exterior) to GHL," "Google Ads (home page) to GHL," "Exterior Screens Facebook Lead Form," and "Version 3 Facebook Lead Form" are four near-identical intake workflows differing only by which tag they apply); <strong>per staff member</strong> ("My Blind Co - GHL Erica" sits alongside draft "My Blind Co - GHL" and "My Blind Co - GHL Justin" versions doing the same external sync); and <strong>per lifecycle event</strong> (the "(Partners) Installation Complete" and "(Partners) Lead Confirmation" pairs share an identical Add-Partner-Contact-to-Workflow &rarr; SMS &rarr; wait 2 hours &rarr; email shape). In every case, a working pattern was rebuilt from scratch per variable instead of being built once and parameterized, which also means any fix or improvement has to be applied N times instead of once.</p>
+
+<h3 class="sub">Good practice worth replicating: attribution-then-shared-workflow</h3>
+<p><strong>"Phone Number Tracking"</strong> and <strong>"QR Code and Landing Pages Lead Tracker"</strong> both do this correctly: each tags a contact by its specific source (6 tracking numbers / 6 landing pages respectively), then funnels every source into one shared destination workflow via <strong>Add to Workflow</strong> (into "1. New Lead" and "1. Appointment Booked" respectively) rather than duplicating the downstream sequence per source. This is the exact fix "1. Appointment Booked" and the ad-source intake workflows need. The account already has the right pattern in two places; it just hasn't been applied everywhere yet. Reviewing these two also resolved two earlier open questions: the "None" branches in "1. New Lead" and "1. Appointment Booked" aren't dead code; they're the real, necessary landing spot for every contact who arrives via one of these Add-to-Workflow hand-offs rather than the workflow's own named trigger.</p>
+
+<h3 class="sub">Good practice worth replicating: inline documentation</h3>
+<p>Five workflows in the Partner Automations folder, <strong>"(Partners) Workflow: Send Partner Objects to Mapsly," "(Partners) Workflow: Sync contacts to Mapsly," "(Partners) Map Partner Data to Contact," "(Partners) Write Referral Email to Opportunity,"</strong> and <strong>"Trigger Partner Data Sync"</strong>, all include a plain-English note box directly on the canvas explaining the trigger, logic, and intended behavior. These are also, not coincidentally, some of the cleanest and best-guarded workflows in the entire audit. Worth adopting this documentation habit account-wide, especially for the more complex workflows like "1. Appointment Booked."</p>
+
+<h3 class="sub">Minor pattern: unfiltered inbound webhooks</h3>
+<p>Both "Google Ad (Exterior) to GHL" and "Google Ads (home page) to GHL" show "No filters applied" on their Inbound Webhook triggers, meaning either will accept any payload sent to that URL with no validation. Worth adding basic field validation or a shared-secret check.</p>
+
+<table class="progress">
+<tr><th>Folder</th><th>Workflow</th><th>Status</th></tr>
+<tr><td>1. Lead Pipeline (New)</td><td>1. New Lead</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>1. Lead Pipeline (New)</td><td>2. Attempting Contact</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>1. Lead Pipeline (New)</td><td>3. Drip/Nurture</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>1. Lead Pipeline (New)</td><td>4. Unqualified</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>1. Lead Pipeline (New)</td><td>5. Spam</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>1. Lead Pipeline (New)</td><td>6. Future Appointments</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>2. Sales Pipeline (New)</td><td>1. Appointment Booked</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>2. Sales Pipeline (New)</td><td>2. Appointment Completed</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>2. Sales Pipeline (New)</td><td>3. Proposal Sent</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>2. Sales Pipeline (New)</td><td>4. Follow Up</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>2. Sales Pipeline (New)</td><td>5. Sold</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>2. Sales Pipeline (New)</td><td>6. Not sold</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>2. Sales Pipeline (New)</td><td>Appointment Cancellation Workflow</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>3. Lead Sources</td><td>After Business Hours</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>3. Lead Sources</td><td>Auto Missed Call Text-Back</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>3. Lead Sources</td><td>Exterior Screens Facebook Lead Form</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>3. Lead Sources</td><td>Google Ad (Exterior) to GHL</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>3. Lead Sources</td><td>Google Ads (home page) to GHL</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>3. Lead Sources</td><td>Partner New Leads Opt-in</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>3. Lead Sources</td><td>Phone Number Tracking</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>3. Lead Sources</td><td>QR Code and Landing Pages Lead Tracker</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>3. Lead Sources</td><td>Version 3 Facebook Lead Form</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>4. My Blind Co</td><td>My Blind Co - GHL Erica</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>5. Partner Automations</td><td>(Partners) Map Partner Data to Contact</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>5. Partner Automations</td><td>(Partners) Write Partner Details to Opportunity</td><td><span class="badge draft">Draft</span></td></tr>
+<tr><td>5. Partner Automations</td><td>(Partners) Write Referral Email to Opportunity</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>5. Partner Automations</td><td>Trigger Partner Data Sync</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>5. Partner Automations / Mapsly</td><td>(Partners) Workflow: Send Partner Objects to Mapsly</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>5. Partner Automations / Mapsly</td><td>(Partners) Workflow: Sync contacts to Mapsly</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>5. Partner Automations / Partner Communications</td><td>(Partners) Installation Complete - Add Partner Contact to Workflow</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>5. Partner Automations / Partner Communications</td><td>(Partners) Installation Complete - Send Communication</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>5. Partner Automations / Partner Communications</td><td>(Partners) Lead Confirmation - Add Partner Contact to Workflow</td><td><span class="badge published">Published</span></td></tr>
+<tr><td>5. Partner Automations / Partner Communications</td><td>(Partners) Lead Confirmation - Send Communication</td><td><span class="badge published">Published</span></td></tr>
+</table>
+
+<!-- ======================= FOLDER: 1. LEAD PIPELINE (NEW) ======================= -->
+
+<h2 class="section">Folder: 1. Lead Pipeline (New)</h2>
+<p class="section-intro">The core inbound lead lifecycle, from first form submission through disqualification or spam-flagging.</p>
+
+<h3 class="wf-title first">1. New Lead</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>Jun 22, 2026</strong></span><span>Trigger: <strong>Form Submitted</strong></span></div></div>
+
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>Clean core sequence: Form Submitted &rarr; Create Opportunity &rarr; Assign to user &rarr; Condition. A solid, standard lead-capture skeleton.</li>
+  <li>The follow-up cadence (Welcome Email &rarr; wait 30 min &rarr; Welcome SMS &rarr; wait 1 day &rarr; internal notification) is a reasonable multi-channel touch pattern.</li>
+  <li>Internal staff notifications exist so the team knows a lead came in, not just the contact.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li><strong>The condition branch looked tautological at first</strong>, but this is now resolved (see Executive Summary). "Phone Number Tracking" enrolls contacts here via Add to Workflow, which never fires the "Form Submitted" trigger, so those contacts correctly land in the "None" branch every time. The branch is real and necessary, not dead code.</li>
+  <li><strong>Single point of failure on assignment.</strong> "Assign to user: Kelli" is hardcoded with no round-robin or backup.</li>
+  <li><strong>No visible exit condition.</strong> Nothing on the canvas removes a contact once they book an appointment or reply.</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean">
+  <li>Swap the single-user assignment for a round-robin/user pool.</li>
+  <li>Confirm or add an explicit exit/goal step so booked leads stop receiving nurture texts.</li>
+  <li>Add a business-hours check before the SMS steps, or confirm "After Business Hours" already covers it.</li>
+</ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>The two branches (form-submission path and the Phone-Number-Tracking-fed "None" path) are almost entirely duplicated, the only difference is one extra "Add Tag" step, after which both run the identical six-step sequence. I'd rebuild this as one linear path with the tag applied conditionally, then merged into a single shared sequence, so a cadence change only has to be made once.</p>
+
+<h3 class="wf-title">2. Attempting Contact</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>May 28, 2026</strong></span><span>Trigger: <strong>Pipeline Stage Changed OR Call Details (outgoing, busy/no-answer)</strong></span></div></div>
+
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>The dual trigger covers both the human-driven and system-driven paths into this stage.</li>
+  <li>"Remove from Workflow" up front avoids two workflows fighting over the same contact.</li>
+  <li>The Find Opportunity &rarr; Found/Not Found split is good defensive design.</li>
+  <li>The end-of-sequence "nurture" tag is a deliberate hand-off into "3. Drip/Nurture."</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li><strong>"Opportunity Not Found" is a dead end</strong>, creates the opportunity and ends with no internal notification, no tag, nothing. First occurrence of the headline finding.</li>
+  <li>Same single-assignee bottleneck as "1. New Lead."</li>
+  <li>No contact-facing outreach in a workflow literally called "Attempting Contact", everything shown is internal.</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean">
+  <li>Bring "Opportunity Not Found" up to parity with "Opportunity Found."</li>
+  <li>Add a contact-facing SMS/email touch, not just internal notifications.</li>
+  <li>Confirm exactly which workflow "Remove from Workflow" targets and rename the step to be self-documenting.</li>
+</ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>The two "Internal Notification: Email" steps a day apart are the same double-notification pattern seen in "1. New Lead", consolidate to one notification with a built-in reminder mechanism. Extend "Opportunity Not Found" to mirror the found-branch logic rather than maintaining two diverging branches.</p>
+
+<h3 class="wf-title">3. Drip/Nurture</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>May 29, 2026</strong></span><span>Trigger: <strong>Contact Tag "nurture" added OR Pipeline Stage Changed to "Drip/Nurture"</strong></span></div></div>
+
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>The account's long-term nurture engine, and structurally well built: 11 monthly emails ending in a "Go To" loop-back rather than letting the contact fall off after less than a year.</li>
+  <li>The dual trigger (tag <em>or</em> pipeline stage) covers both entry paths.</li>
+  <li>"Remove from Workflow" up front avoids overlap with the prior workflow.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li><strong>"Opportunity Not Found" skips the entire 11-email nurture sequence</strong>, the most consequential instance of the headline finding, since a contact tagged "nurture" specifically to receive these emails may never get a single one.</li>
+  <li>No visible exit condition across an 11-month sequence, a converted or closed-out contact could keep receiving emails indefinitely.</li>
+  <li>The "Go To" step's destination and any loop cap aren't confirmed from the canvas alone.</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean">
+  <li>Add an exit/goal condition tied to opportunity stage (Sold, Booked, Not Sold/Disqualified).</li>
+  <li>Confirm the "Go To" target and consider a loop counter or re-qualification checkpoint.</li>
+</ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>The 11-email drip itself doesn't need simplifying. What needs rebuilding is the entry logic: "Opportunity Not Found" should feed into the exact same drip as "Opportunity Found," not dead-end separately, strong evidence this opportunity-check block should be a shared, reusable pattern.</p>
+
+<h3 class="wf-title">4. Unqualified</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>May 28, 2026</strong></span><span>Trigger: <strong>Pipeline Stage Changed to "Unqualified"</strong></span></div></div>
+
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>Simple and single-purpose: tags "disqualified" for downstream segmentation, no unnecessary steps.</li>
+  <li>No internal notification here is reasonable, staff likely don't need pinging every disqualification.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li><strong>The "disqualified" tag is applied inconsistently</strong>, only on the Found path, not on Not Found. Whether a disqualified contact actually gets tagged depends on whether an opportunity happened to already exist.</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean">
+  <li>Add "Add Tag: disqualified" to the Not Found branch.</li>
+  <li>Business decision worth confirming: should truly unqualified leads ever re-enter nurture later, or is this permanent?</li>
+</ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>This is now the third copy of an identical Find-Opportunity pattern with an identical gap, consolidate into one shared "ensure opportunity + apply outcome tag" building block.</p>
+
+<h3 class="wf-title">5. Spam</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>May 28, 2026</strong></span><span>Trigger: <strong>Contact Tag "spam" added OR Pipeline Stage Changed to "Spam"</strong></span></div></div>
+
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>The dual trigger catches spam flags no matter which way the contact got marked.</li>
+  <li>The Found path does exactly what a spam workflow should: Update opportunity, then <strong>Enable/Disable DND</strong>.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li><strong>The Not Found branch skips DND entirely.</strong> A contact tagged "spam" without an existing opportunity keeps receiving texts and emails from every other active workflow. Real deliverability/compliance exposure, not just reporting noise.</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean">
+  <li><strong>Treat this as a top-priority fix.</strong> Add the DND step to the Not Found branch immediately.</li>
+  <li>Consider moving DND to fire before the Find/Create split so it can never be skipped.</li>
+</ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Same shared-pattern fix as the rest, apply the outcome action <em>after</em> the Found/Not Found split reconverges, not duplicated inside each branch.</p>
+
+<h3 class="wf-title">6. Future Appointments</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>May 28, 2026</strong></span><span>Trigger: <strong>Pipeline Stage Changed to "Future Appointments"</strong></span></div></div>
+
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>Both branches end at the same place, so there's no asymmetry bug here.</li>
+  <li>Simple, low-risk, keeps the opportunity record in sync with the pipeline stage.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li>Hardcoded "Assign to user: Kelli" again.</li>
+  <li>No reminder or confirmation messaging in a workflow named "Future Appointments", confirmed elsewhere that reminders are actually handled by "1. Appointment Booked," but worth explicitly verifying there's no overlap or gap.</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean">
+  <li>Confirm no overlap with "1. Appointment Booked"'s reminder cascade.</li>
+  <li>Fold into the same round-robin/backup-assignee fix as the rest.</li>
+</ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No structural rebuild needed, one of the cleanest workflows reviewed.</p>
+
+<!-- ======================= FOLDER: 2. SALES PIPELINE (NEW) ======================= -->
+
+<h2 class="section">Folder: 2. Sales Pipeline (New)</h2>
+<p class="section-intro">Post-booking lifecycle: appointment through close, plus cancellations.</p>
+
+<h3 class="wf-title first">1. Appointment Booked</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Trigger: <strong>Appointment Status (confirmed)</strong></span></div></div>
+
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>Assignment goes to <strong>two people (Erica/Justin)</strong>, better than the single-assignee pattern elsewhere.</li>
+  <li>The "Opportunity Not Found" branch is <strong>not</strong> a dead end here, the only workflow reviewed where both branches are genuinely symmetrical.</li>
+  <li>The reminder cadence (1 day, 2 hours, 1 hour before) is well designed and confirms appointment reminders <em>are</em> handled, just here, not in "6. Future Appointments."</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li><strong>This workflow is duplicated eight times over.</strong> After Found/Not Found, each side fans into four source branches (Facebook, Google, Phone, None), and both sides run all four. That's 8 parallel columns of a ~13-14 step sequence, differing only by which tag applies at the start.</li>
+  <li>Staff can receive up to 6 internal notifications (email + SMS at three checkpoints) per booked appointment.</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean">
+  <li>Confirm "6. Future Appointments" isn't also sending reminders.</li>
+  <li>Trim internal notifications from 6 touches down to fewer checkpoints or one channel per checkpoint.</li>
+</ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>The clearest rebuild case in the audit. Needs: one Find/Create Opportunity step, one 4-way conditional tag-by-source branch, then <strong>one shared reminder cascade</strong>, not 8 full copies. "Phone Number Tracking" and "QR Code and Landing Pages Lead Tracker" already demonstrate the right pattern (tag by source, funnel into one shared workflow), apply it here.</p>
+
+<h3 class="wf-title">2. Appointment Completed</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Trigger: <strong>Appointment Status (completed) OR Pipeline Stage Changed to "Appointment Completed"</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>The dual trigger mirrors the solid pattern from "2. Attempting Contact."</li>
+  <li>The 30-minute wait before the thank-you email gives a natural gap instead of firing instantly.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li>"Opportunity Not Found" creates the opportunity and ends immediately, so the contact never receives the thank-you email.</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Add the same Wait 30 minutes &rarr; Thank You Email steps to the Not Found branch.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No rebuild needed, one-line fix once the shared pattern is addressed.</p>
+
+<h3 class="wf-title">3. Proposal Sent</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>May 28, 2026</strong></span><span>Trigger: <strong>Pipeline Stage Changed to "Proposal Sent"</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Clean, single-purpose, notify staff a proposal went out.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Not Found creates the opportunity and ends with no notification.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Add the same internal notification to the Not Found branch.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No rebuild needed, one-line fix.</p>
+
+<h3 class="wf-title">4. Follow Up</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Trigger: <strong>Pipeline Stage Changed to "Follow Up"</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>Email-then-SMS combo fires quickly on the Found path.</li>
+  <li>The 2-day wait before the internal notification is sensible, staff is pinged only after automated touches land.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li>Not Found skips the entire Follow up Email &rarr; SMS &rarr; Wait 2 days &rarr; Internal Notification sequence.</li>
+  <li>The internal notification is explicitly addressed "to Kelli" by name, reinforcing the assignment-bottleneck pattern.</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean">
+  <li>Same branch fix as the rest of the account.</li>
+  <li>Route the internal notification to whichever rep is actually assigned, not a hardcoded name.</li>
+</ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No rebuild, one-line fix once the shared pattern is addressed.</p>
+
+<h3 class="wf-title">5. Sold</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>Jun 2, 2026</strong></span><span>Trigger: <strong>Pipeline Stage Changed to "Sold"</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Correct concept: a won deal gets tagged <strong>"active client"</strong> on the Found path.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li><strong>Likely the most business-critical instance of the headline finding.</strong> Not Found never applies the "active client" tag, so a closed deal can silently fall outside every post-sale workflow.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Prioritize this alongside "5. Spam", both carry real business consequences, not just reporting gaps.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Same shared-pattern fix, no structural rebuild beyond correcting the branch.</p>
+
+<h3 class="wf-title">6. Not sold</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Trigger: <strong>Pipeline Stage Changed to "Not Sold"</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>One of the best hand-off designs in the account: tag &rarr; wait 1 day &rarr; email &rarr; <strong>Add to Workflow: Drip/Nurture</strong>, guaranteeing enrollment rather than relying on a tag-based re-entry.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li><strong>The most severe shape of the headline finding.</strong> Unlike every other instance, Not Found doesn't even create an opportunity. It goes straight to END. The contact gets no tag, no email, and never enters Drip/Nurture.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Bring Not Found to full parity with Found: create the opportunity, tag, email, and add to Drip/Nurture.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>The Found side is a good template to copy the ending from once Not Found is corrected.</p>
+
+<h3 class="wf-title">Appointment Cancellation Workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>May 28, 2026</strong></span><span>Trigger: <strong>Appointment Status (cancelled)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Refreshingly simple, no opportunity lookup at all, sidestepping the Found/Not-Found bug entirely by not needing that step.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Nothing broken, a design question, not a defect.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Confirm intent: a cancellation goes straight into the slow 30-day nurture drip rather than an active rebooking attempt. If recovering the booking matters, route to "2. Attempting Contact" first.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No changes needed, a good template for "when the downstream action doesn't need opportunity data, skip the lookup entirely."</p>
+
+<!-- ======================= FOLDER: 3. LEAD SOURCES ======================= -->
+
+<h2 class="section">Folder: 3. Lead Sources</h2>
+<p class="section-intro">Intake and attribution workflows across ad channels, forms, calls, and after-hours handling.</p>
+
+<h3 class="wf-title first">After Business Hours</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Trigger: <strong>Customer replied (Chat, Email, SMS, or Call)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>Covers all four reply channels with one shared condition check.</li>
+  <li>No opportunity lookup at all, avoiding the headline bug entirely.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li>The condition branch that fires when it's <em>outside</em> business hours is labeled "Check Business Hours" while "None" is actually the during-hours case, backwards from how most people would read it.</li>
+  <li>Regardless of reply channel, the auto-reply always goes out as SMS only.</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean">
+  <li>Relabel the branches for clarity.</li>
+  <li>Match the reply channel, or send both SMS and email, instead of defaulting to SMS.</li>
+</ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No rebuild, just the labeling and channel-matching tweaks above.</p>
+
+<h3 class="wf-title">Auto Missed Call Text-Back</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>May 28, 2026</strong></span><span>Trigger: <strong>Call Details (busy/no-answer)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>Excludes known partners from the auto-text-back so a partner calling in isn't treated like a missed sales lead.</li>
+  <li>A deliberate short delay before texting so the reply "doesn't feel like a bot", good UX thinking.</li>
+  <li>Downstream notifications go to "Assigned User" dynamically rather than a hardcoded name.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>"Assign to user: Kelli" again.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Same round-robin/backup-assignee fix, once fixed here, the dynamic "Assigned User" notifications downstream will automatically follow.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No rebuild needed. (This is also one of the five duplicate-named draft/published pairs identified in the original subaccount audit.)</p>
+
+<h3 class="wf-title">Exterior Screens Facebook Lead Form</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>Jun 10, 2026</strong></span><span>Trigger: <strong>Facebook Lead Form Submitted</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>Clean linear sequence: notify staff, create the opportunity, tag by source, email + SMS with a booking link a few minutes apart.</li>
+  <li>The 1-day hand-off into a "Not Booked" workflow is a good pattern.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li>"Assign to user: Kelli" again.</li>
+  <li><strong>No check on whether the lead actually booked</strong> before the 1-day hand-off, every lead gets added to "Not Booked" regardless of outcome.</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Add a condition before the hand-off, only add to "Not Booked" if no appointment was booked.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>One logic gap to patch, otherwise well built. Structurally identical to "Version 3 Facebook Lead Form", see the copy-paste-instead-of-parameterize pattern in the Executive Summary.</p>
+
+<h3 class="wf-title">Google Ad (Exterior) to GHL</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>May 28, 2026</strong></span><span>Trigger: <strong>Inbound Webhook (no filters)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Simple, direct webhook-to-contact capture.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li><strong>"No filters applied"</strong> on the webhook trigger, accepts any payload with no validation.</li>
+  <li>One of the five duplicate-named draft/published pairs from the original subaccount audit.</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Add basic payload validation or a shared-secret check.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Consolidate with "Google Ads (home page) to GHL" into one parameterized webhook-intake workflow that applies the right tag based on a source field, instead of a near-identical copy per landing page.</p>
+
+<h3 class="wf-title">Google Ads (home page) to GHL</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>May 28, 2026</strong></span><span>Trigger: <strong>Inbound Webhook (no filters)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Same simple, direct capture as its sibling above.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Same unfiltered webhook issue, and the other half of the duplicate-named pair.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Same validation fix as "Google Ad (Exterior) to GHL."</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Same consolidation recommendation, merge into one parameterized intake workflow.</p>
+
+<h3 class="wf-title">Partner New Leads Opt-in</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>May 28, 2026</strong></span><span>Trigger: <strong>Contact Tag "partner lead" added</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>Assigns to <strong>Renee</strong>, not Kelli, smart segmentation of partner leads to a different person than consumer leads.</li>
+  <li>Clean cadence: SMS &rarr; wait 3 min &rarr; intro email &rarr; wait 3 days &rarr; SMS follow-up &rarr; tag "Drip."</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>No internal staff notification visible, worth confirming this is handled by one of the Partner Automations workflows instead of being a genuine gap.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Confirm the notification question above; add one if missing, since partner relationships likely warrant a personal follow-up.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No changes needed otherwise, clean and simple.</p>
+
+<h3 class="wf-title">Phone Number Tracking</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>Jun 10, 2026</strong></span><span>Trigger: <strong>Call Details across 6 tracking numbers</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li><strong>The best-practice model in this audit.</strong> Six tracking numbers each get tagged by source, then all funnel into a single shared <strong>"Add to Workflow: New Lead"</strong> instead of duplicating the nurture sequence per number.</li>
+  <li>Resolves the "1. New Lead" None-branch question, see Executive Summary.</li>
+  <li>Now includes a plain-English documentation note box explaining the trigger, tagging, and hand-off logic, a good addition.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li><strong>Update: several of its "Add Tag" steps now show live error indicators</strong> (Main Number and a few of the promo-tag branches), the same kind of system-flagged issue found elsewhere in the account, likely a tag that was renamed or deleted after this workflow was built. Even the best-designed workflow in the audit has something broken underneath, worth clicking into each flagged tag step to see what GHL reports.</li>
+  <li>One of the five duplicate-named draft/published pairs from the original subaccount audit.</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Fix the flagged tag references first. Once resolved, still hold this up as the model when fixing "1. Appointment Booked" and the ad-source intake workflows.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No structural changes needed, just the tag-reference fix above.</p>
+
+<h3 class="wf-title">QR Code and Landing Pages Lead Tracker</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>Jun 12, 2026</strong></span><span>Trigger: <strong>Customer Booked Appointment</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>Same excellent pattern as "Phone Number Tracking": six landing-page/promo sources tagged, then all funnel into a single <strong>"Add to Workflow: Appointment Booked."</strong></li>
+  <li>Resolves part of the "1. Appointment Booked" None-branch question, these tags don't match its named UTM/tag conditions, confirming that branch carries real, necessary traffic.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li><strong>Update: two of its "Add Tag" steps also show live error indicators</strong> (upgrade_lp-booking and exterior_lp-booking), same likely cause as Phone Number Tracking, a broken tag reference.</li>
+  <li>This workflow is the actual source of several inconsistent tag names flagged in the original subaccount tags audit (the b1g1/b2g1/exterior-booking naming cluster).</li>
+  <li>One of the five duplicate-named draft/published pairs from the original audit.</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Fix the two flagged tag references. When consolidating tag naming per the original audit's recommendation, this is also one of the workflows that needs its tag names standardized.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No structural changes needed beyond the tag-reference fixes.</p>
+
+<h3 class="wf-title">Version 3 Facebook Lead Form</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>Jun 23, 2026</strong></span><span>Trigger: <strong>Facebook Lead Form Submitted</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Same well-built linear intake sequence as "Exterior Screens Facebook Lead Form."</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li>"Assign to user: Kelli" again, and the same missing booking-check before the 1-day hand-off into "Not Booked."</li>
+  <li><strong>This is the 4th confirmed near-identical, per-source intake workflow</strong> (alongside the two Google Ad webhooks and Exterior Screens), strong evidence the consolidation recommendation is worth prioritizing.</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Same fixes as "Exterior Screens Facebook Lead Form."</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Prime candidate for the per-source consolidation fix described in the Executive Summary.</p>
+
+<div class="callout">
+<strong>Skipped as inactive:</strong> "Auto Update Appt Address" appears in this folder's list as a <strong>Draft</strong> and was intentionally left out of this review rather than audited as if it were live.
+</div>
+
+<!-- ======================= FOLDER: 4. MY BLIND CO ======================= -->
+
+<h2 class="section">Folder: 4. My Blind Co</h2>
+<p class="section-intro">Sync integration with the MyBlindCo external system.</p>
+
+<h3 class="wf-title first">My Blind Co - GHL Erica</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>Jun 9, 2026</strong></span><span>Trigger: <strong>Contact Tag ("booked - google/facebook/appt/phone")</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>Triggers directly off the tags "1. Appointment Booked" applies, a real, working hand-off between workflows.</li>
+  <li>A smart idempotency check up front ("already tagged mbc?") prevents pushing the same contact to the external system twice.</li>
+  <li>This is the actual sync mechanism behind the "mbc" tags and MyBlindCo custom fields flagged in the original subaccount audit.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li><strong>A second webhook step is explicitly labeled "(Disabled)"</strong> and sits inside this live, published workflow. Whatever it was meant to do currently never fires, silently.</li>
+  <li>This is a per-staff-member duplicate: a base "My Blind Co - GHL" and a "My Blind Co - GHL Justin" both exist as drafts alongside this one, the third dimension of the copy-paste-instead-of-parameterize pattern.</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean">
+  <li>Re-enable or formally delete the disabled webhook step.</li>
+  <li>Confirm whether the Justin/base drafts are meant to run in parallel per rep or are superseded leftovers.</li>
+</ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>If this sync needs to run per rep, build one shared workflow parameterized by assigned user instead of a copy per person.</p>
+
+<div class="callout">
+<strong>Skipped as inactive:</strong> "My Blind Co - GHL Justin" appears in this folder's list as a <strong>Draft</strong> and was intentionally left out of this review rather than audited as if it were live.
+</div>
+
+<!-- ======================= FOLDER: 5. PARTNER AUTOMATIONS ======================= -->
+
+<h2 class="section">Folder: 5. Partner Automations</h2>
+<p class="section-intro">Partner lifecycle notifications and third-party sync to Mapsly and MyBlindCo. This folder has the best inline documentation practice in the account, but also the one live error flag in this audit.</p>
+
+<h3 class="wf-title first">(Partners) Map Partner Data to Contact</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Trigger: <strong>Entered only via "Add associated records to workflow"</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>Includes an inline documentation note box explaining the trigger, logic, and behavior, a practice worth replicating account-wide.</li>
+  <li>No own top-level trigger is intentional and confirmed, "Trigger Partner Data Sync" (below) explicitly documents that it enters this workflow.</li>
+  <li>Simple, single-purpose: maps Partner Name/Record ID onto the Contact record.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Nothing broken.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>None needed.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No changes needed, a model workflow.</p>
+
+<h3 class="wf-title">(Partners) Write Partner Details to Opportunity</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Draft</span></strong></span><span>Trigger: <strong>Opportunity Changed OR Opportunity Created (Partner Referral Email not empty)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Sensible guard: only writes partner details onto non-partner contacts (the actual lead, not the partner's own contact record).</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li><strong>Its "Find Contact" step is showing a visible red error indicator directly on the canvas</strong>, a live signal from GHL that something is currently misconfigured on that step, not a design critique. See the urgent callout in the Executive Summary.</li>
+  <li>Currently a draft, not published. Worth confirming whether that's intentional pending the error fix.</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Investigate and resolve the Find Contact error before considering publishing this workflow.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Fix the error first, the surrounding logic doesn't need structural changes.</p>
+
+<h3 class="wf-title">(Partners) Write Referral Email to Opportunity</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Trigger: <strong>Contact Changed/Created (Partner Referral Email set)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>Includes an inline documentation note box, clearly explaining the write-referral-email-to-opportunity logic step by step.</li>
+  <li>Single clear purpose: attributes the referring partner's email onto the referred lead's opportunity.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li><strong>10th instance of the headline finding</strong>, though documented as intentional ("if no opportunity is found, nothing more happens"). Still, if the referral email is set before an opportunity exists, that attribution is permanently lost unless something re-triggers this later.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Add "Opportunity Created" as a second trigger condition to catch the case where the opportunity is created after the referral email was already set.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No rebuild needed beyond the additional trigger.</p>
+
+<h3 class="wf-title">Trigger Partner Data Sync</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Trigger: <strong>Contact Tag "sync partner data" added</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li><strong>The clearest, best-documented, fully-traceable chain in the whole audit.</strong> Its note box explicitly documents the full manual-association &rarr; tag &rarr; sync chain, and confirms it hands off into "(Partners) Map Partner Data to Contact" via Add associated records to workflow.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Nothing broken.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>None, hold this up as the documentation standard for the rest of the account.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No changes needed.</p>
+
+<hr class="divider">
+<p class="section-intro"><strong>Subfolder: Mapsly</strong></p>
+
+<h3 class="wf-title">(Partners) Workflow: Send Partner Objects to Mapsly</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>Apr 19, 2026</strong></span><span>Trigger: <strong>Partner record Changed or Created</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>Inline documentation note box explaining the full trigger/logic/behavior.</li>
+  <li>Sensible logic: won't send a partner's info to Mapsly if the address is missing, guarding against pushing incomplete data downstream.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Minor: the "Partner ID empty" and "Partner ID not empty" branches both converge on the same address-check-then-send logic, built as two separate branches rather than one linear flow, a small-scale version of the branch-duplication pattern, low cost given the workflow's short length.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Nothing urgent.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Could merge the two branches into one linear flow eventually, but it isn't causing a real problem as-is.</p>
+
+<h3 class="wf-title">(Partners) Workflow: Sync contacts to Mapsly</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>Apr 19, 2026</strong></span><span>Trigger: <strong>Contact Created (Type "Partner") OR tag "mapsly contact sync"</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>Inline documentation note box.</li>
+  <li>Simple, single-purpose; the dual trigger gives flexibility for how a contact gets flagged for sync.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>No idempotency guard like "My Blind Co - GHL Erica"'s "already synced" check. If the "mapsly contact sync" tag is ever re-applied, this could re-fire and send a duplicate sync.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Add the same "already synced" tag-check pattern used in the My Blind Co workflow.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No changes needed otherwise, one of the cleanest workflows in the audit.</p>
+
+<hr class="divider">
+<p class="section-intro"><strong>Subfolder: Partner Communications</strong></p>
+
+<h3 class="wf-title">(Partners) Installation Complete - Add Partner Contact to Workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>May 23, 2026</strong></span><span>Trigger: <strong>Contact Tag "installation complete" added</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>Correct use of the trigger-workflow &rarr; hand-off pattern via "Add associated records to workflow."</li>
+  <li>Sensible partner-lead guard, contacts without the "partner lead" tag don't trigger partner-specific comms.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Part of the per-lifecycle-event duplication pattern, near-identical to the "Lead Confirmation" pair below.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>If more partner lifecycle events follow this shape, build one shared "Partner Communication" workflow parameterized by event type.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>The two-step decide/notify split is a legitimate technical necessity (handing off from a Contact-level trigger to an associated Partner-object workflow), don't merge that away. Consolidate <em>across</em> event types instead.</p>
+
+<h3 class="wf-title">(Partners) Installation Complete - Send Communication</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>May 23, 2026</strong></span><span>Trigger: <strong>Entered only via "Add associated records to workflow"</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean">
+  <li>Reasonable cadence, immediate SMS, then a 2-hour-later email.</li>
+  <li>No own trigger is confirmed intentional, the same idiom seen elsewhere in this account.</li>
+</ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Same per-event-type duplication as its "Lead Confirmation" counterpart below, identical SMS &rarr; wait 2 hours &rarr; email shape.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Same consolidation recommendation as above.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Consolidate across event types into one parameterized communication workflow.</p>
+
+<h3 class="wf-title">(Partners) Lead Confirmation - Add Partner Contact to Workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>May 23, 2026</strong></span><span>Trigger: <strong>Contact Created (tag "partner lead")</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>The trigger itself already filters for the partner-lead tag, so no extra branch guard is needed.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Same duplication pattern as the "Installation Complete" pair.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Same consolidation recommendation.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Same as above, consolidate across event types.</p>
+
+<h3 class="wf-title">(Partners) Lead Confirmation - Send Communication</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge published">Published</span></strong></span><span>Last updated: <strong>May 23, 2026</strong></span><span>Trigger: <strong>Entered only via "Add associated records to workflow"</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Same SMS &rarr; wait 2 hours &rarr; email cadence; no own trigger confirmed intentional.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Same duplication pattern.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Same consolidation recommendation.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Same as above.</p>
+
+<!-- ======================= FOLDER: CUSTOMER ORDER FLOW PIPELINE (INACTIVE) ======================= -->
+
+<h2 class="section">Folder: Customer Order Flow Pipeline (Inactive Workflows)</h2>
+<div class="callout urgent">
+<strong>Major finding: this entire post-sale pipeline is inactive.</strong> These nine workflows map exactly to the "Customer Order Flow Pipeline" stages, Sold, Deposit Received, Ordered/In Production, Production Complete, Order Shipped, Order Complete/Ready for Install, Installation Scheduled, Installation Complete, and Incomplete/Remake/Reorder, and every one of them is sitting in Draft. This isn't a retired or legacy structure, it's the account's entire post-sale customer journey, and none of it has been running: no deposit confirmations, no order update emails, no production handoffs, no shipping notices, no installation reminders, and no post-install review requests have gone out to paying customers.
+</div>
+<div class="callout good">
+<strong>Why this is genuinely good news, not just bad news:</strong> every customer currently sitting somewhere in this pipeline is a paying customer who already said yes, this isn't a cold lead needing to be convinced, it's someone who trusted the business enough to put down a deposit. Activating this pipeline is a rare chance to reach back out to every one of those customers at once: reassure anyone who's felt quiet or forgotten since their purchase, catch any order or installation that quietly stalled without anyone noticing, and, once "08. Installation Complete + Google Review Request" goes live, start collecting reviews from a whole backlog of completed jobs that never got asked. Very few fixes double as both a customer-relationship repair and a lead-gen boost the same week.</div>
+
+<h3 class="wf-title first">01. Sold Workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Contact Tag "sold" added</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Simple and symmetrical, both Found and Not Found branches just sync the opportunity and end, no asymmetry bug here since neither side does more than the other.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Inactive. Also worth checking whether this overlaps with "5. Sold" in the Sales Pipeline folder, since both appear to react to a deal being sold, just on different triggers (tag vs. pipeline stage).</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Confirm with Josh whether this and "5. Sold" are both still needed, or whether one has fully replaced the other.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No rebuild needed once the overlap question is resolved.</p>
+
+<h3 class="wf-title">02. Deposit Received Workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Pipeline Stage Changed to "Deposit Received" OR Payment Received (external, success)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Good dual trigger, covers both a manual stage move and an actual payment confirmation. Found path correctly reassigns to the sales rep, notifies them, and swaps the "Sold" tag for "Ordered."</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Inactive. Same Not Found dead end as the rest of the account, a deposit recorded without an existing opportunity gets no reassignment, no notification, and no tag update.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Same branch fix as everywhere else once this gets activated.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No rebuild needed, one-line fix once active.</p>
+
+<h3 class="wf-title">03. Ordered | In Production Workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Contact Tag "ordered" added</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Simple, single-purpose, sends the customer an order update email on the Found path.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Inactive. Not Found dead end, no order update email if the opportunity wasn't already on file.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Same branch fix once active.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No rebuild needed.</p>
+
+<h3 class="wf-title">04. Production Complete Workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Pipeline Stage Changed to "Production Complete"</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Reasonable handoff sequence, removes the "ordered" tag and notifies a team member a day later.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Inactive. Not Found dead end. More urgently, <strong>"Assign to user: Brittany" points at someone who isn't one of the account's current 17 users.</strong> This assignment silently fails every time this step runs.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Replace "Brittany" with a current team member before activating this workflow, otherwise production-complete handoffs will continue going nowhere even after the pipeline is turned on.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Fix the assignment and the branch gap, no structural rebuild needed.</p>
+
+<h3 class="wf-title">05. Order Shipped Workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Trigger Link Clicked ("Order Shipped") OR Pipeline Stage Changed to "Order Shipped"</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Dual trigger again, a tracked link click or a manual stage change both work. Found path emails the customer a shipping notice.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Inactive. Not Found dead end, no shipping email if the opportunity isn't already on file.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Same branch fix once active.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No rebuild needed.</p>
+
+<h3 class="wf-title">06. Order Complete | Ready for Install</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Pipeline Stage Changed to "Order Complete | Ready for Install"</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Simple internal handoff notification on the Found path.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Inactive. Not Found dead end, no internal notification if the opportunity isn't already on file, meaning staff could miss knowing an order is ready to schedule for install.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Same branch fix once active.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No rebuild needed.</p>
+
+<h3 class="wf-title">07. Installation Scheduled Workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Customer booked appointment (Installation calendar)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>A full reminder cascade similar in spirit to "1. Appointment Booked", notifications at 1 day, 2 hours, and 1 hour before the installation, plus customer-facing reminder emails at each checkpoint.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li><strong>Its trigger shows a live error indicator</strong>, a second confirmed system-flagged issue in the account alongside the one on "(Partners) Write Partner Details to Opportunity." Needs investigation before this workflow goes anywhere near production, regardless of its Draft status.</li>
+  <li><strong>It auto-tags "Installation Complete" 30 minutes after the scheduled time</strong>, not based on any actual confirmation the install happened. A late start, a reschedule, or an installer no-show would still get marked complete.</li>
+  <li>Internal notification is addressed "to Kelli" by name, another instance of the single-assignee/hardcoded-name pattern found elsewhere.</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean">
+  <li>Fix the trigger error first.</li>
+  <li>Replace the time-based auto-complete tag with a real confirmation step (a task for the installer or office to mark complete) before relying on it for reporting or triggering the review-request workflow.</li>
+</ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Needs real fixes before activation, not just a status flip.</p>
+
+<h3 class="wf-title">08. Installation Complete + Google Review Request</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Pipeline Stage Changed to "Installation Complete" OR Contact Tag "Installation Complete"</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li><strong>This is genuinely smart design, worth preserving exactly as-is.</strong> It thanks the customer, waits a day, then asks them to rate the experience. A 9 or 10 rating routes to an actual Google review request; an 8 or below routes to a private acknowledgment instead of pushing an unhappy customer toward a public review. That's the right way to protect the business's public rating while still capturing every customer's feedback.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Inactive, so this smart logic has never actually run for a single completed installation. The "Assign to user" step near the top doesn't show a name in the canvas, worth confirming it's actually configured.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Confirm the assignment step has a real user selected, then this is close to ready to activate as one of the highest-value pieces in this whole pipeline, since it directly drives new reviews.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Don't touch the rating-gated logic, it's a model worth pointing to elsewhere in the account.</p>
+
+<h3 class="wf-title">09. Incomplete | Remake | Reorder Workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Contact Tag "reorder," "remake," or "incomplete" added</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>One workflow correctly handles three different exception scenarios with a condition branch picking the right customer email for each.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Inactive. Not Found dead end. <strong>Also assigns to "Brittany"</strong>, the same broken/orphaned user reference as "04. Production Complete Workflow."</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Replace "Brittany" with a current team member, and apply the same branch fix as the rest.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>No rebuild needed beyond those two fixes.</p>
+
+<!-- ======================= FOLDER: LEAD TRACKER WORKFLOWS (MISC/LEGACY) ======================= -->
+
+<h2 class="section">Folder: Lead Tracker Workflows (Misc/Legacy)</h2>
+<p class="section-intro">"Phone Number Tracking" and "QR Code and Landing Pages Lead Tracker" are also filed here (see their write-ups earlier in this document, now updated with the tag-error findings below). The remaining seven are mostly draft duplicates, superseded predecessors, or workflows outside this account's current scope.</p>
+
+<h3 class="wf-title first">After Business Hours Workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Draft</span></strong></span><span>Trigger: <strong>Customer replied (Chat, Email, SMS, or Call)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Identical structure to the published "After Business Hours" already reviewed.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>This is the old draft duplicate of that same workflow, no new content.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Confirm the published "After Business Hours" is the one in use, then archive this copy.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Archive candidate, no unique logic here.</p>
+
+<h3 class="wf-title">Auto Missed Call Text-Back (draft copy)</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Draft</span></strong></span><span>Trigger: <strong>Call Details (busy/no-answer)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Matches the published "Auto Missed Call Text-Back" already reviewed, same partner exclusion and humanizing delay.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Duplicate of the live version, no new content.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Archive once confirmed the published version is the one running.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Archive candidate.</p>
+
+<h3 class="wf-title">Facebook Comments on a Post</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Draft</span></strong></span><span>Trigger: <strong>Facebook Comment(s) on Page "The Window Valet Studio"</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Simple auto-responder for Facebook post comments.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Assigns to <strong>"Brittany"</strong>, the third confirmed instance of this broken/orphaned user reference in the account.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Worth a scope check before fixing: social media management stays with Shade Strategy under Josh's team split, this may not be a workflow your team needs to own or activate.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Confirm ownership before investing further time here.</p>
+
+<h3 class="wf-title">GHL to Myblindco</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Draft</span></strong></span><span>Trigger: <strong>Appointment Status</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Simple, direct webhook push to MyBlindCo on appointment status change.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Looks like an older, simpler predecessor to "My Blind Co - GHL Erica," which handles this more robustly with an idempotency check and tag confirmation.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Confirm this has been fully superseded by the Erica workflow before archiving.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Likely archive candidate, pending confirmation.</p>
+
+<h3 class="wf-title">Leads from Landing Page (Disabled)</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Draft</span></strong></span><span>Trigger: <strong>Inbound Webhook (no filters)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>The name states its own status, already marked disabled by whoever built it.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Nothing to fix, this one was already intentionally retired.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>None needed.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Safe, straightforward archive candidate.</p>
+
+<h3 class="wf-title">My Blind Co - GHL (base draft)</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Draft</span></strong></span><span>Trigger: <strong>Pipeline Stage Changed (broken reference)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Nothing to point to, superseded by the working "-Erica" version.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li><strong>This one is actually broken, not just unused.</strong> Its trigger shows a raw ID instead of a resolved pipeline and stage name, and carries its own live error indicator, meaning the pipeline or stage it originally pointed to has since been deleted. A third confirmed live error in the account.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>No fix needed, this one should simply be archived rather than repaired, since "My Blind Co - GHL Erica" already covers this properly.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Archive candidate.</p>
+
+<h3 class="wf-title">Promotions and Discounts</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Draft</span></strong></span><span>Trigger: <strong>Trigger Link Clicked ("Holiday Promo" or "10% Discount")</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Reasonable structure, creates or updates the opportunity, tags the lead "Hot Lead," and sends a promo-specific congratulatory email.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Its "Assign to user" step has no one actually selected, would fail silently if this workflow were ever activated as-is.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>If this promo automation is still wanted, assign a real user before activating. If not, archive it.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Needs a decision on whether it's still needed before any further work.</p>
+
+<!-- ======================= FOLDER: SALES ORDER PIPELINE ======================= -->
+
+<h2 class="section">Folder: Sales Order Pipeline (Inactive, Revenue Upsell)</h2>
+<div class="callout urgent">
+<strong>Another dormant pipeline, and this one is a direct revenue opportunity, not just a customer-experience gap.</strong> These five workflows follow up with customers who only bought part of their home's windows, asking them to complete the rest, or cross-sell interior after exterior and vice versa. Every contact in this pipeline already said yes once; this is the lowest-friction upsell the business has. All five are Draft and have never run.
+</div>
+
+<h3 class="wf-title first">01. Partially Sold Interior Workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Trigger Link Clicked ("Partial Installation Interior")</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Good concept: a 2-touch email sequence (immediate, then 7 days later) asking an interior-only customer to complete the rest of the home.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Both the Update opportunity and Create Opportunity steps show live error indicators, unlike most other findings where only one branch is flagged. Inactive.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Investigate both flagged steps before activating, this may share the same root cause as other broken-reference workflows in this document.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Repair, don't archive, this fills a real upsell gap nothing else covers.</p>
+
+<h3 class="wf-title">02. Partially Sold Exterior Workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Trigger Link Clicked (possible copy-paste issue, see below)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Mirrors "01" for exterior-only customers.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li>Same dual error indicators as "01." Inactive.</li>
+  <li><strong>Its trigger link name still appears to reference "Interior" rather than an exterior-specific link</strong>, worth confirming this wasn't left pointing at the wrong link after being copied from "01."</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Verify the trigger link before anything else, this workflow may currently be listening for the wrong event entirely.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Repair after confirming the trigger link.</p>
+
+<h3 class="wf-title">03. Whole House Sold - Exterior Workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Trigger Link Clicked ("Whole House Sold")</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Smart cross-sell: asks a whole-house-exterior customer whether they want interior done next.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Same dual error indicators as the rest of this folder. Inactive.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Same repair as "01" and "02" once the shared root cause is identified.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Repair, don't archive.</p>
+
+<h3 class="wf-title">04. Whole House Sold - Both Workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Trigger Link Clicked ("Whole House Sold - Both")</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>The completion case for customers who bought everything, likely a review or referral ask given there's nothing left to upsell.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Same dual error indicators. Inactive. Email content isn't visible from the canvas alone (generic "Email 1" / "Email 2" labels), worth opening to confirm what it actually says.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Confirm email content once repaired, this is the highest-satisfaction segment and a good candidate for a review or referral ask.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Repair, don't archive.</p>
+
+<h3 class="wf-title">05. Whole House Sold - Interior Workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Trigger Link Clicked ("Whole House Sold")</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Mirrors "03," cross-sells exterior to a whole-house-interior customer.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Same dual error indicators. Inactive.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Same repair as the rest of this folder.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p>Repair, don't archive.</p>
+<div class="callout warn">All five workflows in this folder rely on <strong>Trigger Link Clicked</strong> events. Before activating any of them, confirm the underlying tracked links actually exist and are embedded somewhere a customer would see them (an email or text), activating the workflow alone does nothing if the trigger mechanism itself was never wired up.</div>
+
+<!-- ======================= FOLDER: MISC LEGACY (BROKEN REFERENCES) ======================= -->
+
+<h2 class="section">Folder: Misc Legacy Workflows (Broken Pipeline References)</h2>
+<div class="callout urgent">
+<strong>Likely root cause found: a pipeline or set of stages was deleted or restructured at some point, breaking every workflow still pointing at it.</strong> Four workflows now share the exact same corruption signature, a blank pipeline field or a raw unresolved ID where a stage name should be, plus a live error indicator: "My Blind Co - GHL" (base draft), "Appointment Confirmation Workflow," "Quote Follow Up Workflow," and "Scouting report workflow." Two of them ("Appointment Confirmation Workflow" and "Scouting report workflow") reference the identical broken stage ID, strong evidence this was one event, not four unrelated bugs. Worth asking whoever has been in the account longest whether a pipeline was ever deleted or reorganized, one answer could explain all four findings at once.
+</div>
+
+<h3 class="wf-title first">Appointment Confirmation Workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Pipeline Stage Changed (broken reference, live error)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>The downstream logic itself is fine: confirmation email, 24-hour reminder, 12-hour SMS reminder.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Broken trigger (blank pipeline, unresolved stage ID, live error). Also superseded, "1. Appointment Booked" already covers this, better, and is already fixed.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>None needed.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p><strong>Archive, don't repair.</strong> Redundant with an already-working, already-fixed workflow.</p>
+
+<h3 class="wf-title">Form submission follow up workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Form Submitted (3 triggers, 2 near-identical)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Genuinely distinct logic not found in "1. New Lead": checks whether the contact is currently active in another named workflow before deciding to tag them hot or warm lead, then sends an appropriately targeted follow-up.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>No visible errors, but two of its three triggers look near-identical, and it references a workflow by name ("update opportunity to appointment scheduled") that needs to be confirmed as still existing and relevant.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Confirm the referenced workflow still exists and clarify whether the duplicate-looking triggers are intentional before deciding to activate.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p><strong>Hold, needs investigation, not a clean yes or no yet.</strong></p>
+
+<h3 class="wf-title">Internal: Opportunity Assignment Notification</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Opportunity Changed (Assigned to has changed)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Simple, no errors: notifies staff internally whenever an opportunity's assigned user changes. Complements the round-robin assignment fixes already made elsewhere in this audit.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Nothing broken.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>None needed.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p><strong>Safe to reactivate as-is.</strong></p>
+
+<h3 class="wf-title">Map closing date from opportunity to contact</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Opportunity Changed (Closing Date has changed)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Simple field sync, no errors, keeps a contact-level closing date field aligned with the opportunity's.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Nothing broken, but confirm the contact-level "closing date" field is actually used anywhere (a report, a view, another workflow) before activating, otherwise it's harmless but pointless.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Confirm the field is in use, then reactivate.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p><strong>Likely safe to reactivate</strong> once the field-usage question is confirmed.</p>
+
+<h3 class="wf-title">Quote Follow Up Workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Pipeline Stage Changed (broken reference)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li>Fills a real gap: a multi-week follow-up sequence on sent quotes (SMS and email touches at 24 hours, then +2, +5, and +3 days) ending in automatically moving stale quotes to Closed-Lost. "3. Proposal Sent" (already fixed elsewhere) only sends one internal notification, it doesn't do this multi-touch follow-up or auto-close stale deals.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean">
+  <li><strong>Every single condition check throughout the entire multi-week sequence compares against the same raw, unresolved pipeline stage ID.</strong> In practice this likely means contacts fall through to "Remove from Workflow" almost immediately instead of actually being followed up with, the core logic is broken end to end, not just at one step.</li>
+  <li>The final "Move to Closed - Lost" action also carries its own live error indicator.</li>
+</ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Repoint every condition check to the correct current stage before activating. This is a repair job across the whole workflow, not a single fix.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p><strong>Repair, don't archive, this is valuable and not duplicated elsewhere.</strong> Worth prioritizing given it directly affects whether sent quotes get followed up on or silently go stale.</p>
+
+<h3 class="wf-title">Scouting report workflow</h3>
+<div class="wf-card"><div class="wf-meta"><span>Status: <strong><span class="badge draft">Inactive (Draft)</span></strong></span><span>Trigger: <strong>Opportunity Changed (broken reference, live error)</strong></span></div></div>
+<h4 class="sub">What's working well</h4>
+<ul class="clean"><li><strong>Uses an actual AI step (GPT powered by OpenAI) to generate content and write it into a contact field.</strong> This is directly relevant to the account's Week 8 roadmap goal of exploring AI automation, someone already built and tested this idea, it isn't a future concept, it's a working prototype that just broke.</li></ul>
+<h4 class="sub bad">What's not working</h4>
+<ul class="clean"><li>Shares the identical broken stage ID as "Appointment Confirmation Workflow," strong evidence of the same root-cause pipeline/stage deletion.</li></ul>
+<h4 class="sub opt">Recommendations to optimize</h4>
+<ul class="clean"><li>Fix the trigger reference (likely resolves alongside the other three broken-reference workflows), then this is ready to demonstrate as a working AI example when Week 8 planning starts.</li></ul>
+<h4 class="sub build">What I'd simplify, consolidate, or rebuild</h4>
+<p><strong>Repair, don't archive.</strong> Worth highlighting to Josh specifically given the AI roadmap connection.</p>
+
+<!-- ======================= OVERALL RECOMMENDATIONS ======================= -->
+
+<h2 class="section" style="page-break-before: auto;">Overall Recommendations</h2>
+
+<h3 class="sub bad">Priority 0a, find and fix the root-cause deleted pipeline/stage</h3>
+<p>Four workflows share the exact same corruption signature, a blank pipeline field or a raw unresolved ID where a stage name should be, plus a live error: "My Blind Co - GHL" (base draft), "Appointment Confirmation Workflow," "Quote Follow Up Workflow," and "Scouting report workflow." Two reference the identical broken stage ID. This is very likely one historical event (a deleted or restructured pipeline), not four unrelated bugs. Finding and understanding that one root cause first may make several of the individual repairs faster or unnecessary.</p>
+
+<h3 class="sub bad">Priority 0b, fix the remaining live errors</h3>
+<p>On top of the four above, five more workflows show a visible error indicator directly in the builder, not a design opinion, GHL itself flagging that something is currently broken: "(Partners) Write Partner Details to Opportunity" (Find Contact step), "07. Installation Scheduled Workflow" (trigger), and several "Add Tag" steps inside both "Phone Number Tracking" and "QR Code and Landing Pages Lead Tracker", the two workflows held up elsewhere in this audit as the best-built examples in the account, plus both opportunity steps in each of the five Sales Order Pipeline workflows. Even the model workflows have something broken underneath right now.</p>
+
+<h3 class="sub bad">Priority 1, activate the Customer Order Flow Pipeline</h3>
+<p>All nine workflows covering the post-sale journey, deposit through installation and review request, are currently inactive. This means every paying customer's post-sale experience (order updates, shipping notices, installation reminders, review requests) has likely been running with zero automation. Before activating: fix the two "Assign to user: Brittany" references (an orphaned user no longer on the account), fix the Not Found branch gaps, resolve the "07. Installation Scheduled" trigger error, and replace its time-based auto-complete tagging with a real confirmation step. This is the single highest-impact item in this audit, it's the difference between paying customers hearing from the business after they buy or not.</p>
+
+<h3 class="sub bad">Priority 2, fix the shared "Not Found" gap</h3>
+<p>This single structural fix touches the large majority of workflows with a lookup-then-branch step, both active and inactive. Build one reusable "ensure the record exists, then apply the outcome" pattern (tag, notification, DND, nurture hand-off, whichever applies) that fires <em>after</em> the Found/Not Found split reconverges, not duplicated inside each branch. Fix "5. Spam" and "5. Sold" first among the active workflows; they carry real compliance and revenue consequences.</p>
+
+<h3 class="sub opt">Priority 3, remove the single-assignee bottleneck</h3>
+<p>Multiple workflows route through one hardcoded person (Kelli), and two more point at "Brittany," a user no longer on the account. "1. Appointment Booked" (two people) and "Partner New Leads Opt-in" (a different assignee entirely for partner leads) already demonstrate better patterns, extend a round-robin or backup-assignee approach account-wide.</p>
+
+<h3 class="sub build">Priority 4, consolidate copy-pasted-per-variable workflows</h3>
+<p>Three dimensions of the same anti-pattern: per marketing source (4 near-identical intake workflows), per staff member (My Blind Co variants), and per lifecycle event (Partner Communications pairs). "Phone Number Tracking" and "QR Code and Landing Pages Lead Tracker" already show the fix, tag by variable, then funnel into one shared destination workflow instead of duplicating it.</p>
+
+<h3 class="sub">Priority 5, adopt inline documentation account-wide</h3>
+<p>Five workflows in Partner Automations already do this well. Extending plain-English note boxes to the more complex workflows (starting with "1. Appointment Booked") would make future audits and handoffs significantly faster.</p>
+
+<h3 class="sub">Priority 6, validate inbound webhooks</h3>
+<p>Both Google Ad webhook workflows accept unfiltered payloads. Add basic field validation or a shared-secret check.</p>
+
+<p class="footer-note">Workflows filed under an actual "Inactive" folder are excluded from this report. The nine Customer Order Flow Pipeline workflows above are labeled "Inactive (Draft)" by their real status, not filed under an Inactive folder, and are included here because they represent live, needed functionality that simply hasn't been turned on.</p>
+
+</body>
+</html>
