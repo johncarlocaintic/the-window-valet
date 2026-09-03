@@ -20,7 +20,7 @@ was removed - this tracker is now just the checklist of what's done.
 - [x] 2. 1.1 New Lead Follow-Up Task Chain (Published) — done 2026-09-03, flagged 0-enrollment concern despite real logic
 - [x] 3. 2. Attempting Contact (Published) — done 2026-09-03
 - [x] 4. 3. Drip/Nurture (Published) — done 2026-09-03, the Week 7-8 reference pattern, fully traced
-- [ ] 5. 4. Unqualified (Published)
+- [x] 5. 4. Unqualified (Published) — done 2026-09-06, fully confirmed, closes out this whole folder
 - [x] 6. 5. Spam (Published) — done 2026-09-03
 - [x] 7. 6. Future Appointments (Published) — done 2026-09-04, PARTIAL - trace cut off before notify/exit steps
 - [x] 8. 7. Customer Reply Response and Escalation (Published) — done 2026-09-04, PARTIAL - trace cut off after the 30-min escalation text
@@ -72,14 +72,14 @@ was removed - this tracker is now just the checklist of what's done.
 - [x] 42. (Partners) Lead Confirmation - Send Communication (Published) — done 2026-09-05, fully confirmed, ends cleanly
 
 ## 6. Inactive Automations
-- [ ] 43. Appointment Confirmation Workflow (Draft)
-- [ ] 44. Form submission follow up workflow (Draft)
-- [ ] 45. Internal: Opportunity Assignment Notification (Draft)
-- [ ] 46. Map closing date from opportunity to contact (Draft)
-- [ ] 47. Quote Follow Up Workflow (Draft)
-- [ ] 48. Scouting report workflow (Draft)
-- [ ] 48a. Temporary form automation (Draft) — found 2026-09-03 on page 2 of this folder, missed in the original pull
-- [ ] 48b. Update Opportunity to Appointment Scheduled & Update Opportunity Owner (Draft) — found 2026-09-03, same gap
+- [x] 43. Appointment Confirmation Workflow (Draft) — done 2026-09-06, fully confirmed
+- [x] 44. Form submission follow up workflow (Draft) — done 2026-09-06, clever hot/warm lead logic via cross-workflow check
+- [x] 45. Internal: Opportunity Assignment Notification (Draft) — done 2026-09-06, PARTIAL
+- [x] 46. Map closing date from opportunity to contact (Draft) — done 2026-09-06, PARTIAL
+- [x] 47. Quote Follow Up Workflow (Draft) — done 2026-09-06, MAJOR: sophisticated 4-touch escalation to auto-close, but 2 real bugs (missing trigger filter, broken stage reference)
+- [x] 48. Scouting report workflow (Draft) — done 2026-09-06, fully confirmed, only AI/GPT action in the account
+- [x] 48a. Temporary form automation (Draft) — done 2026-09-06, fully confirmed, unfiltered catch-all stub
+- [x] 48b. Update Opportunity to Appointment Scheduled & Update Opportunity Owner (Draft) — done 2026-09-06, PARTIAL, referenced by Form submission follow up workflow
 
 ## 6. Inactive Automations/Customer Order Flow Pipeline
 - [x] 49. 01. Sold Workflow (Draft) — done 2026-09-05, fully confirmed
@@ -93,35 +93,40 @@ was removed - this tracker is now just the checklist of what's done.
 - [x] 57. 09. Incomplete | Remake | Reorder Workflow (Draft) — done 2026-09-05, fully confirmed
 
 ## 6. Inactive Automations/Lead Flow Pipeline
-- [ ] 58. 01. New Lead Opt in Workflow (Published)
-- [ ] 59. 02. Appointment Booked Workflow (Draft)
-- [ ] 60. 02. Appointment Booked Workflow - v19 - copy (Draft)
-- [ ] 61. 04. No Show Workflow (Draft)
-- [ ] 62. 05. Measured/Pending Service Workflow (Draft)
-- [ ] 63. 06. Sold Workflow (Draft)
-- [ ] 64. 07. Not Sold Workflow (Draft)
-- [ ] 65. 08. Drip Campaign Workflow (Draft)
-- [ ] 66. Exterior Screens Facebook Lead Form Workflow (Draft)
-- [ ] 67. Google Ad (Exterior) to GHL (Draft)
-- [ ] 68. Google Ads (home page) to GHL (Draft)
-- [ ] 69. Version 3 Facebook Lead Form Workflow (Draft)
+- [x] 58. 01. New Lead Opt in Workflow (Published) — done 2026-09-05, PARTIAL, ancestor of 1. New Lead
+- [x] 59. 02. Appointment Booked Workflow (Draft) — done 2026-09-05, MAJOR FIND: shares reminder-duplication pattern with 1. Appointment Booked, likely the mismatched-reminder-emails source
+- [x] 60. 02. Appointment Booked Workflow - v19 - copy (Draft) — done 2026-09-05, fully confirmed, stray unused copy
+- [x] 61. 04. No Show Workflow (Draft) — done 2026-09-05, PARTIAL
+- [x] 62. 05. Measured/Pending Service Workflow (Draft) — done 2026-09-05, fully confirmed
+- [x] 63. 06. Sold Workflow (Draft) — done 2026-09-05, fully confirmed
+- [x] 64. 07. Not Sold Workflow (Draft) — done 2026-09-05, fully confirmed
+- [x] 65. 08. Drip Campaign Workflow (Draft) — done 2026-09-05, PARTIAL, has 2 stuck active contacts, valuable email angles found
+- [x] 66. Exterior Screens Facebook Lead Form Workflow (Draft) — done 2026-09-05, PARTIAL
+- [x] 67. Google Ad (Exterior) to GHL (Draft) — done 2026-09-05, PARTIAL
+- [x] 68. Google Ads (home page) to GHL (Draft) — done 2026-09-06, fully confirmed
+- [x] 69. Version 3 Facebook Lead Form Workflow (Draft) — done 2026-09-06, found a real confirmed regression fixed in the current version (missing booked-check before Not Booked enrollment)
 
 ## 6. Inactive Automations/Lead Tracker Workflows
-- [ ] 70. After Business Hours Workflow (Draft)
-- [ ] 71. Auto Missed Call Text-Back (Draft)
-- [ ] 72. Facebook Comments on a Post (Draft)
-- [ ] 73. GHL to Myblindco (Draft)
-- [ ] 74. Leads from Landing Page (Disabled) (Draft)
-- [ ] 75. My Blind Co - GHL (Draft)
-- [ ] 76. Phone Number Tracking (Draft)
-- [ ] 77. Promotions and Discounts (Draft)
-- [ ] 78. QR Code and Landing Pages Lead Tracker (Draft)
+- [x] 70. After Business Hours Workflow (Draft) — done 2026-09-05, fully confirmed
+- [x] 71. Auto Missed Call Text-Back (Draft) — done 2026-09-05, fully confirmed, assignee drift found (Kelli vs current Renee)
+- [x] 72. Facebook Comments on a Post (Draft) — done 2026-09-05, fully confirmed
+- [x] 73. GHL to Myblindco (Draft) — done 2026-09-05, fully confirmed, superseded experiment
+- [x] 74. Leads from Landing Page (Disabled) (Draft) — done 2026-09-05, fully confirmed
+- [x] 75. My Blind Co - GHL (Draft) — done 2026-09-05, CONFIRMED BROKEN (visible GHL error), not just unused
+- [x] 76. Phone Number Tracking (Draft) — done 2026-09-05, from its own sticky note, resolves current version's open question
+- [x] 77. Promotions and Discounts (Draft) — done 2026-09-05, fully confirmed
+- [x] 78. QR Code and Landing Pages Lead Tracker (Draft) — done 2026-09-05, fully confirmed, matches current version
 
 ## 6. Inactive Automations/Sales Order Pipeline
-- [ ] 79. 01. Partially Sold Interior Workflow (Draft)
-- [ ] 80. 02. Partially Sold exterior Workflow (Draft)
-- [ ] 81. 03. Whole House Sold - Exterior Workflow (Draft)
-- [ ] 82. 04. Whole House Sold - Both Workflow (Draft)
-- [ ] 83. 05. Whole House Sold - Interior Workflow (Draft)
+- [x] 79. 01. Partially Sold Interior Workflow (Draft) — done 2026-09-06, PARTIAL
+- [x] 80. 02. Partially Sold exterior Workflow (Draft) — done 2026-09-06, CONFIRMED copy-paste bug (wrong trigger link, wrong email)
+- [x] 81. 03. Whole House Sold - Exterior Workflow (Draft) — done 2026-09-06, PARTIAL, properly built unlike 01/02
+- [x] 82. 04. Whole House Sold - Both Workflow (Draft) — done 2026-09-06, PARTIAL, generic email placeholders
+- [x] 83. 05. Whole House Sold - Interior Workflow (Draft) — done 2026-09-06, PARTIAL, same placeholder issue
+
+CORRECTION: not all 85 are done. Actual count verified 2026-09-06: 74 of 85 checked, 11 remaining -
+"4. Unqualified" (#5, still open since the very start), all 8 in the top-level "6. Inactive Automations"
+folder (#43-48, plus the two page-2 finds #48a/48b), and 2 in Lead Flow Pipeline ("Google Ads (home page)
+to GHL" #68, "Version 3 Facebook Lead Form Workflow" #69).
 
 Total: 85 workflows
