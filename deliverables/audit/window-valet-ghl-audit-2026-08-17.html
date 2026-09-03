@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Window Valet: Account Health Check</title>
+<style>
+  @page { size: Letter; margin: 18mm 16mm 16mm 16mm; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #1c2230; font-size: 10.5pt; line-height: 1.55; margin: 0; }
+  .cover { min-height: 240mm; display: flex; flex-direction: column; justify-content: center; page-break-after: always; }
+  .cover .kicker { color: #3d6b52; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 10pt; margin-bottom: 10px; }
+  .cover h1 { font-size: 30pt; margin: 0 0 8px 0; color: #14202b; }
+  .cover .sub { font-size: 13pt; color: #4a5566; margin-bottom: 30px; }
+  .cover table.meta { border-collapse: collapse; margin-top: 10px; }
+  .cover table.meta td { padding: 6px 18px 6px 0; font-size: 10.5pt; }
+  .cover table.meta td.label { color: #6b7484; width: 170px; }
+  .cover table.meta td.value { font-weight: 600; color: #14202b; }
+  .cover .promise { margin-top: 30px; background: #eef4ef; border-left: 4px solid #3d6b52; padding: 14px 18px; font-size: 10.5pt; max-width: 480px; border-radius: 4px; }
+  h2.section { font-size: 16pt; color: #14202b; border-bottom: 3px solid #3d6b52; padding-bottom: 6px; margin: 26px 0 4px 0; }
+  h2.section.first { margin-top: 0; }
+  .section-intro { color: #4a5566; margin: 8px 0 14px 0; font-size: 10pt; }
+  .stat-row { display: flex; gap: 10px; margin: 12px 0 16px 0; flex-wrap: wrap; }
+  .stat { flex: 1; min-width: 110px; background: #f4f6f4; border: 1px solid #dde3dd; border-radius: 6px; padding: 10px 12px; }
+  .stat .n { font-size: 16pt; font-weight: 700; color: #14202b; }
+  .stat .l { font-size: 8.5pt; color: #6b7484; }
+  h3.sub { font-size: 11.5pt; color: #14202b; margin: 16px 0 6px 0; }
+  p { margin: 6px 0; }
+  table.data { width: 100%; border-collapse: collapse; margin: 8px 0 14px 0; font-size: 9pt; }
+  table.data th { background: #14202b; color: #fff; text-align: left; padding: 6px 8px; font-weight: 600; }
+  table.data td { padding: 5px 8px; border-bottom: 1px solid #e4e7ea; }
+  table.data tr.group-start td { border-top: 2px solid #3d6b52; }
+  table.data tr { break-inside: avoid; }
+  table.data td.grp { font-weight: 700; color: #3d6b52; }
+  .callout { background: #f4f6f4; border-left: 3px solid #3d6b52; padding: 10px 14px; margin: 12px 0; font-size: 9.5pt; break-inside: avoid; }
+  .callout.warn { background: #fff8e8; border-left-color: #c98f00; }
+  .callout.good { background: #eef4ef; border-left-color: #3d6b52; }
+  ul.clean { margin: 6px 0; padding-left: 20px; }
+  ul.clean li { margin-bottom: 5px; }
+  .muted { color: #6b7484; }
+  .footer-note { margin-top: 24px; font-size: 8.5pt; color: #8892a0; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">Account Health Check</div>
+  <h1>The Window Valet</h1>
+  <div class="sub">A plain-English look at your contacts, tags, deals, and account setup</div>
+  <table class="meta">
+    <tr><td class="label">Business</td><td class="value">The Window Valet, Indianapolis, IN</td></tr>
+    <tr><td class="label">Date</td><td class="value">August 17, 2026</td></tr>
+    <tr><td class="label">Prepared by</td><td class="value">John Carlo Caintic</td></tr>
+  </table>
+  <div class="promise"><strong>This is a review only.</strong> Nothing in your account was changed, updated, or deleted while putting this together. Everything below is just what we found when we looked.</div>
+</div>
+
+<h2 class="section first">The Short Version</h2>
+<p class="section-intro">We went through your contacts, deals, tags, and the extra info fields your system tracks, looking for duplicates and anything that looks off. Here's the quick summary before we get into the details.</p>
+<div class="stat-row">
+  <div class="stat"><div class="n">6,352</div><div class="l">Total customers/leads in your system</div></div>
+  <div class="stat"><div class="n">1,229</div><div class="l">Total deals</div></div>
+  <div class="stat"><div class="n">117</div><div class="l">Tags in use</div></div>
+  <div class="stat"><div class="n">37</div><div class="l">Extra info fields</div></div>
+</div>
+<ul class="clean">
+  <li><strong>Contacts:</strong> we found 62 groups of people who appear to be entered more than once (same email or same phone number used twice).</li>
+  <li><strong>Deals:</strong> we found 54 customers who currently have more than one active deal open at the same stage, likely accidental double-entries.</li>
+  <li><strong>Tags:</strong> no exact duplicate tag names, but several tags are doing the same job under slightly different names (more on this below).</li>
+  <li><strong>Extra info fields &amp; saved values:</strong> no duplicates, but a few saved values are sitting empty and worth double-checking.</li>
+</ul>
+<div class="callout good">Nothing here is urgent or broken. Think of this as tidying-up opportunities, not problems. We're not recommending any changes be made without your go-ahead first.</div>
+
+<h2 class="section">1. Contacts (Your Customers &amp; Leads)</h2>
+<p class="section-intro">You currently have <strong>6,352 people</strong> saved in your system. We checked for people who might have been entered twice.</p>
+<div class="stat-row">
+  <div class="stat"><div class="n">28</div><div class="l">Groups matched by email</div></div>
+  <div class="stat"><div class="n">65</div><div class="l">People involved</div></div>
+  <div class="stat"><div class="n">34</div><div class="l">Groups matched by phone</div></div>
+  <div class="stat"><div class="n">79</div><div class="l">People involved</div></div>
+</div>
+<p>In plain terms: <strong>144 entries</strong> across your contact list are likely the same person saved more than once, usually because they filled out a form twice, or called in after already being in the system. We also noticed <strong>478 contacts</strong> have no email or phone number on file at all, which means there's no way to actually reach them.</p>
+
+<h3 class="sub">People who show up more than once (matched by email)</h3>
+<table class="data">
+<tr><th>Group</th><th>Name</th><th>Phone</th><th>Date Added</th></tr>
+<tr class="group-start"><td class="grp">#1</td><td>chuck marion</td><td>(317) 442-2664</td><td>May 17, 2026</td></tr>
+<tr><td class="grp"></td><td>chuck marion</td><td>(317) 442-2664</td><td>May 17, 2026</td></tr>
+<tr class="group-start"><td class="grp">#2</td><td>mashhour falahat</td><td>(205) 427-3155</td><td>May 16, 2026</td></tr>
+<tr><td class="grp"></td><td>mashhour falahat</td><td>(205) 427-3155</td><td>May 16, 2026</td></tr>
+<tr class="group-start"><td class="grp">#3</td><td>elizabeth merida</td><td>(317) 828-6645</td><td>May 15, 2026</td></tr>
+<tr><td class="grp"></td><td>elizabeth merida</td><td>(317) 828-6645</td><td>May 3, 2026</td></tr>
+<tr><td class="grp"></td><td>elizabeth merida</td><td>(317) 828-6645</td><td>May 3, 2026</td></tr>
+<tr class="group-start"><td class="grp">#4</td><td>kathryn payne</td><td>(317) 987-4241</td><td>May 15, 2026</td></tr>
+<tr><td class="grp"></td><td>kathryn payne</td><td>(317) 987-4241</td><td>Feb 11, 2026</td></tr>
+<tr class="group-start"><td class="grp">#5</td><td>taylor clark</td><td>(317) 416-0226</td><td>May 11, 2026</td></tr>
+<tr><td class="grp"></td><td>taylor clark</td><td>(216) 402-6076</td><td>Feb 11, 2026</td></tr>
+<tr class="group-start"><td class="grp">#6</td><td>sydney isley</td><td>(909) 762-1692</td><td>May 10, 2026</td></tr>
+<tr><td class="grp"></td><td>sydney b. isley</td><td>(909) 762-1692</td><td>May 10, 2026</td></tr>
+<tr class="group-start"><td class="grp">#7</td><td>tamara herdrich</td><td>(317) 508-4099</td><td>May 9, 2026</td></tr>
+<tr><td class="grp"></td><td>tamara</td><td>(317) 508-4099</td><td>May 9, 2026</td></tr>
+<tr class="group-start"><td class="grp">#8</td><td>sonia gutierrez</td><td>(317) 864-3298</td><td>May 8, 2026</td></tr>
+<tr><td class="grp"></td><td>sonia gutierrez</td><td>(317) 864-3298</td><td>May 8, 2026</td></tr>
+<tr><td class="grp"></td><td>sonia gutierrez</td><td>(317) 864-3298</td><td>May 8, 2026</td></tr>
+<tr><td class="grp"></td><td>sonia gutierrez</td><td>(317) 864-3298</td><td>Feb 11, 2026</td></tr>
+<tr class="group-start"><td class="grp">#9</td><td>sarah woodruff</td><td>(317) 416-8127</td><td>May 7, 2026</td></tr>
+<tr><td class="grp"></td><td>sarah woodrifg</td><td>(317) 416-8127</td><td>May 7, 2026</td></tr>
+<tr><td class="grp"></td><td>sarah</td><td>(317) 416-8127</td><td>May 7, 2026</td></tr>
+<tr class="group-start"><td class="grp">#10</td><td>mary toliver</td><td>(317) 777-8815</td><td>May 6, 2026</td></tr>
+<tr><td class="grp"></td><td>ann toliver</td><td>(317) 777-8815</td><td>May 6, 2026</td></tr>
+<tr class="group-start"><td class="grp">#11</td><td>veronica minnefield</td><td>(317) 413-9670</td><td>May 5, 2026</td></tr>
+<tr><td class="grp"></td><td>veronica minnefield</td><td>(317) 413-9670</td><td>May 5, 2026</td></tr>
+<tr class="group-start"><td class="grp">#12</td><td>brett litten</td><td>(317) 435-9308</td><td>May 3, 2026</td></tr>
+<tr><td class="grp"></td><td>brett litten</td><td>(317) 435-9308</td><td>May 3, 2026</td></tr>
+<tr><td class="grp"></td><td>brett litten</td><td>(317) 435-9308</td><td>Feb 11, 2026</td></tr>
+<tr class="group-start"><td class="grp">#13</td><td>ralph ralph estanus</td><td>(317) 432-6585</td><td>May 3, 2026</td></tr>
+<tr><td class="grp"></td><td>ralph ralph estanus</td><td>(317) 432-6585</td><td>May 3, 2026</td></tr>
+<tr><td class="grp"></td><td>ralph ralph estanus</td><td>(317) 432-6585</td><td>May 3, 2026</td></tr>
+<tr class="group-start"><td class="grp">#14</td><td>michelle dumas</td><td>(317) 340-0241</td><td>Apr 30, 2026</td></tr>
+<tr><td class="grp"></td><td>michelle dumas</td><td>(317) 340-0241</td><td>Apr 30, 2026</td></tr>
+<tr class="group-start"><td class="grp">#15</td><td>sonja grinstead</td><td>(317) 498-0970</td><td>Apr 29, 2026</td></tr>
+<tr><td class="grp"></td><td>sonja grinstead</td><td>(317) 498-0970</td><td>Apr 20, 2026</td></tr>
+<tr class="group-start"><td class="grp">#16</td><td>viveca merrill</td><td>(213) 985-6295</td><td>Apr 28, 2026</td></tr>
+<tr><td class="grp"></td><td>viveca merrill</td><td>(213) 985-6295</td><td>Apr 24, 2026</td></tr>
+<tr class="group-start"><td class="grp">#17</td><td>brian zamora</td><td>(702) 378-1503</td><td>Apr 28, 2026</td></tr>
+<tr><td class="grp"></td><td>brian zamora</td><td>(702) 378-1503</td><td>Apr 28, 2026</td></tr>
+<tr><td class="grp"></td><td>brian zamora</td><td>(702) 378-1503</td><td>Jan 31, 2026</td></tr>
+<tr class="group-start"><td class="grp">#18</td><td>cameron starnes</td><td>(317) 523-6369</td><td>Apr 28, 2026</td></tr>
+<tr><td class="grp"></td><td>cam starnes</td><td>(317) 523-6369</td><td>Apr 28, 2026</td></tr>
+<tr class="group-start"><td class="grp">#19</td><td>kruti patel</td><td>(215) 962-4456</td><td>Apr 28, 2026</td></tr>
+<tr><td class="grp"></td><td>kruti patel</td><td>(215) 962-4456</td><td>Apr 28, 2026</td></tr>
+<tr><td class="grp"></td><td>kruti patel</td><td>(215) 962-4456</td><td>Apr 28, 2026</td></tr>
+<tr class="group-start"><td class="grp">#20</td><td>briana calhoun</td><td>(443) 467-1533</td><td>Apr 28, 2026</td></tr>
+<tr><td class="grp"></td><td>briana calhoun</td><td>(443) 467-1533</td><td>Apr 28, 2026</td></tr>
+<tr class="group-start"><td class="grp">#21</td><td>patricia polster</td><td>(317) 439-2818</td><td>Apr 26, 2026</td></tr>
+<tr><td class="grp"></td><td>patricia polster</td><td>(317) 439-2818</td><td>Feb 11, 2026</td></tr>
+<tr class="group-start"><td class="grp">#22</td><td>tim gleave</td><td>(317) 474-0267</td><td>Apr 24, 2026</td></tr>
+<tr><td class="grp"></td><td>tim gleave</td><td>(317) 474-0267</td><td>Apr 24, 2026</td></tr>
+<tr><td class="grp"></td><td>tim gleave</td><td>(317) 474-0267</td><td>Apr 24, 2026</td></tr>
+<tr class="group-start"><td class="grp">#23</td><td>julie murphy</td><td>(317) 439-6569</td><td>Apr 24, 2026</td></tr>
+<tr><td class="grp"></td><td>julie murphy</td><td>(317) 439-6569</td><td>Apr 24, 2026</td></tr>
+<tr class="group-start"><td class="grp">#24</td><td>paul geyer</td><td>(317) 517-6085</td><td>Apr 23, 2026</td></tr>
+<tr><td class="grp"></td><td>paul geyer</td><td>(317) 517-6085</td><td>Apr 23, 2026</td></tr>
+<tr class="group-start"><td class="grp">#25</td><td>tony strack</td><td>(317) 605-4204</td><td>Apr 22, 2026</td></tr>
+<tr><td class="grp"></td><td>tony strack</td><td>(317) 605-4204</td><td>Apr 22, 2026</td></tr>
+<tr class="group-start"><td class="grp">#26</td><td>mimi rigney</td><td>(301) 437-2460</td><td>Apr 21, 2026</td></tr>
+<tr><td class="grp"></td><td>rigney</td><td>(301) 437-2460</td><td>Apr 20, 2026</td></tr>
+<tr class="group-start"><td class="grp">#27</td><td>shelby price</td><td>(513) 448-6408</td><td>Apr 21, 2026</td></tr>
+<tr><td class="grp"></td><td>shelby price</td><td>(513) 448-6408</td><td>Apr 21, 2026</td></tr>
+<tr class="group-start"><td class="grp">#28</td><td>jane houser</td><td>(317) 341-3944</td><td>Apr 19, 2026</td></tr>
+<tr><td class="grp"></td><td>jane houser</td><td>(317) 341-3944</td><td>Apr 19, 2026</td></tr>
+</table>
+
+<h3 class="sub">People who show up more than once (matched by phone number)</h3>
+<table class="data">
+<tr><th>Group</th><th>Name</th><th>Email</th><th>Date Added</th></tr>
+<tr class="group-start"><td class="grp">#1</td><td>chuck marion</td><td>crmarion@yahoo.com</td><td>May 17, 2026</td></tr>
+<tr><td class="grp"></td><td>chuck marion</td><td>crmarion@yahoo.com</td><td>May 17, 2026</td></tr>
+<tr class="group-start"><td class="grp">#2</td><td>mashhour falahat</td><td>sana_haddad69@yahoo.com</td><td>May 16, 2026</td></tr>
+<tr><td class="grp"></td><td>mashhour falahat</td><td>sana_haddad69@yahoo.com</td><td>May 16, 2026</td></tr>
+<tr class="group-start"><td class="grp">#3</td><td>elizabeth merida</td><td>emroz72@sbcglobal.net</td><td>May 15, 2026</td></tr>
+<tr><td class="grp"></td><td>elizabeth merida</td><td>emroz72@sbcglobal.net</td><td>May 3, 2026</td></tr>
+<tr><td class="grp"></td><td>elizabeth merida</td><td>emroz72@sbcglobal.net</td><td>May 3, 2026</td></tr>
+<tr class="group-start"><td class="grp">#4</td><td>kathryn payne</td><td>k.payne@me.com</td><td>May 15, 2026</td></tr>
+<tr><td class="grp"></td><td>kathryn payne</td><td>k.payne@me.com</td><td>Feb 11, 2026</td></tr>
+<tr class="group-start"><td class="grp">#5</td><td>sujata pammi</td><td>sujatap96@gmail.com</td><td>May 12, 2026</td></tr>
+<tr><td class="grp"></td><td>sujata pammi</td><td><span class="muted">none on file</span></td><td>Feb 11, 2026</td></tr>
+<tr class="group-start"><td class="grp">#6</td><td>danny dugger</td><td>danny@homeisjchart.com</td><td>May 11, 2026</td></tr>
+<tr><td class="grp"></td><td>john muscatiello</td><td>john@homeisjchart.com</td><td>Feb 10, 2026</td></tr>
+<tr class="group-start"><td class="grp">#7</td><td>sydney isley</td><td>sydneyisley@gmail.com</td><td>May 10, 2026</td></tr>
+<tr><td class="grp"></td><td>sydney b. isley</td><td>sydneyisley@gmail.com</td><td>May 10, 2026</td></tr>
+<tr class="group-start"><td class="grp">#8</td><td>tamara herdrich</td><td>tammyherdrich@comcast.net</td><td>May 9, 2026</td></tr>
+<tr><td class="grp"></td><td>tamara</td><td>tammyherdrich@comcast.net</td><td>May 9, 2026</td></tr>
+<tr class="group-start"><td class="grp">#9</td><td>sonia gutierrez</td><td>soan21@gmail.com</td><td>May 8, 2026</td></tr>
+<tr><td class="grp"></td><td>sonia gutierrez</td><td>soan21@gmail.com</td><td>May 8, 2026</td></tr>
+<tr><td class="grp"></td><td>sonia gutierrez</td><td>soan21@gmail.com</td><td>May 8, 2026</td></tr>
+<tr><td class="grp"></td><td>sonia gutierrez</td><td>soan21@gmail.com</td><td>Feb 11, 2026</td></tr>
+<tr class="group-start"><td class="grp">#10</td><td>sarah woodruff</td><td>swoodruff018@gmail.com</td><td>May 7, 2026</td></tr>
+<tr><td class="grp"></td><td>sarah woodrifg</td><td>swoodruff018@gmail.com</td><td>May 7, 2026</td></tr>
+<tr><td class="grp"></td><td>sarah</td><td>swoodruff018@gmail.com</td><td>May 7, 2026</td></tr>
+<tr><td class="grp"></td><td>sarah woodruff</td><td><span class="muted">none on file</span></td><td>May 7, 2026</td></tr>
+<tr class="group-start"><td class="grp">#11</td><td>mary toliver</td><td>e9362139@gmail.com</td><td>May 6, 2026</td></tr>
+<tr><td class="grp"></td><td>ann toliver</td><td>e9362139@gmail.com</td><td>May 6, 2026</td></tr>
+<tr class="group-start"><td class="grp">#12</td><td>veronica minnefield</td><td>minnefield@comcast.net</td><td>May 5, 2026</td></tr>
+<tr><td class="grp"></td><td>veronica minnefield</td><td>minnefield@comcast.net</td><td>May 5, 2026</td></tr>
+<tr class="group-start"><td class="grp">#13</td><td>bunty badasay</td><td>bunty@prodigypropainters.com</td><td>May 4, 2026</td></tr>
+<tr><td class="grp"></td><td>(317) 938-2813</td><td><span class="muted">none on file</span></td><td>May 4, 2026</td></tr>
+<tr class="group-start"><td class="grp">#14</td><td>brett litten</td><td>blitten12@gmail.com</td><td>May 3, 2026</td></tr>
+<tr><td class="grp"></td><td>brett litten</td><td>blitten12@gmail.com</td><td>May 3, 2026</td></tr>
+<tr><td class="grp"></td><td>brett litten</td><td>blitten12@gmail.com</td><td>Feb 11, 2026</td></tr>
+<tr class="group-start"><td class="grp">#15</td><td>ralph ralph estanus</td><td>estanusralph51@gmail.com</td><td>May 3, 2026</td></tr>
+<tr><td class="grp"></td><td>ralph ralph estanus</td><td>estanusralph51@gmail.com</td><td>May 3, 2026</td></tr>
+<tr><td class="grp"></td><td>ralph ralph estanus</td><td>estanusralph51@gmail.com</td><td>May 3, 2026</td></tr>
+<tr class="group-start"><td class="grp">#16</td><td>josh leclair</td><td>josh@thewindowvalet.com</td><td>Apr 30, 2026</td></tr>
+<tr><td class="grp"></td><td>larry terry</td><td>larrylovesterry@gmail.com</td><td>Jan 31, 2026</td></tr>
+<tr class="group-start"><td class="grp">#17</td><td>michelle dumas</td><td>dumasmichelle@gmail.com</td><td>Apr 30, 2026</td></tr>
+<tr><td class="grp"></td><td>michelle dumas</td><td>dumasmichelle@gmail.com</td><td>Apr 30, 2026</td></tr>
+<tr class="group-start"><td class="grp">#18</td><td>jason noyan</td><td>jbavarian7@gamil.com</td><td>Apr 29, 2026</td></tr>
+<tr><td class="grp"></td><td>jason noyan</td><td>jbavarian7@gmail.com</td><td>Feb 11, 2026</td></tr>
+<tr class="group-start"><td class="grp">#19</td><td>sonja grinstead</td><td>sonjag1966@hotmail.com</td><td>Apr 29, 2026</td></tr>
+<tr><td class="grp"></td><td>sonja grinstead</td><td>sonjag1966@hotmail.com</td><td>Apr 20, 2026</td></tr>
+<tr class="group-start"><td class="grp">#20</td><td>tammy borders</td><td>tborders@hendrickstherapy.com</td><td>Apr 29, 2026</td></tr>
+<tr><td class="grp"></td><td>hendricks therapy - plainfield</td><td>business@hendrickstherapy.com</td><td>Feb 11, 2026</td></tr>
+<tr class="group-start"><td class="grp">#21</td><td>viveca merrill</td><td>vmerrill@lifecenters.com</td><td>Apr 28, 2026</td></tr>
+<tr><td class="grp"></td><td>viveca merrill</td><td>vmerrill@lifecenters.com</td><td>Apr 24, 2026</td></tr>
+<tr class="group-start"><td class="grp">#22</td><td>brian zamora</td><td>brian@conquerparalysisnow.org</td><td>Apr 28, 2026</td></tr>
+<tr><td class="grp"></td><td>brian zamora</td><td>brian@conquerparalysisnow.org</td><td>Apr 28, 2026</td></tr>
+<tr><td class="grp"></td><td>brian zamora</td><td>brian@conquerparalysisnow.org</td><td>Jan 31, 2026</td></tr>
+<tr class="group-start"><td class="grp">#23</td><td>cameron starnes</td><td>cam.starnes@gmail.com</td><td>Apr 28, 2026</td></tr>
+<tr><td class="grp"></td><td>cam starnes</td><td>cam.starnes@gmail.com</td><td>Apr 28, 2026</td></tr>
+<tr class="group-start"><td class="grp">#24</td><td>kruti patel</td><td>kruti.a.patel4@gmail.com</td><td>Apr 28, 2026</td></tr>
+<tr><td class="grp"></td><td>kruti patel</td><td>kruti.a.patel4@gmail.com</td><td>Apr 28, 2026</td></tr>
+<tr><td class="grp"></td><td>kruti patel</td><td>kruti.a.patel4@gmail.com</td><td>Apr 28, 2026</td></tr>
+<tr class="group-start"><td class="grp">#25</td><td>briana calhoun</td><td>calhounb70@gmail.com</td><td>Apr 28, 2026</td></tr>
+<tr><td class="grp"></td><td>briana calhoun</td><td>calhounb70@gmail.com</td><td>Apr 28, 2026</td></tr>
+<tr class="group-start"><td class="grp">#26</td><td>patricia polster</td><td>plpolster@gmail.com</td><td>Apr 26, 2026</td></tr>
+<tr><td class="grp"></td><td>patricia polster</td><td>plpolster@gmai.com</td><td>Apr 25, 2026</td></tr>
+<tr><td class="grp"></td><td>patricia polster</td><td>plpolster@gmail.com</td><td>Feb 11, 2026</td></tr>
+<tr class="group-start"><td class="grp">#27</td><td>tim gleave</td><td>timgleave2024@gmail.com</td><td>Apr 24, 2026</td></tr>
+<tr><td class="grp"></td><td>tim gleave</td><td>timgleave2024@gmail.com</td><td>Apr 24, 2026</td></tr>
+<tr><td class="grp"></td><td>tim gleave</td><td>timgleave2024@gmail.com</td><td>Apr 24, 2026</td></tr>
+<tr class="group-start"><td class="grp">#28</td><td>julie murphy</td><td>jnvblomax@hotmail.com</td><td>Apr 24, 2026</td></tr>
+<tr><td class="grp"></td><td>julie murphy</td><td>jnvblomax@hotmail.com</td><td>Apr 24, 2026</td></tr>
+<tr class="group-start"><td class="grp">#29</td><td>paul geyer</td><td>paul.geyer@gmail.com</td><td>Apr 23, 2026</td></tr>
+<tr><td class="grp"></td><td>paul geyer</td><td>paul.geyer@gmail.com</td><td>Apr 23, 2026</td></tr>
+<tr class="group-start"><td class="grp">#30</td><td>tony strack</td><td>tontestrack@yahoo.com</td><td>Apr 22, 2026</td></tr>
+<tr><td class="grp"></td><td>tony strack</td><td>tontestrack@yahoo.com</td><td>Apr 22, 2026</td></tr>
+<tr class="group-start"><td class="grp">#31</td><td>mimi rigney</td><td>mimi4550@aol.com</td><td>Apr 21, 2026</td></tr>
+<tr><td class="grp"></td><td>rigney</td><td>mimi4550@aol.com</td><td>Apr 20, 2026</td></tr>
+<tr class="group-start"><td class="grp">#32</td><td>shelby price</td><td>shelby.price007@gmail.com</td><td>Apr 21, 2026</td></tr>
+<tr><td class="grp"></td><td>shelby price</td><td>shelby.price007@gmail.com</td><td>Apr 21, 2026</td></tr>
+<tr class="group-start"><td class="grp">#33</td><td>jane houser</td><td>jscorvet@gmail.com</td><td>Apr 19, 2026</td></tr>
+<tr><td class="grp"></td><td>jane houser</td><td>jscorvet@gmail.com</td><td>Apr 19, 2026</td></tr>
+<tr class="group-start"><td class="grp">#34</td><td>danielle myers</td><td>danielle@elle-designs.com</td><td>Feb 11, 2026</td></tr>
+<tr><td class="grp"></td><td>danielle meyers</td><td>info@elle-designs.com</td><td>Feb 10, 2026</td></tr>
+</table>
+<div class="callout">If you'd like, the next step would be merging each of these groups into one record so you have a clean, single history for each customer. We'd only do that with your OK.</div>
+
+<h2 class="section">2. Deals (Opportunities)</h2>
+<p class="section-intro">You have <strong>1,229 deals</strong> on the books. We checked for the same customer having more than one deal open at the same time, in the same stage, usually a sign the same lead got entered twice instead of updating the existing one.</p>
+<div class="stat-row">
+  <div class="stat"><div class="n">54</div><div class="l">Customers with duplicate open deals</div></div>
+</div>
+<table class="data">
+<tr><th>#</th><th>Customer</th><th>Pipeline</th><th>Stages / Dates</th></tr>
+<tr><td>1</td><td>marckendy codio</td><td>2. Sales Pipeline (NEW)</td><td>Appointment Completed <span class="muted">(Aug 16, 2026)</span><br>Appointment Booked <span class="muted">(Aug 4, 2026)</span></td></tr>
+<tr><td>2</td><td>edgar baylis</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(Aug 15, 2026)</span><br>Attempting Contact <span class="muted">(Aug 15, 2026)</span></td></tr>
+<tr><td>3</td><td>hanna shomali</td><td>2. Sales Pipeline (NEW)</td><td>Appointment Booked <span class="muted">(Aug 12, 2026)</span><br>Appointment Booked <span class="muted">(Jul 18, 2026)</span><br>Appointment Booked <span class="muted">(Jul 18, 2026)</span></td></tr>
+<tr><td>4</td><td>taylor baker</td><td>2. Sales Pipeline (NEW)</td><td>Appointment Booked <span class="muted">(Aug 5, 2026)</span><br>Appointment Booked <span class="muted">(Jul 9, 2026)</span></td></tr>
+<tr><td>5</td><td>suzanne brandt</td><td>2. Sales Pipeline (NEW)</td><td>Appointment Booked <span class="muted">(Aug 4, 2026)</span><br>Appointment Booked <span class="muted">(Aug 4, 2026)</span></td></tr>
+<tr><td>6</td><td>samual shutes</td><td>2. Sales Pipeline (NEW)</td><td>Appointment Booked <span class="muted">(Aug 4, 2026)</span><br>Appointment Booked <span class="muted">(Jul 15, 2026)</span></td></tr>
+<tr><td>7</td><td>foster randall</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(Aug 2, 2026)</span><br>Drip/Nurture <span class="muted">(Jul 30, 2026)</span></td></tr>
+<tr><td>8</td><td>jamie poppen</td><td>2. Sales Pipeline (NEW)</td><td>Appointment Booked <span class="muted">(Aug 1, 2026)</span><br>Appointment Booked <span class="muted">(Jul 2, 2026)</span></td></tr>
+<tr><td>9</td><td>morgan beaty</td><td>1. Lead Pipeline (NEW)</td><td>Attempting Contact <span class="muted">(Jul 31, 2026)</span><br>Drip/Nurture <span class="muted">(Jun 29, 2026)</span></td></tr>
+<tr><td>10</td><td>joseph anderson</td><td>2. Sales Pipeline (NEW)</td><td>Appointment Booked <span class="muted">(Jul 31, 2026)</span><br>Appointment Booked <span class="muted">(Jul 28, 2026)</span></td></tr>
+<tr><td>11</td><td>elizabeth musial</td><td>2. Sales Pipeline (NEW)</td><td>Appointment Booked <span class="muted">(Jul 25, 2026)</span><br>Appointment Booked <span class="muted">(Jul 25, 2026)</span></td></tr>
+<tr><td>12</td><td>lori cornell</td><td>2. Sales Pipeline (NEW)</td><td>Appointment Booked <span class="muted">(Jul 23, 2026)</span><br>Appointment Booked <span class="muted">(Jul 22, 2026)</span></td></tr>
+<tr><td>13</td><td>bill cummings</td><td>2. Sales Pipeline (NEW)</td><td>Appointment Booked <span class="muted">(Jul 22, 2026)</span><br>Appointment Booked <span class="muted">(Jul 22, 2026)</span></td></tr>
+<tr><td>14</td><td>joe jankowski</td><td>2. Sales Pipeline (NEW)</td><td>Appointment Completed <span class="muted">(Jul 22, 2026)</span><br>Appointment Booked <span class="muted">(Jun 27, 2026)</span></td></tr>
+<tr><td>15</td><td>lakisha sims</td><td>2. Sales Pipeline (NEW)</td><td>Proposal Sent <span class="muted">(Jul 22, 2026)</span><br>Appointment Booked <span class="muted">(Jul 18, 2026)</span></td></tr>
+<tr><td>16</td><td>peggy stuart</td><td>2. Sales Pipeline (NEW)</td><td>Appointment Booked <span class="muted">(Jul 18, 2026)</span><br>Appointment Booked <span class="muted">(Jul 18, 2026)</span></td></tr>
+<tr><td>17</td><td>brittney suttle</td><td>2. Sales Pipeline (NEW)</td><td>Appointment Completed <span class="muted">(Jul 17, 2026)</span><br>Appointment Booked <span class="muted">(Jul 3, 2026)</span></td></tr>
+<tr><td>18</td><td>delia dietz porter</td><td>2. Sales Pipeline (NEW)</td><td>Appointment Booked <span class="muted">(Jun 26, 2026)</span><br>Appointment Booked <span class="muted">(Jun 20, 2026)</span></td></tr>
+<tr><td>19</td><td>francis bruce</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(Jun 26, 2026)</span><br>Attempting Contact <span class="muted">(Jun 19, 2026)</span></td></tr>
+<tr><td>20</td><td>pam spainhower</td><td>2. Sales Pipeline (NEW)</td><td>Appointment Booked <span class="muted">(Jun 12, 2026)</span><br>Appointment Booked <span class="muted">(Jun 5, 2026)</span></td></tr>
+<tr><td>21</td><td>kristen smith</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(May 28, 2026)</span><br>Drip/Nurture <span class="muted">(Mar 17, 2026)</span></td></tr>
+<tr><td>22</td><td>terrance &amp; karen ann hood</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(May 22, 2026)</span><br>Drip/Nurture <span class="muted">(May 22, 2026)</span></td></tr>
+<tr><td>23</td><td>paige &amp; scott robertson &amp; postema</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(May 22, 2026)</span><br>Drip/Nurture <span class="muted">(May 22, 2026)</span></td></tr>
+<tr><td>24</td><td>blake &amp; briannah cherry &amp; them</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(May 22, 2026)</span><br>Drip/Nurture <span class="muted">(May 22, 2026)</span></td></tr>
+<tr><td>25</td><td>cynny robinson</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(May 21, 2026)</span><br>Drip/Nurture <span class="muted">(May 17, 2026)</span></td></tr>
+<tr><td>26</td><td>mike cook</td><td>Lead Flow Pipeline</td><td>Appointment Booked <span class="muted">(May 15, 2026)</span><br>Pending Service <span class="muted">(Mar 17, 2026)</span></td></tr>
+<tr><td>27</td><td>taylor clark</td><td>Lead Flow Pipeline</td><td>Appointment Booked <span class="muted">(May 11, 2026)</span><br>Appointment Booked <span class="muted">(May 11, 2026)</span></td></tr>
+<tr><td>28</td><td>marriah seawood</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(May 10, 2026)</span><br>Drip/Nurture <span class="muted">(May 8, 2026)</span></td></tr>
+<tr><td>29</td><td>alberta alarcon</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(May 7, 2026)</span><br>Drip/Nurture <span class="muted">(May 7, 2026)</span></td></tr>
+<tr><td>30</td><td>franklin crigler</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(May 5, 2026)</span><br>Drip/Nurture <span class="muted">(Apr 25, 2026)</span></td></tr>
+<tr><td>31</td><td>kristin weatherly</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(May 5, 2026)</span><br>Drip/Nurture <span class="muted">(Apr 23, 2026)</span></td></tr>
+<tr><td>32</td><td>deland mccullough</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(May 4, 2026)</span><br>Drip/Nurture <span class="muted">(Apr 20, 2026)</span></td></tr>
+<tr><td>33</td><td>• christopher has had an account for 14 years and has over 200 friends. he last posted yesterday and posts frequently. • christopher has published 32 listings on marketplace since early march and sold 14. he generally sells tools, auto parts, garden items, and appliances. • no trust signals are available for christopher&#39;s marketplace profile.0 p</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(May 3, 2026)</span><br>Drip/Nurture <span class="muted">(Apr 16, 2026)</span><br>Drip/Nurture <span class="muted">(Apr 4, 2026)</span></td></tr>
+<tr><td>34</td><td>lovada merriweather</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(May 2, 2026)</span><br>Drip/Nurture <span class="muted">(Apr 15, 2026)</span></td></tr>
+<tr><td>35</td><td>fannie bacon l</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(May 1, 2026)</span><br>Drip/Nurture <span class="muted">(Apr 28, 2026)</span><br>Drip/Nurture <span class="muted">(Apr 27, 2026)</span></td></tr>
+<tr><td>36</td><td>tim gleave</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(Apr 30, 2026)</span><br>Drip/Nurture <span class="muted">(Apr 24, 2026)</span><br>Drip/Nurture <span class="muted">(Apr 24, 2026)</span></td></tr>
+<tr><td>37</td><td>raul sierra</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(Apr 23, 2026)</span><br>Drip/Nurture <span class="muted">(Apr 2, 2026)</span></td></tr>
+<tr><td>38</td><td>emmett jacobs</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(Apr 21, 2026)</span><br>Drip/Nurture <span class="muted">(Apr 19, 2026)</span></td></tr>
+<tr><td>39</td><td>lillian desimone</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(Apr 19, 2026)</span><br>Drip/Nurture <span class="muted">(Apr 9, 2026)</span></td></tr>
+<tr><td>40</td><td>selva kumar balu</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(Apr 17, 2026)</span><br>Drip/Nurture <span class="muted">(Apr 8, 2026)</span><br>Drip/Nurture <span class="muted">(Apr 8, 2026)</span></td></tr>
+<tr><td>41</td><td>paula patrick</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(Apr 8, 2026)</span><br>Drip/Nurture <span class="muted">(Mar 25, 2026)</span></td></tr>
+<tr><td>42</td><td>guang yang</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(Apr 8, 2026)</span><br>Drip/Nurture <span class="muted">(Mar 25, 2026)</span></td></tr>
+<tr><td>43</td><td>rose dearing</td><td>Lead Flow Pipeline</td><td>Appointment Booked <span class="muted">(Mar 28, 2026)</span><br>Appointment Booked <span class="muted">(Mar 28, 2026)</span></td></tr>
+<tr><td>44</td><td>saye rufus</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(Mar 27, 2026)</span><br>Drip/Nurture <span class="muted">(Mar 24, 2026)</span></td></tr>
+<tr><td>45</td><td>phil mikos</td><td>Lead Flow Pipeline</td><td>Appointment Booked <span class="muted">(Mar 27, 2026)</span><br>Appointment Booked <span class="muted">(Mar 27, 2026)</span></td></tr>
+<tr><td>46</td><td>christina pehlman</td><td>1. Lead Pipeline (NEW)</td><td>Drip/Nurture <span class="muted">(Mar 26, 2026)</span><br>Drip/Nurture <span class="muted">(Mar 17, 2026)</span></td></tr>
+<tr><td>47</td><td>maryann walker</td><td>Lead Flow Pipeline</td><td>Appointment Booked <span class="muted">(Mar 25, 2026)</span><br>Appointment Booked <span class="muted">(Mar 25, 2026)</span></td></tr>
+<tr><td>48</td><td>amit karand</td><td>Lead Flow Pipeline</td><td>Appointment Booked <span class="muted">(Mar 22, 2026)</span><br>Pending Service <span class="muted">(Mar 4, 2026)</span></td></tr>
+<tr><td>49</td><td>chris miller</td><td>Lead Flow Pipeline</td><td>Pending Service <span class="muted">(Mar 18, 2026)</span><br>Pending Service <span class="muted">(Mar 17, 2026)</span></td></tr>
+<tr><td>50</td><td>jasper josephs</td><td>Lead Flow Pipeline</td><td>Pending Service <span class="muted">(Mar 16, 2026)</span><br>Pending Service <span class="muted">(Mar 9, 2026)</span></td></tr>
+<tr><td>51</td><td>jessica price</td><td>Lead Flow Pipeline</td><td>Pending Service <span class="muted">(Mar 16, 2026)</span><br>Pending Service <span class="muted">(Mar 2, 2026)</span></td></tr>
+<tr><td>52</td><td>sheri dewitt</td><td>Lead Flow Pipeline</td><td>Pending Service <span class="muted">(Mar 16, 2026)</span><br>Pending Service <span class="muted">(Feb 27, 2026)</span></td></tr>
+<tr><td>53</td><td>jeanie van pelt</td><td>Lead Flow Pipeline</td><td>Pending Service <span class="muted">(Mar 16, 2026)</span><br>Pending Service <span class="muted">(Feb 27, 2026)</span></td></tr>
+<tr><td>54</td><td>bhargavi &amp; chaitanya bandaru</td><td>Lead Flow Pipeline</td><td>Pending Service <span class="muted">(Mar 4, 2026)</span><br>Pending Service <span class="muted">(Feb 24, 2026)</span></td></tr>
+</table>
+<div class="callout warn">Quick note on why this keeps happening: there's a setting in your account that currently allows more than one open deal per customer in the same pipeline. Turning that setting off would stop new duplicates like these from being created going forward. Happy to flip that switch if you'd like us to.</div>
+
+<h2 class="section">3. Tags</h2>
+<p class="section-intro">Tags are the labels your system uses to sort and track contacts (like "hot lead" or "google ads"). You have <strong>117 tags</strong> in use. We didn't find any tag that's an exact duplicate of another, but we did find several tags doing the same job under different names, which makes reporting messier than it needs to be.</p>
+<table class="data">
+<tr><th>What it's tracking</th><th>Tags currently doing that job</th></tr>
+<tr><td>Google Ads leads</td><td>google, google ads, google ads_exterior, google ads_homepage, google ads_strategy form</td></tr>
+<tr><td>Facebook / Meta leads</td><td>facebook, facebook ads, meta, meta ads, and 2 more variations</td></tr>
+<tr><td>"Buy 1 Get 1" promo leads</td><td>b1g1_booking, b1g1_lp booking, buy 1 get 1 50% off</td></tr>
+<tr><td>"Buy 2 Get 1" promo leads</td><td>b2g1_booking, b2g1_lp booking, buy 2 get 1 free</td></tr>
+<tr><td>MyBlindCo (partner) leads</td><td>mbc, mbcimport, myblindco import, demo myblindco import</td></tr>
+<tr><td>Hot / warm leads</td><td>hot, hot lead, warm, warm lead</td></tr>
+</table>
+<div class="callout">None of this is broken, it just means when you pull a report on "how many Google Ads leads did we get," the answer might be split across 5 different tags instead of 1. Worth picking one name per category and merging the rest into it, again, only with your sign-off.</div>
+
+<h2 class="section">4. Extra Info Fields &amp; Saved Values</h2>
+<p class="section-intro">Beyond the basics (name, phone, email), your system tracks <strong>37 extra info fields</strong> (things like "how many windows," "budget range," or "which service are they interested in"). No duplicates here, every field is unique. We also checked your <strong>9 saved values</strong> (reusable snippets your automations pull from, like your business phone number).</p>
+<table class="data">
+<tr><th>Saved Value</th><th>What's in it</th><th>Status</th></tr>
+<tr><td>GHL_API_KEY</td><td><span class="muted">nothing saved yet</span></td><td>Worth checking</td></tr>
+<tr><td>GHL_LOCATION_ID</td><td><span class="muted">nothing saved yet</span></td><td>Worth checking</td></tr>
+<tr><td>Appt User_Erica</td><td>TWVErica</td><td>Good</td></tr>
+<tr><td>Appt User_Justin</td><td>TWVJustin</td><td>Good</td></tr>
+<tr><td>Business Phone</td><td>+1 317-999-5154</td><td>Good</td></tr>
+<tr><td>Business Name</td><td>The Window Valet</td><td>Good</td></tr>
+<tr><td>Business Email</td><td>service@thewindowvalet.com</td><td>Good</td></tr>
+<tr><td>contact_id</td><td><span class="muted">nothing saved yet</span></td><td>Worth checking</td></tr>
+<tr><td>appt_arrival_time</td><td><span class="muted">nothing saved yet</span></td><td>Worth checking</td></tr>
+</table>
+<div class="callout warn">Four of these are currently empty. Two of them (labeled like login-type info) look like they might be leftover from a setup that was never finished. Worth a quick check with whoever set those up. The other two are likely fine as-is, since some saved values are only meant to fill in automatically while an automation is running.</div>
+
+<h2 class="section">5. A Quick Word on Your Automations</h2>
+<p class="section-intro">We're doing a separate, much deeper review of your automations (the behind-the-scenes steps that follow up with leads, book appointments, etc.) and delivering that as its own report. A couple of quick account-level notes worth mentioning here:</p>
+<ul class="clean">
+  <li>You have <strong>77 automations</strong> total, and <strong>47 of them</strong> are sitting as unfinished drafts rather than fully turned on. Not a problem by itself, but worth a look to see which ones are still needed.</li>
+  <li>We noticed 5 automations exist as two copies each (an old draft version sitting next to the current one), safe to clean up once confirmed which copy is the one actually in use.</li>
+</ul>
+<p class="section-intro">Full detail on what's working well, what's not, and what we'd recommend simplifying is in the separate Workflow Automation Audit.</p>
+
+<p class="footer-note">This report reflects a read-only review of your GoHighLevel account as of August 17, 2026. No records were created, changed, or deleted while preparing it. Any next steps mentioned above would only happen with your approval.</p>
+
+</body>
+</html>
