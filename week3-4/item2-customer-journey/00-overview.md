@@ -1,18 +1,18 @@
 # Item 2: Customer Journey & Cross-System Integration
 Renamed/expanded from "MyBlindCo Integration Architecture" — elevated to top priority
-by Josh on 2026-08-29. Spans GHL, the quoting/operations system, QuickBooks, and Mapsly.
+by Josh on 2026-08-29. Spans GHL, Quoterite, QuickBooks, and Mapsly.
 Goal: follow a customer from original lead through completed sale to the actual
 financial result. Approached in stages, not built all at once.
 
-> **UPDATE 2026-09-07 — MyBlindCo is out, confirmed by Josh directly (via message).**
-> Everything below that used to say "MyBlindCo" now refers to "the quoting/operations
-> system" generically, since that's a role in the journey, not a specific vendor
-> anymore. **Quoterite is the leading and currently only evaluated candidate to fill
-> that role**, see `../03-quoterite-research.md` and `../../docs/2026-09-05_proposal_quoterite-evaluation.pdf`,
-> but it is not yet 100% locked as final, that depends on Josh's 2026-09-08 demo with
-> their owner going well (GHL connectivity, pricing, and API access all still need
-> confirming). Treat "Quoterite" as the working assumption everywhere below, not a
-> settled fact, until that demo confirms it.
+> **UPDATE 2026-09-08 — Quoterite confirmed as the replacement for MyBlindCo.**
+> Everything below now names Quoterite directly rather than the generic
+> "quoting/operations system" placeholder used right after MyBlindCo was ruled out.
+> See `../03-quoterite-research.md` and `../../docs/2026-09-05_proposal_quoterite-evaluation.pdf`
+> for the research behind it. What's still genuinely unresolved, not the vendor
+> choice, is the technical integration question: no native GHL connector, no public
+> Zapier app, and no public API documentation were found for Quoterite, so GHL
+> connectivity still needs confirming directly with their team before any build work
+> gets scheduled.
 
 ## System ownership (today)
 | System | Owns |
@@ -30,12 +30,12 @@ financial result. Approached in stages, not built all at once.
 ## Week 3-4 deliverables (mapping, NOT building yet)
 1. Document the full customer journey: Lead -> GHL contact -> GHL opportunity -> sales appointment -> salesperson -> quoting system customer -> quote -> order -> installation -> QuickBooks transaction/payment.
 2. Determine reliable cross-system customer matching (customer ID, email, phone, job #, opportunity ID, quote #, order #) — no duplicates/mismatches. Proposed working key: email + phone, pending confirmation against the actual replacement system's record structure.
-3. Determine what data is actually accessible per platform (GHL: well understood; the quoting/operations system: unresolved until the replacement is finalized; QuickBooks: native, confirmed; Mapsly: native, confirmed).
+3. Determine what data is actually accessible per platform (GHL: well understood; Quoterite: unresolved, no native GHL connector, Zapier app, or API docs found publicly, needs confirming directly with their team; QuickBooks: native, confirmed; Mapsly: native, confirmed).
 4. Build a proposed data map: GHL Lead Source -> GHL Appointment -> Salesperson -> Quote -> Order -> Installation -> QuickBooks Revenue -> Gross Profit.
 5. Identify the minimum viable integration — Josh's own assumption, shared by us: GHL opportunity -> quoting system's quote/order FIRST, before adding QuickBooks financials. The specific build method depends entirely on what the replacement system supports once chosen.
 6. Begin designing the reporting structure (not the dashboard): lead source, salesperson, appointments, quotes, sales, closing %, average sale, revenue, gross profit, gross profit %, ZIP code, product type, install status.
-7. **Factor scheduling into the design — READ-ONLY, never a two-way write.** Sales appointments live in GHL, installations live in the quoting/operations system, and that split stays regardless of which vendor ends up there. No calendar sync between them. Long term, build intelligence across both (geography, drive time, existing appointments, salesperson/installer availability, job duration, workload) surfaced as *suggestions*, never automated writes back into either calendar. Native Mapsly connector does the heavy lifting here.
-8. Sequence Mapsly AFTER the data foundation: once GHL and the quoting/operations system's data is connected, use Mapsly to surface strongest ZIPs, revenue/profit areas, clusters, partner opportunities.
+7. **Factor scheduling into the design — READ-ONLY, never a two-way write.** Sales appointments live in GHL, installations live in Quoterite, and that split stays. No calendar sync between them. Long term, build intelligence across both (geography, drive time, existing appointments, salesperson/installer availability, job duration, workload) surfaced as *suggestions*, never automated writes back into either calendar. Native Mapsly connector does the heavy lifting here.
+8. Sequence Mapsly AFTER the data foundation: once GHL and Quoterite's data is connected, use Mapsly to surface strongest ZIPs, revenue/profit areas, clusters, partner opportunities.
 
 > **HARD CONSTRAINT — do not propose two-way GHL<->operations-system calendar sync, whichever vendor that is.** Per Josh (2026-08-29): a two-way scheduling sync between GHL and MyBlindCo existed once before under a previous team and was shut down. Failure mode: double bookings, and a cancellation on one side wouldn't reliably cancel on the other, leaving stale appointments and confusing everyone. Splitting sales appointments (GHL) from installs was a deliberate, hard-won decision — not an oversight to "fix." That lesson carries forward to Quoterite or whatever else ends up in that role. Deliverable 7's read-only design is specifically meant to capture the scheduling-efficiency benefit without recreating that failure.
 
