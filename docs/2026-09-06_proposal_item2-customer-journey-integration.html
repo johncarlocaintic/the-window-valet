@@ -48,6 +48,17 @@ li, tr { break-inside: avoid; page-break-inside: avoid; }
 <tr><td><b>Mapsly</b></td><td>Geographic intelligence, eventually surfacing best ZIP codes, revenue and profit clusters, and partner or marketing opportunities.</td></tr>
 </table>
 <p>Walking a customer through all four: a lead comes in and becomes a GHL contact, tagged by source. A sales appointment gets booked and assigned to a salesperson. Once sold, that customer needs to become a customer in the quoting and operations system with a quote, then an order, moving through production and shipping to a scheduled installation. Once the job is complete, the financial side of it, the invoice, payment, and true cost, lives in QuickBooks. Today, the handoff from GHL into MyBlindCo happens through one custom one-way webhook, but since that system is being replaced, this handoff needs rebuilding against whatever system takes its place rather than repaired as-is. Nothing currently carries order or installation status back into GHL, and nothing currently connects a specific job to its QuickBooks financial result automatically, both of those gaps carry over to whatever the new system turns out to be.</p>
+<p><b>The same six steps, with one example customer instead of abstract stages:</b></p>
+<table>
+<tr><th>Step</th><th>What actually happens</th><th>Where it lives</th></tr>
+<tr><td>1. Lead</td><td>A customer fills out a form on the website asking for a quote. GHL creates a contact for her and tags where she came from, Google, Facebook, referral, or otherwise.</td><td>GHL</td></tr>
+<tr><td>2. Appointment booked</td><td>Someone calls her, books a sales visit, and assigns a salesperson to go measure her windows.</td><td>GHL</td></tr>
+<tr><td>3. Sale</td><td>The salesperson visits, she likes the price, and the deal gets marked Sold in GHL. This is the exact handoff point that needs rebuilding, her information has to move into the quoting system automatically from here.</td><td>GHL into the quoting system</td></tr>
+<tr><td>4. Order and production</td><td>Her order gets placed with the factory and tracked through production and shipping.</td><td>The quoting system</td></tr>
+<tr><td>5. Installation</td><td>A crew installs the product, the job gets marked complete, and she may get a review request.</td><td>The quoting system</td></tr>
+<tr><td>6. Financial result</td><td>The invoice, what she actually paid, and what it cost to fulfill the job gets recorded, so the business knows whether that sale was actually profitable.</td><td>QuickBooks</td></tr>
+</table>
+<p>Six steps, three systems, one customer moving through all of them without anyone retyping her information twice. Step 3 is the one that needs to actually work automatically; steps 4 through 6 need to flow back into GHL so anyone can see where an order stands without opening three different logins.</p>
 
 <h2><span class="num">2.</span> Cross-System Customer Matching</h2>
 <p>No single ID ties a customer together across all three systems today. GHL has its own contact ID and opportunity ID. The quoting and operations system will have its own contact, quote, and order records, structured around its own IDs, whatever that system turns out to be, this needs confirming directly once it's chosen, not assumed from MyBlindCo's structure since that's now a moot question. QuickBooks' native GHL connector handles its own matching internally, most likely by name or email, standard for that kind of connector, but the exact logic hasn't been confirmed either.</p>
