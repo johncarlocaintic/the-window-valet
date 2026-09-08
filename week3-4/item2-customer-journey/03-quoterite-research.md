@@ -184,3 +184,132 @@ Quoterite can trigger a workflow in GoHighLevel." If they can show real
 webhook/API access with quote or customer events firing into something
 external, that settles the integration question on the spot. If they can't
 demonstrate it, that's the answer too.
+
+## Josh's formal written outreach to Quoterite, sent 2026-09-08
+Following the demo, Josh sent a comprehensive technical questionnaire directly
+to Quoterite's contact, **Aaron LeCornu** (subject: "Quoterite Demo - The
+Window Valet and Aaron LeCornu"). This is now the authoritative outreach,
+it covers everything in this file's own "questions to bring to the demo"
+list and goes considerably further. Full text saved for reference; the
+key asks:
+
+- Does Quoterite have a fully documented, supported API? Requested the
+  actual documentation, not just a description of one.
+- Does the API support both incoming requests and outgoing webhooks?
+- Can GHL create/update customers, appointments, assigned salespeople, and
+  jobs in Quoterite (the GHL-to-Quoterite direction)?
+- Can Quoterite automatically push a specific list of fields back to GHL:
+  quote amount and status, deposit received, order submitted, production
+  status, products received, installation date and status, installation
+  completed, balance collected, and service call or remake created. This is
+  a far more complete field list than this research file's own proposed
+  data map had, worth folding back in once answered.
+- Can installation appointments created or changed in Quoterite update GHL
+  without creating duplicate appointments?
+- How does Quoterite match records and prevent duplicate customers, jobs,
+  and appointments (directly extends this file's own unresolved
+  matching-key question)?
+- What happens on a failed API call or webhook, are errors logged, and can
+  failed transactions retry automatically?
+- Will Window Valet's own administrator (John Carlo, referred to as "our
+  GoHighLevel administrator") get access to API credentials, integration
+  logs, and error information?
+- Are there API usage limits or extra charges for API/webhook access?
+- Can Window Valet's own GHL administrator build and maintain the
+  integration, or is Quoterite/an approved developer required? This
+  directly answers whether the custom-integration cost estimates in this
+  file even apply, or whether it's buildable in-house.
+- Who owns the finished integration, API credentials, field mapping, and
+  documentation once built?
+- Is there a test/sandbox environment to build and verify against before
+  using live customer data?
+- Do they have any existing customers integrating Quoterite with GHL or
+  another outside CRM who could be contacted as a reference?
+
+Josh also asked for a technical rep from Quoterite to meet directly with
+"our GoHighLevel administrator" (John Carlo), and wants one real Window
+Valet job tested end to end, from the original GHL appointment through
+quoting, deposit, production, installation, and completion, before any
+final commitment. He closed by asking Quoterite to state plainly what's
+supported today versus what needs custom development, plus estimated cost
+and timeline for the custom piece.
+
+**Status: sent, waiting on Aaron LeCornu/Quoterite's written reply.**
+Nothing to do here until that response arrives. Once it does, this file's
+open questions (matching key, field-level access, custom-integration cost)
+should mostly resolve from it directly, and a technical call with John
+Carlo as "the GHL administrator" is likely to follow. Worth being ready for
+that call once scheduled.
+
+## Aaron LeCornu's reply, received 2026-09-08
+Answers most of Josh's questions directly, but with one real concern worth
+raising before going further, and a few questions that still went
+unaddressed.
+
+**Confirmed facts:**
+- **No open API for direct client access.** All integrations are built,
+  hosted, and maintained by Quoterite's own internal technical team on
+  their proprietary platform, not something John Carlo (or any outside
+  developer) can build or touch directly. This directly answers the
+  "can our own GHL administrator build and maintain the integration"
+  question: no, they cannot.
+- **The GoHighLevel integration does not exist yet.** They have complete
+  two-way integrations with HubSpot and Zoho today; GHL is "on our roadmap
+  to launch within the next 2 to 3 months." This confirms what every piece
+  of independent research already found (no native connector, no public
+  API docs, no Zapier app), directly from the vendor now.
+- **Cost, once built: approximately $1,000 one-time setup, plus $150/month**
+  ongoing for integration management, API usage, platform usage, and
+  maintenance, no separate usage limits. This is well below this file's
+  own market-rate estimate range for a medium-complexity integration
+  ($3,000-10,000), a genuinely good number if the GHL build actually lands
+  as scoped.
+- **Error handling:** all activity, errors, and timing are logged; failed
+  transactions can be rerun and retried.
+- **Duplicate prevention:** planned to use unique system IDs when updating
+  GHL records and appointments.
+- **Planned data flow, once built:** GHL leads/contacts flow into
+  Quoterite; status changes, quote values, payments, and appointments push
+  back to GHL via webhooks to trigger automated emails/texts. This is a
+  reasonable shape but describes a system that doesn't exist yet, not
+  something tested or verified.
+
+**One real concern, worth a direct follow-up before committing further:**
+"Quoterite retains ownership of the underlying integration and code as it's
+built and hosted on our integration platform." This is a genuine vendor
+lock-in signal, the same category of problem that made Josh want to leave
+MyBlindCo in the first place. It doesn't necessarily mean Window Valet's
+own customer data is trapped (Quoterite's own marketing elsewhere claims
+data stays exportable), but the integration itself, its field mappings,
+webhook configuration, and code, belongs to Quoterite, not Window Valet.
+Worth asking directly: if Window Valet ever needed to leave Quoterite,
+would the GHL integration and its configuration transfer, or would a future
+switch mean rebuilding this same integration from scratch with whoever
+comes next?
+
+**Questions Josh asked that did not get a direct answer:**
+- The specific 9-field list (quote amount/status, deposit received, order
+  submitted, production status, products received, installation date and
+  status, installation completed, balance collected, service call/remake)
+  was not itemized field by field, only described generally as "status
+  changes, quote values, payments, appointments." Worth re-confirming each
+  field lands before treating this as settled.
+- No mention of reference customers, Josh explicitly asked to speak with
+  an existing Quoterite customer running a GHL or other outside-CRM
+  integration; this went unaddressed. Since GHL isn't built yet, worth
+  specifically asking for a HubSpot or Zoho reference instead, since those
+  integrations are claimed complete today.
+- **No live sync test is possible this week's demo**, since the GHL side
+  doesn't exist yet. Aaron proposes walking through Quoterite's own
+  end-to-end workflow (lead, quote, appointment, production, install,
+  payment) without the GHL connection. Josh's explicit ask, testing one
+  real Window Valet job across both systems before final commitment,
+  cannot happen until the 2-3 month build is actually done.
+
+**Bottom line:** this de-risks the pricing question significantly ($1,000 +
+$150/month is a real, specific, reasonable number) but confirms the GHL
+integration is a 2-3 month vendor-side build, not something available now,
+and raises a new, genuine concern about who owns the integration once
+built. Worth deciding with Josh whether to proceed on a 2-3 month timeline
+with that ownership question resolved first, rather than treating this
+reply as a green light on its own.

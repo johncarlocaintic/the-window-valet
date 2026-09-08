@@ -108,11 +108,11 @@ li, tr { break-inside: avoid; page-break-inside: avoid; }
 </table>
 
 <h2><span class="num">5.</span> Minimum Viable Integration</h2>
-<div class="note">This section previously recommended fixing the existing MyBlindCo webhook as the first build step. That's no longer the plan, MyBlindCo has been replaced by Quoterite, not repaired. The order of priorities below still holds, GHL to Quoterite first, QuickBooks financials last, but step one depends on what connection method Quoterite actually supports, still being confirmed directly with their team.</div>
+<div class="note">Quoterite's team confirmed directly (2026-09-08) that the GHL connection doesn't exist yet: it's on their own roadmap, a 2-3 month build done entirely by their internal team, at roughly $1,000 setup plus $150 a month ongoing. That changes step one below from "figure out the method" to "confirm the scope and get on their build schedule," since Window Valet cannot build or maintain this piece itself, it's Quoterite's own proprietary platform.</div>
 <p>Josh's own instinct on this, which this proposal agrees with: GHL opportunity to quote and order first, QuickBooks financials after that, not all at once. In concrete order:</p>
 <ol>
-<li><b>Build a reliable connection from GHL into Quoterite first.</b> This replaces the old MyBlindCo webhook entirely rather than repairing it. The exact method depends on what Quoterite actually supports, a native connector, Zapier, or a custom-built integration, which is exactly what needs confirming before any of this can be scheduled.</li>
-<li><b>Extend that connection to carry order and installation status back into a GHL field.</b> This is the minimum handshake needed for GHL reporting to reflect real order status without ever writing back into Quoterite's own calendar or order system, staying fully within the read-only scheduling rule below.</li>
+<li><b>Get Quoterite's GHL connection built and confirmed working first.</b> This replaces the old MyBlindCo webhook entirely rather than repairing it, but it's now a vendor-managed build, not something to configure in-house. Confirm the exact field list and timeline before committing, then track it against their quoted 2-3 months.</li>
+<li><b>Confirm that connection carries order and installation status back into a GHL field.</b> This is the minimum handshake needed for GHL reporting to reflect real order status without ever writing back into Quoterite's own calendar or order system, staying fully within the read-only scheduling rule below. Quoterite has described this shape (status changes, quote values, payments, appointments push to GHL via webhook) but hasn't confirmed each specific field yet.</li>
 <li><b>Add the QuickBooks financial layer last,</b> once the GHL-to-Quoterite link is proven reliable. QuickBooks' native connector already exists and mainly needs a trustworthy upstream customer or job link to attach to.</li>
 </ol>
 
@@ -130,12 +130,14 @@ li, tr { break-inside: avoid; page-break-inside: avoid; }
 
 <h2><span class="num">9.</span> Still Open Before This Moves to Building</h2>
 <ul>
-<li><b>Quoterite's own GHL-connection question is still unresolved.</b> This is the item everything else in this document now depends on. Public research found no native GHL connector, no public Zapier app, and no public API documentation, see the separate Quoterite Evaluation document, so this needs direct answers from their team before any build work gets scheduled.</li>
-<li>The same questions originally asked of MyBlindCo apply to Quoterite: API, webhook, or export capability, what customer-matching key it can expose, and what its order and job status fields actually look like.</li>
+<li><b>The specific field list still needs item-by-item confirmation.</b> Quoterite described the shape of what pushes to GHL (status changes, quote values, payments, appointments) but hasn't confirmed each field individually, quote amount and status, deposit received, order submitted, production status, products received, installation date and status, installation completed, balance collected, and service call or remake created.</li>
+<li><b>Who owns the integration once it's built.</b> Quoterite's team confirmed they retain ownership of the integration and its code, since it runs on their own platform. Worth a direct answer on what happens to that configuration if Window Valet ever needs to switch systems again.</li>
+<li>No reference customer has been offered for a GHL, or any outside-CRM, integration specifically. Worth asking for one running their HubSpot or Zoho connection instead, since those are complete today.</li>
+<li>Testing one real Window Valet job end to end across both systems, GHL appointment through quoting, deposit, production, installation, and payment, can't happen until Quoterite's GHL build is actually done, not before.</li>
 <li>What the "Marketing" user's plotted 27-stop route in Mapsly is actually for, real use or a leftover sample, before assuming anything about how much of Mapsly's paid capacity is genuinely unused.</li>
 </ul>
 
 <h2><span class="num">10.</span> What We're Asking Josh to Decide</h2>
-<p>One thing mainly, at this point: help close the open items above, most of them need direct answers from Quoterite's own team about GHL connectivity and API access. Once those come back, this document gets a second pass with real answers in place of placeholders, and the build order in section 5 gets turned into an actual plan with dates.</p>
+<p>Whether to move forward on Quoterite's quoted 2-3 month timeline for the GHL build, given the cost is confirmed and reasonable but the integration itself would belong to them, not Window Valet. If yes, the open items above, the exact field list, ownership terms, and a reference customer, are worth pinning down in writing before the build starts, not after. Once that's settled, this document gets a final pass with real answers in place of placeholders, and the build order in section 5 becomes an actual plan with dates.</p>
 
 </body></html>
