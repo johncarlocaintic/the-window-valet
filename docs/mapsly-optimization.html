@@ -1,0 +1,57 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Scheduling &amp; Mapsly Optimization</title>
+<style>
+@page { size: Letter; margin: 0.85in 0.8in; }
+* { box-sizing: border-box; }
+body { font-family: "Segoe UI", -apple-system, Helvetica, Arial, sans-serif;
+  color: #1c2b33; font-size: 10.5pt; line-height: 1.55; margin: 0; }
+h1 { font-size: 26pt; font-weight: 700; margin: 0 0 22px; color: #12222c; letter-spacing: -.4px; }
+.note { background: #f4f6f6; padding: 13px 17px; margin: 0 0 18px; font-size: 10pt; border-radius: 2px; }
+.blocker { background: #fdf1f1; padding: 13px 17px; margin: 0 0 18px;
+  font-size: 10pt; color: #9d2f2f; border-radius: 2px; }
+h2 { background: #16232b; color: #fff; font-size: 13pt; font-weight: 700;
+  padding: 11px 18px; margin: 30px 0 16px; border-radius: 3px; }
+h2 .num { color: #4fbf8b; margin-right: 8px; }
+p { margin: 0 0 14px; }
+ol, ul { padding-left: 22px; margin: 0 0 16px; }
+li { margin-bottom: 9px; }
+li b { color: #12222c; }
+table { width: 100%; border-collapse: collapse; margin: 0 0 18px; font-size: 9.5pt; }
+th { background: #16232b; color: #fff; text-align: left; padding: 8px 11px; font-weight: 600; }
+td { border-bottom: 1px solid #e3e8ea; padding: 8px 11px; vertical-align: top; }
+tr:nth-child(even) td { background: #fafbfb; }
+h2, .note, .blocker { break-after: avoid; page-break-after: avoid; }
+li, tr { break-inside: avoid; page-break-inside: avoid; }
+</style></head>
+<body>
+<h1>Scheduling &amp; Mapsly Optimization</h1>
+
+<h2><span class="num">1.</span> Where This Stands Today</h2>
+<p>Mapsly already has a native, bi-directional, real-time connector built specifically for GoHighLevel, and an active Enterprise plan, 3 seats, $210 a month, is already in place. This is a real product to configure and get more out of, not something to build from scratch. Its full reporting and clustering value still waits on the Quoterite data foundation landing, but there's real work worth doing now regardless of that timeline.</p>
+
+<h2><span class="num">2.</span> How the Connection Actually Works</h2>
+<p>This isn't an invisible background sync. The real mechanism is a GHL workflow with a trigger like "Contact created," running a Custom Webhook action that posts to Mapsly's API, carrying whatever fields get mapped. That's exactly how this account's two existing Mapsly workflows are built, "(Partners) Workflow: Send Partner Objects to Mapsly" and "(Partners) Workflow: Sync contacts to Mapsly," both proven and working today for partner-tagged contacts. One real limitation worth knowing: GHL has no "on delete" trigger, so a deleted record can't automatically sync as deleted on the Mapsly side.</p>
+
+<h2><span class="num">3.</span> What's Actually Connected Today</h2>
+<p>Partner-tagged contacts and partner objects, through the two workflows above. Nothing else. Sales opportunities, appointments, and job or install data aren't flowing to Mapsly at all right now, since no workflow exists yet to push them over.</p>
+
+<h2><span class="num">4.</span> What's Available But Sitting Unused</h2>
+<p>All of this is already included on the account's current Enterprise plan, none of it needs a higher tier or additional purchase.</p>
+<ul>
+<li><b>Territory auto-assignment.</b> New records get auto-assigned to a drawn territory within 10 to 20 seconds of syncing, and that assignment can trigger a Mapsly workflow, including auto-assigning the record to a specific sales rep. This is the direct, ready-to-use replacement for today's manual assignment to Erica or Justin.</li>
+<li><b>Route optimization</b> for sales appointments and installs, multi-stop, multi-user, traffic-aware, with a calendar-based auto-populate option, well beyond the one-off 27-stop "Marketing" route already sitting in the account, still unexplained and worth checking directly.</li>
+<li><b>Mobile field capture:</b> GPS-verified check-in and check-out through geofencing, plus photo, video, e-signature, and barcode capture from the mobile app. Directly useful for confirming an installation actually happened, a gap nothing on the GHL side currently covers.</li>
+<li><b>Heatmaps and demographic layers,</b> with over 50,000 US Census metrics available, the actual mechanism behind the "best ZIPs, revenue and profit clusters" goal, but this needs real opportunity and revenue data flowing into Mapsly first, which isn't happening yet.</li>
+<li><b>Mapsly Analytics,</b> drag-and-drop dashboards with drill-down, a second option worth weighing for the reporting-structure goal once real data is flowing, alongside building something directly in GHL.</li>
+</ul>
+
+<h2><span class="num">5.</span> What This Actually Needs to Unlock</h2>
+<p>Everything above depends on opportunity and appointment data reaching Mapsly, and none of it does yet. The concrete next build, in the same proven pattern as the two existing Partner workflows: a new GHL workflow triggered on opportunity create or update, with a Custom Webhook action posting to Mapsly's API, carrying address, assigned rep, and stage. Once that's flowing, territory auto-assignment and route optimization become usable on real sales and install data, not just partner records.</p>
+
+<h2><span class="num">6.</span> Recommended Next Steps</h2>
+<p>Two things can happen now, independent of the Quoterite timeline: build the one new workflow needed to push opportunity data to Mapsly, the same pattern already proven with the Partner workflows, then turn on territory auto-assignment against that data and measure it directly against today's manual assignment before rolling it out fully. Once that's tested, document the actual efficiency gain, drive time, appointments per day, fuel, to make a clear go or no-go call before expanding further.</p>
+
+<h2><span class="num">7.</span> What Still Waits</h2>
+<p>The heatmap, analytics, and revenue-clustering piece genuinely waits, since it needs real financial data flowing through the account, which is still gated on the Quoterite integration landing. That's the only piece tied to that timeline, everything else in this document can move now.</p>
+
+</body></html>
