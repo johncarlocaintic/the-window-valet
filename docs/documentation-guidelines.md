@@ -39,6 +39,7 @@ four, use what fits the content.
 - Nothing from any other client ever appears in these docs.
 - No em dashes anywhere in the document text (title, body, table cells). Use a comma, period, colon, or parentheses instead, whichever reads most naturally for that sentence. Em dashes read as an AI-generated tell to Josh.
 - **Every document opens straight into numbered sections, no unnumbered intro callout box.** All real content lives in a numbered `h2` section (matching house style: dark bar, green numeral), starting at section 1. The `.note`/`.blocker` callout boxes are for a genuine aside or caveat *within* a section, never the document's opening framing device, an unnumbered lead-in box reads inconsistent with the rest of the document and looks unpolished, flagged directly by the user 2026-09-09.
+- **Never refer to Josh in the third person within a document addressed to him.** No "needs Josh's decision," no "What We're Asking Josh to Decide," no "his own preferred alternative." The byline ("Prepared for Josh LeClair by...") is the one place his name belongs; everywhere else in the body, speak to him directly: "needs your decision," "What We Need From You," "your own preferred alternative." Flagged directly by the user 2026-09-10, talking about the reader in third person inside a document written for that same reader reads like a report handed to someone else about him.
 
 ## Build
 ```bash

@@ -109,7 +109,7 @@ li, tr { break-inside: avoid; page-break-inside: avoid; }
 
 <h2><span class="num">5.</span> Minimum Viable Integration</h2>
 <div class="note">Quoterite's team confirmed directly (2026-09-08) that the GHL connection doesn't exist yet: it's on their own roadmap, a 2-3 month build done entirely by their internal team, at roughly $1,000 setup plus $150 a month ongoing. That changes step one below from "figure out the method" to "confirm the scope and get on their build schedule," since Window Valet cannot build or maintain this piece itself, it's Quoterite's own proprietary platform.</div>
-<p>Josh's own instinct on this, which this proposal agrees with: GHL opportunity to quote and order first, QuickBooks financials after that, not all at once. In concrete order:</p>
+<p>Your own instinct on this, which this proposal agrees with: GHL opportunity to quote and order first, QuickBooks financials after that, not all at once. In concrete order:</p>
 <ol>
 <li><b>Get Quoterite's GHL connection built and confirmed working first.</b> This replaces the old MyBlindCo webhook entirely rather than repairing it, but it's now a vendor-managed build, not something to configure in-house. Confirm the exact field list and timeline before committing, then track it against their quoted 2-3 months.</li>
 <li><b>Confirm that connection carries order and installation status back into a GHL field.</b> This is the minimum handshake needed for GHL reporting to reflect real order status without ever writing back into Quoterite's own calendar or order system, staying fully within the read-only scheduling rule below. Quoterite has described this shape (status changes, quote values, payments, appointments push to GHL via webhook) but hasn't confirmed each specific field yet.</li>
@@ -137,7 +137,7 @@ li, tr { break-inside: avoid; page-break-inside: avoid; }
 <li>What the "Marketing" user's plotted 27-stop route in Mapsly is actually for, real use or a leftover sample, before assuming anything about how much of Mapsly's paid capacity is genuinely unused.</li>
 </ul>
 
-<h2><span class="num">10.</span> What We're Asking Josh to Decide</h2>
+<h2><span class="num">10.</span> What We Need You to Decide</h2>
 <p>Whether to move forward on Quoterite's quoted 2-3 month timeline for the GHL build, given the cost is confirmed and reasonable but the integration itself would belong to them, not Window Valet. If yes, the open items above, the exact field list, ownership terms, and a reference customer, are worth pinning down in writing before the build starts, not after. Once that's settled, this document gets a final pass with real answers in place of placeholders, and the build order in section 5 becomes an actual plan with dates.</p>
 
 </body></html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Tag Standardization</title>
+<style>
+@page { size: Letter; margin: 0.85in 0.8in; }
+* { box-sizing: border-box; }
+body { font-family: "Segoe UI", -apple-system, Helvetica, Arial, sans-serif;
+  color: #1c2b33; font-size: 10.5pt; line-height: 1.55; margin: 0; }
+h1 { font-size: 26pt; font-weight: 700; margin: 0 0 22px; color: #12222c; letter-spacing: -.4px; }
+.note { background: #f4f6f6; padding: 13px 17px; margin: 0 0 18px; font-size: 10pt; border-radius: 2px; }
+.blocker { background: #fdf1f1; padding: 13px 17px; margin: 0 0 18px;
+  font-size: 10pt; color: #9d2f2f; border-radius: 2px; }
+h2 { background: #16232b; color: #fff; font-size: 13pt; font-weight: 700;
+  padding: 11px 18px; margin: 30px 0 16px; border-radius: 3px; }
+h2 .num { color: #4fbf8b; margin-right: 8px; }
+p { margin: 0 0 14px; }
+ol, ul { padding-left: 22px; margin: 0 0 16px; }
+li { margin-bottom: 9px; }
+li b { color: #12222c; }
+table { width: 100%; border-collapse: collapse; margin: 0 0 18px; font-size: 9.5pt; }
+th { background: #16232b; color: #fff; text-align: left; padding: 8px 11px; font-weight: 600; }
+td { border-bottom: 1px solid #e3e8ea; padding: 8px 11px; vertical-align: top; }
+tr:nth-child(even) td { background: #fafbfb; }
+h2, .note, .blocker { break-after: avoid; page-break-after: avoid; }
+li, tr { break-inside: avoid; page-break-inside: avoid; }
+</style></head>
+<body>
+<h1>Tag Standardization</h1>
+
+<h2><span class="num">1.</span> Why This Matters Now</h2>
+<p>This has been sitting deferred since late August, it was never blocking anything at the time, but it's the one thing standing between where things are today and starting the Partner nurture campaign you asked for. The plan for that campaign reuses the same Drip and Nurture mechanics already working for end customers, but branches the content and timing based on whether a partner is tagged as a warm lead. That branch only works reliably if there's one consistent tag for it, not several different-looking tags meaning the same thing.</p>
+
+<h2><span class="num">2.</span> What's Confirmed Today</h2>
+<p>"Partner New Leads Opt-in," the live workflow that handles new partner leads, currently tags them "Drip" as an interim stopgap rather than anything resembling proper warm or cold segmentation. That was a deliberate decision, not an oversight, fixing it as a quick patch was intentionally held off in favor of doing it properly as part of the full Partner campaign build, rather than patching it now and rebuilding it again later. That's still the right call, but it means no actual "warm lead" tagging exists yet anywhere in the live account to build the new campaign's logic against.</p>
+
+<h2><span class="num">3.</span> The Actual Ask</h2>
+<p>Before the Partner nurture campaign gets built, this needs one decision from you: a single, agreed tag name for a warm partner lead, used consistently everywhere that status needs to be set or checked. Not a technical problem to solve, a naming decision to make once and stick to.</p>
+
+<h2><span class="num">4.</span> Recommended Standard</h2>
+<p>Use <b>"Warm Lead"</b> as the one tag, applied consistently across every workflow that touches partner lead temperature. Concretely:</p>
+<ol>
+<li>Replace the interim "Drip" tag on "Partner New Leads Opt-in" with "Warm Lead" once a partner has engaged but hasn't converted, this is the actual signal the new campaign's branch logic needs to check.</li>
+<li>Audit any other workflow that currently tags partner-related leads under a different name for the same status, and bring it in line with this one standard before the campaign build starts, not after.</li>
+<li>Treat "Warm Lead" as reserved specifically for partners going forward, keeping it separate from the general customer-facing "nurture" tag already in heavy use for the end-customer Drip/Nurture sequence, so the two audiences never get crossed.</li>
+</ol>
+
+<h2><span class="num">5.</span> What This Unlocks</h2>
+<p>Once this is settled, the Partner nurture campaign can actually get built: the same proven Drip/Nurture mechanics, branching by whether a partner carries the "Warm Lead" tag, giving partners their own dedicated campaign separate from end customers, exactly what you asked for.</p>
+
+<h2><span class="num">6.</span> What We Need From You</h2>
+<p>Just a yes on the tag name above, or your own preferred alternative if "Warm Lead" isn't the wording you want. Once that's confirmed, the campaign build itself can be scheduled.</p>
+
+</body></html>
