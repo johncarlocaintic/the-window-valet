@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Window Valet — Immediate Priorities</title>
+<style>
+  @page { size: Letter; margin: 16mm 16mm 14mm 16mm; }
+  * { box-sizing: border-box; }
+  :root {
+    --navy: #14202b; --ink: #1c2230; --green: #3d6b52;
+    --sage-bg: #f4f6f4; --sage-border: #dde3dd; --slate: #4a5566; --muted: #6b7484;
+    --risk: #a12727; --risk-bg: #fdeeee; --risk-border: #f3b9b9; --paper: #ffffff;
+  }
+  html, body { background: var(--paper); }
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: var(--ink); font-size: 10.5pt; line-height: 1.5; margin: 0; background: var(--paper); }
+  .page { max-width: 900px; margin: 0 auto; padding: 20px 22px 30px; }
+  .header { border-bottom: 3px solid var(--green); padding-bottom: 10px; margin-bottom: 14px; }
+  .header .kicker { color: var(--green); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; font-size: 8.5pt; }
+  .header h1 { font-size: 20pt; margin: 2px 0 2px 0; color: var(--navy); text-wrap: balance; }
+  .header .sub { color: var(--slate); font-size: 10.5pt; }
+  .meta { color: var(--muted); font-size: 8.5pt; margin-top: 6px; }
+  p { margin: 6px 0; }
+  h2 { font-size: 13.5pt; color: #fff; background: var(--navy); margin: 20px 0 10px 0; padding: 8px 12px; border-radius: 6px; }
+  h2 .n { color: #9fd6b5; margin-right: 8px; }
+  .lede { font-size: 10.5pt; color: #2c3440; background: var(--sage-bg); border-left: 3px solid var(--green); padding: 10px 14px; margin: 8px 0 14px 0; }
+  .deadline { background: var(--risk-bg); border: 1px solid var(--risk-border); color: var(--risk); border-radius: 6px; padding: 10px 13px; font-size: 9.5pt; margin: 6px 0 12px 0; }
+  .deadline b { color: #7d1d1d; }
+  .context { background: var(--sage-bg); border: 1px solid var(--sage-border); border-radius: 6px; padding: 10px 13px; font-size: 9.3pt; margin: 6px 0 12px 0; }
+  ol.steps { margin: 4px 0 4px 0; padding-left: 20px; }
+  ol.steps > li { margin-bottom: 8px; font-size: 9.8pt; }
+  ol.steps > li::marker { font-weight: 700; color: var(--green); }
+  .ask { background: var(--navy); color: #fff; padding: 10px 14px; border-radius: 6px; margin-top: 10px; font-size: 9.5pt; }
+  .ask strong { color: #9fd6b5; }
+  .footer-note { margin-top: 18px; font-size: 8pt; color: var(--muted); }
+  .divider { height: 1px; background: var(--sage-border); margin: 16px 0; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="kicker">Immediate Priorities</div>
+  <h1>The Window Valet</h1>
+  <div class="sub">What to act on right now, in priority order, based on this week's findings</div>
+  <div class="meta">Prepared for Josh LeClair by John Carlo Caintic &middot; Marketing Strategy &amp; Automation &middot; September 10, 2026</div>
+</div>
+
+<p class="lede">Four things are ready to move on right now, one with a hard deadline, two that are one-decision-away from unblocking real work, and one that's fully unblocked and can just get built. This is the priority order to work them in.</p>
+
+<h2><span class="n">1.</span>SEO &amp; Paid Ads Vendor, Hardest Deadline</h2>
+<div class="deadline"><b>Shade Strategy's engagement ends September 21st,</b> 11 days out. They currently handle the website, SEO, and paid ads. Nothing should go unmanaged after that date.</div>
+<ol class="steps">
+  <li><b>Book both vendor conversations this week</b>, not after Shade Strategy ends. Valve+Meter offers a free, no-commitment marketing assessment, book that first. FatCat doesn't list a named free assessment, reach out directly to ask what their intake looks like.</li>
+  <li><b>FatCat Strategies</b> is the leaner, more directly comparable fit, works exclusively with home improvement contractors, window and door installers named as a specialty, positions itself as a partner rather than a vendor.</li>
+  <li><b>Valve+Meter</b> is a larger, full-service agency that also names windows and doors specifically, more channels (Local Services Ads, geofencing, direct mail) than likely needed to start, but worth hearing out given the free assessment.</li>
+  <li><b>Decide before September 21st</b>, not after, so there's zero gap in SEO/ads coverage.</li>
+</ol>
+
+<div class="divider"></div>
+
+<h2><span class="n">2.</span>Tag Standardization, One Decision, Not a Build</h2>
+<div class="context">This has been sitting deferred since late August with nothing broken by the wait, until now: it's the single thing blocking the Partner nurture campaign build.</div>
+<ol class="steps">
+  <li>The Partner campaign reuses the proven Drip/Nurture mechanics, branching content and timing based on whether a partner is tagged as a warm lead. That only works with one consistent tag.</li>
+  <li><b>Recommended standard: "Warm Lead,"</b> replacing the interim "Drip" tag currently applied by "Partner New Leads Opt-in," and used consistently everywhere partner lead temperature gets set or checked. Kept separate from the general customer-facing "nurture" tag so the two audiences never cross.</li>
+  <li><b>The ask:</b> a yes on "Warm Lead," or your own preferred wording. That single answer unblocks scheduling the full Partner campaign build.</li>
+</ol>
+
+<div class="divider"></div>
+
+<h2><span class="n">3.</span>Mapsly, Fully Unblocked, Ready to Build Now</h2>
+<div class="context">Independent of the QuoteRite decision entirely. Mapsly already has partner-tagged data flowing through two proven, working workflows, the same pattern just needs extending to sales data.</div>
+<ol class="steps">
+  <li><b>Build one new workflow:</b> triggered on opportunity create/update, posting address, assigned rep, and stage to Mapsly's API, same proven pattern as the existing Partner-to-Mapsly workflows.</li>
+  <li><b>Turn on territory auto-assignment</b> against that data as a pilot, and measure it directly against today's manual assignment to Erica or Justin before rolling it out fully.</li>
+  <li><b>Document the actual gain</b> (drive time, appointments per day, fuel) to make a clear go/no-go call on expanding further, route optimization, mobile field capture, heatmaps once real revenue data is flowing.</li>
+</ol>
+
+<div class="divider"></div>
+
+<h2><span class="n">4.</span>QuoteRite, Waiting on Today's Call</h2>
+<div class="context">The conference call with QuoteRite is happening now/today. Once it's done, this becomes the single most consequential decision in the whole Customer Journey integration project, everything in that plan currently points at "whichever system replaces MyBlindCo."</div>
+<ol class="steps">
+  <li>Bring back specific answers on: whether a live GHL connection was demonstrated, a real cost/timeline for building one if not, and whether a reference customer or milestone-based payment was offered.</li>
+  <li>Once the replacement is confirmed, the Customer Journey proposal gets a second pass with real answers instead of placeholders, and the build order turns into an actual dated plan.</li>
+</ol>
+
+<div class="ask">
+<strong>Bottom line:</strong> start the SEO/ads vendor calls this week regardless of everything else, that's the one with a real clock on it. Tag standardization and the Mapsly build can both move in parallel without waiting on anything. QuoteRite is the only one genuinely waiting on new information.
+</div>
+
+<p class="footer-note">Part of the ongoing GHL stabilization work under the Week 3-4 roadmap.</p>
+
+</div>
+</body>
+</html>
