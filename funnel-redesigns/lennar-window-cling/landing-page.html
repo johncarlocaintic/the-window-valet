@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://backend.leadconnectorhq.com" crossorigin="anonymous">
+<link rel="preconnect" href="https://images.leadconnectorhq.com" crossorigin="anonymous">
+<link rel="preconnect" href="https://cdn.filesafe.space" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<meta property="og:type" content="website">
+<meta property="twitter:type" content="website">
+<meta name="robots" content="noindex">
+<title>The Window Valet - Lennar Window Cling</title>
+<style>
+
+/* ============================================
+   THE WINDOW VALET - Brand tokens
+   Red #C12026 / Warm Charcoal #5A5A5A / Architectural Black #141414 / Soft White #F8F8F8
+   Typography: Inter only (per Brand Standards Manual v2, "use only two font families" -
+   one disciplined family across weights satisfies this)
+   ============================================ */
+:root{
+  --red: #C12026;
+  --red-dark: #96181D;
+  --charcoal: #5A5A5A;
+  --black: #141414;
+  --bg: #F8F8F8;
+  --white: #FFFFFF;
+  --hairline: rgba(20,20,20,0.10);
+  --hairline-soft: rgba(20,20,20,0.06);
+  --shadow-sm: 0 2px 10px rgba(20,20,20,0.06);
+  --shadow-md: 0 12px 32px rgba(20,20,20,0.10);
+  --radius: 4px;
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } }
+
+body{
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--black);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img{ max-width: 100%; display: block; }
+
+.wv-wrap{ width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+h1, h2, h3{ font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: -0.01em; margin: 0; color: var(--black); }
+p{ margin: 0; }
+
+.reveal{ opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.is-visible{ opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity: 1; transform: none; transition: none; }
+}
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+.btn:active{ transform: translateY(1px); }
+.btn-primary{ background: var(--red); color: #fff; }
+.btn-primary:hover{ background: var(--red-dark); box-shadow: var(--shadow-md); }
+.btn-secondary{ background: transparent; color: var(--black); border-color: var(--black); }
+.btn-secondary:hover{ background: var(--black); color: #fff; }
+
+/* ============ LOGO STRIP ============ */
+.wv-logo-bar{ padding: 28px 0 0; text-align: center; }
+.wv-logo-bar img{ max-width: 220px; width: 60%; margin: 0 auto; }
+
+/* ============ HERO ============ */
+.wv-hero{
+  padding: 40px 0 64px;
+}
+.wv-hero-grid{
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: center;
+}
+.wv-hero-copy h1{
+  font-size: clamp(34px, 4.4vw, 52px);
+  line-height: 1.08;
+}
+.wv-hero-copy h1 span{ color: var(--red); }
+.wv-hero-sub{
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--charcoal);
+  max-width: 46ch;
+}
+.wv-hero-ctas{ margin-top: 30px; display: flex; flex-wrap: wrap; gap: 14px; }
+
+.wv-hero-visual{
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  min-height: 380px;
+  background:
+    linear-gradient(155deg, rgba(20,20,20,0.72), rgba(20,20,20,0.28) 55%, rgba(193,32,38,0.30)),
+    linear-gradient(200deg, #2b2b2b, #4a4a4a 60%, #6b6b6b);
+  display: flex;
+  align-items: flex-end;
+  padding: 26px;
+}
+.wv-hero-visual-note{
+  position: relative;
+  color: #fff;
+  font-size: 12.5px;
+  line-height: 1.5;
+  background: rgba(20,20,20,0.55);
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(6px);
+  padding: 12px 14px;
+  border-radius: 8px;
+  max-width: 320px;
+}
+
+/* ============ TRUST BAR ============ */
+.wv-trust{
+  background: var(--bg);
+  border-top: 1px solid var(--hairline-soft);
+  border-bottom: 1px solid var(--hairline-soft);
+  padding: 28px 0;
+}
+.wv-trust-row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px 40px;
+}
+.wv-trust-item{
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wv-trust-item svg{ flex-shrink: 0; color: var(--red); }
+
+/* ============ SECTION SHELL ============ */
+.wv-section{ padding: 76px 0; }
+.wv-section.on-bg{ background: var(--bg); }
+.wv-section-head{ max-width: 640px; margin: 0 0 40px; }
+.wv-section-head h2{ font-size: clamp(26px, 3.2vw, 36px); line-height: 1.15; }
+.wv-section-head p{ margin-top: 14px; font-size: 16.5px; line-height: 1.6; color: var(--charcoal); }
+.wv-section-head.centered{ margin-left: auto; margin-right: auto; text-align: center; }
+
+/* ============ WHY IT MATTERS (2-col: lead copy + icon list) ============ */
+.wv-why-grid{
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 52px;
+  align-items: start;
+}
+.wv-why-lead h2{ font-size: clamp(26px, 3.2vw, 34px); line-height: 1.18; }
+.wv-why-lead p{ margin-top: 16px; font-size: 17px; line-height: 1.65; color: var(--charcoal); max-width: 40ch; }
+.wv-why-list{ display: grid; grid-template-columns: 1fr 1fr; gap: 28px 32px; }
+.wv-why-item{ display: flex; gap: 14px; }
+.wv-why-icon{
+  flex-shrink: 0;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--red);
+}
+.wv-why-item h3{ font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+.wv-why-item p{ font-size: 14.5px; line-height: 1.55; color: var(--charcoal); }
+
+/* ============ SERVICES: featured + grid ============ */
+.wv-services-grid{
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 22px;
+}
+.wv-service-featured{
+  background: var(--black);
+  color: #fff;
+  border-radius: 10px;
+  padding: 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 340px;
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(160deg, rgba(20,20,20,0.15), rgba(20,20,20,0.85)), linear-gradient(200deg,#3a3a3a,#191919 70%);
+}
+.wv-service-featured .tag{
+  align-self: flex-start;
+  background: var(--red);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: auto;
+}
+.wv-service-featured h3{ color: #fff; font-size: 26px; margin-top: 20px; }
+.wv-service-featured p{ color: rgba(255,255,255,0.78); font-size: 15px; line-height: 1.6; margin-top: 10px; max-width: 42ch; }
+
+.wv-services-side{ display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.wv-service-card{
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  border-radius: 10px;
+  padding: 22px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.wv-service-card:hover{ box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+.wv-service-card h3{ font-size: 17px; color: var(--black); }
+.wv-service-card p{ font-size: 14px; line-height: 1.55; color: var(--charcoal); margin-top: 8px; }
+
+/* ============ WHY CHOOSE US: stat band ============ */
+.wv-choose-band{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.wv-choose-item{
+  padding: 26px 24px;
+  border-left: 1px solid var(--hairline);
+}
+.wv-choose-item:first-child{ border-left: none; padding-left: 0; }
+.wv-choose-item h3{ font-size: 18px; }
+.wv-choose-item p{ margin-top: 8px; font-size: 14.5px; line-height: 1.55; color: var(--charcoal); }
+
+/* ============ PROCESS: legitimate numbered sequence ============ */
+.wv-process-row{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  position: relative;
+}
+.wv-process-row::before{
+  content: "";
+  position: absolute;
+  top: 22px; left: 8%; right: 8%;
+  height: 1px;
+  background: var(--hairline);
+}
+.wv-process-step{ text-align: left; padding-right: 30px; }
+.wv-process-num{
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  font-weight: 800;
+  font-size: 17px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 1;
+  margin-bottom: 18px;
+}
+.wv-process-step h3{ font-size: 18px; }
+.wv-process-step p{ margin-top: 8px; font-size: 14.5px; line-height: 1.55; color: var(--charcoal); }
+
+/* ============ TESTIMONIALS ============ */
+.wv-testi-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.wv-testi-card{
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  border-radius: 10px;
+  padding: 26px;
+}
+.wv-testi-card p.quote{ font-size: 16px; line-height: 1.55; color: var(--black); }
+.wv-testi-card p.source{ margin-top: 14px; font-size: 13px; color: var(--charcoal); font-weight: 600; }
+
+/* ============ FINAL CTA + FORM ============ */
+.wv-cta-band{
+  background: var(--black);
+  color: #fff;
+  padding: 64px 0 48px;
+  text-align: center;
+}
+.wv-cta-band h2{ color: #fff; font-size: clamp(26px, 3.2vw, 34px); }
+.wv-cta-band p{ margin-top: 12px; color: rgba(255,255,255,0.72); font-size: 16px; max-width: 46ch; margin-left: auto; margin-right: auto; }
+
+.wv-form-shell{ background: var(--bg); padding: 40px 24px 64px; }
+.wv-form-inner{ max-width: 540px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: var(--shadow-md); padding: 8px; }
+.wv-form-inner iframe{ width: 100%; border: none; border-radius: 8px; min-height: 620px; display: block; }
+
+/* ============ FOOTER ============ */
+.wv-footer{ padding: 34px 0; text-align: center; background: var(--white); }
+.wv-footer img{ max-width: 130px; margin: 0 auto 10px; opacity: 0.85; }
+.wv-footer p{ font-size: 13px; color: var(--charcoal); }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px){
+  .wv-hero-grid{ grid-template-columns: 1fr; gap: 32px; }
+  .wv-hero-visual{ min-height: 260px; order: -1; }
+  .wv-why-grid{ grid-template-columns: 1fr; }
+  .wv-why-list{ grid-template-columns: 1fr 1fr; }
+  .wv-services-grid{ grid-template-columns: 1fr; }
+  .wv-services-side{ grid-template-columns: 1fr 1fr; }
+  .wv-choose-band{ grid-template-columns: 1fr 1fr; }
+  .wv-choose-item:nth-child(2){ border-left: 1px solid var(--hairline); }
+  .wv-choose-item:nth-child(3){ border-left: none; padding-left: 0; }
+  .wv-process-row{ grid-template-columns: 1fr; gap: 28px; }
+  .wv-process-row::before{ display: none; }
+  .wv-testi-grid{ grid-template-columns: 1fr; }
+}
+@media (max-width: 560px){
+  .wv-why-list{ grid-template-columns: 1fr; }
+  .wv-services-side{ grid-template-columns: 1fr; }
+  .wv-choose-band{ grid-template-columns: 1fr; }
+  .wv-choose-item{ border-left: none !important; padding-left: 0 !important; border-top: 1px solid var(--hairline); padding-top: 20px; }
+  .wv-choose-item:first-child{ border-top: none; padding-top: 0; }
+  .wv-section{ padding: 52px 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="wv-logo-bar">
+  <img src="https://assets.cdn.filesafe.space/xUst1g4EMMuQAQi8Uslb/media/2a27274f-1c4a-4d80-bb5a-0ccae7ce3126.png" alt="The Window Valet, Custom Crafted. Carefully Curated. Custom Window Treatments, Designer Drapery, Outdoor Shade Solutions">
+</div>
+
+<section class="wv-hero">
+  <div class="wv-wrap wv-hero-grid">
+    <div class="wv-hero-copy reveal">
+      <h1>Custom Window Treatments for Your New <span>Lennar Home</span></h1>
+      <p class="wv-hero-sub">Thoughtfully designed shades, shutters, and drapery, custom crafted and carefully curated for your new home by the team Lennar homeowners already trust.</p>
+      <div class="wv-hero-ctas">
+        <a class="btn btn-primary" href="#wv-form">Schedule Your Free Consultation</a>
+        <a class="btn btn-secondary" href="#wv-services">See Our Services</a>
+      </div>
+    </div>
+    <div class="wv-hero-visual reveal">
+      <div class="wv-hero-visual-note">Photo slot: real Window Valet project in a Lennar home, natural light, per Brand Standards Manual photography guidance (section 08).</div>
+    </div>
+  </div>
+</section>
+
+<div class="wv-trust">
+  <div class="wv-wrap wv-trust-row">
+    <div class="wv-trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Locally Owned, Central Indiana</div>
+    <div class="wv-trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>In-Home Measure, Every Time</div>
+    <div class="wv-trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Our Own Installation Team</div>
+    <div class="wv-trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Free, No Obligation Consultation</div>
+  </div>
+</div>
+
+<section class="wv-section">
+  <div class="wv-wrap wv-why-grid">
+    <div class="wv-why-lead reveal">
+      <h2>The Right Window Treatments Change How a Home Feels</h2>
+      <p>Good window treatments do more than look nice, they shape how comfortable and private your new home actually feels.</p>
+    </div>
+    <div class="wv-why-list">
+      <div class="wv-why-item reveal">
+        <div class="wv-why-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C7 6 4 10.5 4 14a8 8 0 0016 0c0-3.5-3-8-8-12z"/></svg></div>
+        <div><h3>Privacy</h3><p>Feel at ease at home without sacrificing natural light.</p></div>
+      </div>
+      <div class="wv-why-item reveal">
+        <div class="wv-why-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
+        <div><h3>Comfort</h3><p>Reduce glare and heat so every room stays comfortable.</p></div>
+      </div>
+      <div class="wv-why-item reveal">
+        <div class="wv-why-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M12 3v18"/></svg></div>
+        <div><h3>Light Control</h3><p>Open, dim, or close off light exactly the way you want it.</p></div>
+      </div>
+      <div class="wv-why-item reveal">
+        <div class="wv-why-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 10v10"/></svg></div>
+        <div><h3>Home Design</h3><p>Finish your home's interior with a designer's eye.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wv-section on-bg" id="wv-services">
+  <div class="wv-wrap">
+    <div class="wv-section-head reveal">
+      <h2>Our Services</h2>
+      <p>Every treatment is custom measured and installed by our own team, not a subcontractor.</p>
+    </div>
+    <div class="wv-services-grid reveal">
+      <div class="wv-service-featured">
+        <span class="tag">Most Popular in New Builds</span>
+        <h3>Motorized Shades</h3>
+        <p>Raise, lower, and schedule your shades from your phone. A clean, modern upgrade that fits new-construction homes especially well.</p>
+      </div>
+      <div class="wv-services-side">
+        <div class="wv-service-card"><h3>Custom Blinds</h3><p>Precise fit for every window, built to your exact measurements.</p></div>
+        <div class="wv-service-card"><h3>Window Shades</h3><p>Soft, even light control in a wide range of fabrics and finishes.</p></div>
+        <div class="wv-service-card"><h3>Plantation Shutters</h3><p>A durable, classic look that adds real value to your home.</p></div>
+        <div class="wv-service-card"><h3>Draperies</h3><p>Designer drapery that finishes a room with warmth and texture.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wv-section">
+  <div class="wv-wrap">
+    <div class="wv-section-head centered reveal">
+      <h2>Why Choose The Window Valet</h2>
+    </div>
+    <div class="wv-choose-band reveal">
+      <div class="wv-choose-item"><h3>Real Experience</h3><p>Years of custom installs across Central Indiana.</p></div>
+      <div class="wv-choose-item"><h3>Professional Guidance</h3><p>Honest recommendations, not just a sales pitch.</p></div>
+      <div class="wv-choose-item"><h3>In-Home Consultation</h3><p>We come to you and measure every window in person.</p></div>
+      <div class="wv-choose-item"><h3>Precise Installation</h3><p>Measured and installed right the first time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="wv-section on-bg">
+  <div class="wv-wrap">
+    <div class="wv-section-head centered reveal">
+      <h2>How It Works</h2>
+    </div>
+    <div class="wv-process-row reveal">
+      <div class="wv-process-step">
+        <div class="wv-process-num">1</div>
+        <h3>Schedule Consultation</h3>
+        <p>Book your free in-home visit through this page.</p>
+      </div>
+      <div class="wv-process-step">
+        <div class="wv-process-num">2</div>
+        <h3>Choose Your Design</h3>
+        <p>We help you pick the right fit for every room.</p>
+      </div>
+      <div class="wv-process-step">
+        <div class="wv-process-num">3</div>
+        <h3>Professional Installation</h3>
+        <p>Our own team installs it, done right the first time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wv-section">
+  <div class="wv-wrap">
+    <div class="wv-section-head centered reveal">
+      <h2>What Homeowners Say</h2>
+    </div>
+    <div class="wv-testi-grid reveal">
+      <div class="wv-testi-card">
+        <p class="quote">"We were very happy with their work. We have recommended them to family members and friends."</p>
+        <p class="source">Google Review</p>
+      </div>
+      <div class="wv-testi-card">
+        <p class="quote">"Nate had my whole house finished quickly and professionally. I would highly recommend."</p>
+        <p class="source">Google Review</p>
+      </div>
+      <div class="wv-testi-card">
+        <p class="quote">"Josh helped me choose the right window treatments for my new house, and Nate did a great job installing."</p>
+        <p class="source">Google Review</p>
+      </div>
+      <div class="wv-testi-card">
+        <p class="quote">"Came on time, worked efficiently, and were very personable. I highly recommend them."</p>
+        <p class="source">Google Review</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wv-cta-band" id="wv-form">
+  <div class="wv-wrap reveal">
+    <h2>Schedule Your Free Consultation</h2>
+    <p>Tell us a bit about your home and we'll reach out to schedule your free, no obligation consultation.</p>
+  </div>
+</section>
+<div class="wv-form-shell">
+  <div class="wv-form-inner reveal">
+    <iframe
+        src="https://api.leadconnectorhq.com/widget/form/Pk9aIlJmvTki1CLyrsjX"
+        style="width:100%;height:100%;border:none;border-radius:8px"
+        id="inline-Pk9aIlJmvTki1CLyrsjX"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="The Window Valet-Lennar Window Cling Form "
+        data-height="undefined"
+        data-layout-iframe-id="inline-Pk9aIlJmvTki1CLyrsjX"
+        data-form-id="Pk9aIlJmvTki1CLyrsjX"
+        data-cookie-consent="true"
+        data-cookie-consent-provider="auto"
+        title="The Window Valet-Lennar Window Cling Form ">
+    </iframe>
+  </div>
+</div>
+
+<footer class="wv-footer">
+  <img src="https://assets.cdn.filesafe.space/xUst1g4EMMuQAQi8Uslb/media/2a27274f-1c4a-4d80-bb5a-0ccae7ce3126.png" alt="The Window Valet">
+  <p>Custom Window Treatments &middot; Designer Drapery &middot; Outdoor Shade Solutions</p>
+</footer>
+
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+<script>
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(function(el){ el.classList.add('is-visible'); }); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
