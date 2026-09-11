@@ -81,3 +81,29 @@ measure it against today's manual assignment before rolling it out fully.
 The heatmap/analytics/revenue-clustering piece still genuinely waits, since
 that needs real financial data too, which is still gated on the Quoterite
 integration landing.
+
+## Josh's conditional go-ahead, 2026-09-11
+Josh reviewed this recommendation via the Immediate Priorities document and
+approved moving forward, but sharpened the actual goal. Territory
+auto-assignment alone is not the point, he wants sales appointments
+geographically optimized so a salesperson is never driving all over
+Indianapolis when their day's appointments could have been clustered
+geographically instead.
+
+Before any build beyond the basic data-flow workflow, he wants these six
+questions answered:
+1. Can every qualified appointment/opportunity automatically flow from GHL
+   into Mapsly with customer address, appointment date/time, assigned
+   salesperson, and opportunity stage?
+2. Can Mapsly reliably map those appointments?
+3. Can geography be used as part of deciding which salesperson receives an
+   appointment?
+4. Can Mapsly eventually help cluster a salesperson's 9:00, 11:00, 1:00, and
+   3:00 appointments geographically?
+5. Can Mapsly send assignments or changes back to GHL so GHL remains the
+   main CRM?
+
+Explicit constraint: prove the basic GHL-to-Mapsly workflow first, don't
+overbuild, then show what's realistically possible with geographic
+assignment and scheduling optimization. Review with Josh before expanding
+the build.

@@ -313,3 +313,51 @@ and raises a new, genuine concern about who owns the integration once
 built. Worth deciding with Josh whether to proceed on a 2-3 month timeline
 with that ownership question resolved first, rather than treating this
 reply as a green light on its own.
+
+## Follow-up after the live platform demo, 2026-09-12
+Quoterite followed up directly with Josh after walking him through the
+platform live. This message is more concrete on pricing than anything
+received before, and reframes Quoterite as "your entire retail sales
+operation running from one place," not just a quoting tool.
+
+**Claimed value points (their words):** quotes generated in minutes instead
+of hours (supplier pricing pre-loaded, no spreadsheet re-keying), a visual
+sales pipeline so no lead or follow-up slips through, deposits collected
+the moment a customer approves a quote (auto-synced to accounting), an AI
+check that flags pricing errors before a quote goes out, and full
+functionality on any device, showroom, on the road, phone or iPad.
+
+**Pricing, stated plainly this time:**
+- $195/month for the first user, $110/month for each additional user
+- Installers who only receive install sheets are free
+- One-off setup: $550
+- Month-to-month, no contract, all pricing in USD
+
+**Product configuration cost:** a one-off $1,100 to configure Window
+Valet's actual manufactured products for quoting/ordering inside Quoterite,
+plus configuring worksheets and deductions for export. Any future changes
+to this configuration are billed at $110/hour.
+
+**GHL integration cost, newly concrete:** "a once off cost of $700 (reduced
+from $1000) to ensure all endpoints are configured correctly, and a
+monthly cost of $150 for ongoing maintenance and support."
+
+**This needs reconciling, not just accepting at face value.** Aaron's
+earlier reply (documented above) was explicit that the GHL connector does
+not exist yet and would take a 2-3 month vendor-side build. This new
+message prices the GHL integration as a flat $700 setup fee with no
+timeline mentioned at all, worded exactly like their other already-built
+integrations (QuickBooks, Xero, HubSpot, Pipedrive, Salesforce), not like
+an unbuilt 2-3 month roadmap item. Before treating this price as real,
+ask directly: does this $700 assume the GHL connector already exists
+today, or is $700 the price to build it, and if it still needs building,
+does the 2-3 month timeline from the earlier reply still apply? The two
+messages cannot both be describing the same unbuilt connector without an
+explanation for why the price dropped and the timeline disappeared.
+
+**Onboarding claim:** Window Valet sends its products, suppliers, and price
+lists, and Quoterite's team ("Min and our team") builds the whole account
+and trains the team, described as "a couple of hours of your time, live in
+two to three weeks." Worth noting this two-to-three-week figure is about
+getting the core Quoterite platform live, not necessarily the GHL side,
+given the timeline conflict above.

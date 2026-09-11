@@ -29,6 +29,14 @@ sources. thx" — read as wanting actual distinct source categories
 catch-all tag. Worth confirming this reading with him before building the
 more elaborate version, see the open question below.
 
+## Build confirmed on "1. New Lead," 2026-09-10
+Verified directly against screenshots of the live workflow: the "Has Source
+Tag" condition checks all 10 confirmed source tags (both Google Ads tags,
+both Meta Ads tags, all six phone tracking tags), the "None" branch adds the
+`Source - Untracked` tag, and the "Go to" step correctly merges back into
+the existing second condition so untracked leads still get the full welcome
+sequence. Nothing further needed on this specific workflow.
+
 ## Step-by-step: the fallback tag (build this now, no further sign-off needed)
 1. Open **Workflows -> 1. Lead Pipeline (New) -> "1. New Lead"** in the builder.
 2. Insert the check right after the trigger, before the existing-customer
@@ -52,24 +60,31 @@ more elaborate version, see the open question below.
    Flow Pipeline folder), since it's also still being fed live traffic
    directly by current lead-source workflows and has the same gap.
 
-## Open question for Josh, not yet sent
-Does he want proper distinct source categories built now (organic search,
-direct traffic, referral, etc., which needs the website to actually pass
-UTM or referrer data into GHL forms first), or hold that piece until
-Sixth City Marketing is onboarded, since they'd be the ones setting up
-that tracking on the marketing side anyway, building it now risks
-rebuilding it once they're in.
+## Resolved 2026-09-11, Sixth City Marketing confirmed and coordination mandated
+Both open questions below are now settled by Josh directly. Sixth City
+Marketing is the confirmed SEO/paid ads vendor, launching October 1,
+replacing Shade Strategy. Their scope: SEO, local SEO, Google Ads/PPC,
+Google Business Profile, website strategy, CallRail, lead attribution and
+tracking, digital marketing reporting. Josh's own words: "I want everyone
+connected early so we have a clean transition and, most importantly,
+accurate attribution between Sixth City's marketing and GHL... track every
+lead from its original marketing source through appointment, quote and
+ultimately closed sale/revenue whenever possible." He explicitly directed
+direct collaboration: "please work directly with Sixth City on anything
+needed within GHL, including forms, CallRail integration, UTMs, tracking,
+landing pages, workflows and lead-source attribution," and to connect with
+anyone else on their technical or analytics team as needed. Contacts:
+Kailee Terrance (kailee@sixthcitymarketing.com) and John, Owner, Sixth City
+Marketing (john@sixthcitymarketing.com), this John is Sixth City's own
+owner, not to be confused with this engagement's John Carlo.
 
-## Separately open, unrelated to this specific gap
-Whether Sixth City needs direct GHL access to pull their promised
-reporting, drafted but never sent to Josh, see [[window-valet-client-overview]] memory.
+This settles both prior open questions: yes, Sixth City needs and is meant
+to have direct GHL involvement, and the distinct lead-source-category
+question should now be worked out jointly with them rather than decided
+solo, since they own CallRail and attribution reporting going forward.
 
-## Drafted follow-up message, not yet sent
-
-Quick follow-up on lead sources. I'll get the fallback tag built now so
-nothing comes in untagged. For the "other lead sources" piece, do you
-want actual separate categories built out now, organic search, direct
-traffic, referral, and so on, or should that wait until Sixth City's
-onboarded, since they'd likely be setting up that tracking on their end
-anyway and we'd risk building it twice. Let me know which way you want
-to go.
+## Old open question, now superseded
+Previously drafted but never sent: whether to build real distinct source
+categories now versus wait for Sixth City. No longer needs a standalone
+answer, this gets resolved through direct coordination with Sixth City
+per Josh's mandate above, not as a separate ask to Josh.
