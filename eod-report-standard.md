@@ -1,25 +1,81 @@
 # The Window Valet — EOD Report Standard
 
-Set 2026-09-09, after a few rounds of back-and-forth landed on this format.
-Use this structure for every EOD going forward, don't re-derive it each time.
+Set 2026-09-09, revised 2026-09-15 with a stricter, more detailed
+definition of what counts as an accomplishment. Use this structure for
+every EOD going forward, don't re-derive it each time. This revision
+replaces the prior two-section version entirely.
+
+**Your job is to report completed client work, not activity. Activity is
+not the same as accomplishment.**
 
 ## Structure
 
-Two sections, always in this order:
+Three sections, always in this order:
 
-**Accomplished today:**
-- One bullet per distinct piece of work finished. Direct and to the point,
-  name the actual thing done, no filler wording. Include real research
-  and reading/understanding steps, not just finished deliverables, if
-  they were genuine, substantive work (e.g. researching a vendor's actual
-  capabilities, reading and understanding a client's or vendor's email in
-  detail), not just "read an email."
+**Accomplished Today**
+Only completed client-facing or client-impacting work. Keep each bullet
+short, specific, and factual. Start with a strong action verb: Created,
+Built, Updated, Fixed, Configured, Implemented, Completed, Tested,
+Published, Sent, Added, Removed, Reorganized.
 
-**Pending:**
-- What's still outstanding, phrased as a neutral fact or a decision/action
-  still needed, never as "waiting on so-and-so to reply." State what's
-  needed, not who owes a response. E.g. "Decision needed on X" or "Y still
-  needs building," not "waiting on Josh" or "waiting on Quoterite."
+**Pending / Blockers**
+Tasks still waiting on approval, clarification, access, credentials,
+information, or another person's action.
+
+**Next Steps**
+Actual work that should be completed next, work still to be done that
+doesn't depend on someone else first.
+
+## What counts as an accomplishment
+
+Include tasks where real, completed work happened:
+- Built, created, edited, fixed, configured, or implemented something
+- Completed a client-requested task
+- Delivered a finished asset: workflow, page, automation, document,
+  report, campaign, or update
+- Tested something and made an actual fix or change as a result
+- Added or updated something inside the client's system
+- Completed research, but only if it produced a useful deliverable or a
+  clear recommendation, not just reading or reviewing something
+
+Examples that count:
+- Updated the Lennar landing page based on the client's requested revisions
+- Added the lead source tracking tag to the workflow
+- Built the appointment reminder workflow in GoHighLevel
+- Fixed the form submission automation and tested it successfully
+- Created and sent the updated campaign copy for client review
+- Completed the vendor integration review and documented the confirmed
+  integration limitations
+
+## What does NOT count as an accomplishment
+
+Never put these under Accomplished Today:
+- Asking someone for clarification
+- Waiting for client approval
+- Waiting for access, API keys, credentials, or information
+- Identifying something that still needs to be done
+- Saying someone needs to review or decide something
+- General account observations
+- Internal coordination that did not result in completed client work
+- Simply reading emails or messages
+- Flagging an issue without resolving or documenting a concrete outcome
+- Clarifying scope, unless actual implementation was completed afterward
+- Future plans or next steps
+
+These all belong under Pending/Blockers or Next Steps, never Accomplished
+Today. For example, exclude phrasing like: "flagged a redesign that needs
+reconciling," "clarified the exact scope," "Josh's decision on X,"
+"waiting on the vendor to confirm."
+
+## The test to apply to every bullet
+
+Ask: if the client asked "what did you actually finish for me today,"
+would this bullet be a clear, direct answer?
+
+If yes, it goes under Accomplished Today.
+If the honest answer is "I reviewed it, discussed it, noticed it, asked
+about it, or I'm waiting on it," it does not count, move it to
+Pending/Blockers or Next Steps instead.
 
 ## Style rules
 - Bullet form, not paragraphs. Each bullet is one line, two at most.
@@ -27,28 +83,28 @@ Two sections, always in this order:
 - No status labels ("Done," "Blocked," "In Progress"), just say it plainly.
 - No em dashes, anywhere.
 - No jargon, internal IDs, or commit hashes.
-- **Never include pushing to the repo as an accomplishment.** Committing and pushing is internal housekeeping, not something Josh (or anyone reading the EOD) needs to see as a line item. Leave it out entirely.
+- **Never include pushing to the repo as an accomplishment.** Committing and pushing is internal housekeeping, not something Josh needs to see as a line item.
 - **Be specific, not a vague summary.** Name the actual thing (which document, which section, which system), not "updated some files" or "made progress on X."
-- **Never repeat an accomplishment across EODs.** Each EOD only covers what's genuinely new since the last one was given AND pushed. The checkpoint is: EOD given, then "push" said, everything up through that point is already reported and stays out of the next one, only work done after that push counts as fresh.
-- **Never frame a pending item as waiting on someone's reply.** No "waiting on Josh," no "waiting on Quoterite." State what's needed instead.
-- **Never include work done on our own process or tooling, only real client-engagement work.** Refining the EOD format itself, fixing a document's internal styling/structure, changing a file-naming convention, renaming a file, none of that goes in the EOD. That's us improving how we work, not something Josh's engagement moved forward on. Only include actual client-facing research, proposals, decisions, findings, or documents delivered.
+- **Never repeat an accomplishment across EODs.** Each EOD only covers what's genuinely new since the last one was given AND pushed. The checkpoint is: EOD given, then "push" said, everything up through that point is already reported and stays out of the next one.
+- **Never include work done on our own process or tooling, only real client-engagement work.** Refining the EOD format itself, fixing a document's internal styling/structure, changing a file-naming convention, renaming a file, none of that goes in the EOD.
+- **Do not exaggerate progress, and do not invent accomplishments to pad the list.** Accuracy matters more than the number of bullets. If only two real tasks were completed today, list only those two.
 
-## Reference example (2026-09-09)
+## Reference example (2026-09-15)
 
-**Accomplished today:**
-- Read and understood the technical questionnaire Josh sent directly to Quoterite's CEO, what he's actually asking for on API access, specific data fields, integration ownership, and testing before commitment
-- Read and understood Aaron LeCornu's reply, what's actually confirmed versus what he left unanswered
-- Researched Mapsly's actual capabilities directly from their own documentation, confirming how the GHL connection technically works and uncovering features already available but unused, territory auto-assignment, route optimization, mobile field capture, and analytics
-- Built a branded PDF for Item 3, Scheduling and Mapsly Optimization, presenting that research with recommended next steps
+**Accomplished Today**
+- Completed the MyBlindCo integration review and documented the confirmed
+  capabilities and limitations against the client's requirements
+- Drafted the vendor follow-up email closing the two open integration
+  gaps and requesting a call this week
 
-**Pending:**
-- Decision needed on the GHL-side tax rate mapping for QuickBooks
-- Quoterite's exact field list, integration ownership terms, and a reference customer still need confirming
-- The new Mapsly workflow to push opportunity data still needs building
-- SEO and paid-ads vendor recommendations, due before Shade Strategy's engagement ends September 21st
-- The GHL response-time dashboard still needs designing
-- The tag standardization proposal still needs drafting
+**Pending / Blockers**
+- The vendor's answers to the follow-up, and confirmation of a call
+- Josh's clarification on the exact scope of the tag replacement
+- Josh's review and decision on the system optimization proposal
+- Either the API key or GHL access needed to build the Mapsly data workflow
 
-Left out on purpose: refining the EOD format itself, fixing a document's
-internal styling, and renaming a file, all process/tooling work, not
-client-engagement output, per the rule above.
+**Next Steps**
+- Connect a domain so the Lennar funnel can go live
+- Add the tracking tag as a recognized source inside the main lead workflow
+- Build the same lead-source-tracking fix on the legacy opt-in workflow
+- Reach out to the new marketing vendor's team on tracking and attribution

@@ -90,7 +90,7 @@ geographically optimized so a salesperson is never driving all over
 Indianapolis when their day's appointments could have been clustered
 geographically instead.
 
-Before any build beyond the basic data-flow workflow, he wants these six
+Before any build beyond the basic data-flow workflow, he wants these five
 questions answered:
 1. Can every qualified appointment/opportunity automatically flow from GHL
    into Mapsly with customer address, appointment date/time, assigned
@@ -107,3 +107,12 @@ Explicit constraint: prove the basic GHL-to-Mapsly workflow first, don't
 overbuild, then show what's realistically possible with geographic
 assignment and scheduling optimization. Review with Josh before expanding
 the build.
+
+## Currently blocked
+Building the opportunity-to-Mapsly workflow is blocked on getting either
+the Mapsly API key or direct GHL UI access to copy the existing Partner
+workflow's webhook configuration exactly (endpoint, headers, field
+mapping), rather than reconstructing it from scratch and risking a
+mismatch. Also still unresolved and worth asking about directly: what the
+existing 27-stop "Marketing" route already sitting in the Mapsly account
+is actually for, unexplained since it was first noticed.
