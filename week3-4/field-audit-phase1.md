@@ -48,7 +48,7 @@ the cleanup brief is meant to fix.
 | Form Source | Keep | TEXT | Optional | Internal | Tracking/attribution | Distinct from Lead Source, appears to capture which specific form fired, keep pending confirmation |
 | Landing Page | Keep | TEXT | Optional | Internal | UTM/tracking | Standard attribution field |
 | utmSource / utmMedium / utmCampaign / utmContent / campaignId | Keep | TEXT | Optional | Internal | UTM/tracking, ad platform integrations | Standard attribution set, keep all five as-is |
-| UTM_PARAMS | Retire, confirm first | LARGE_TEXT | Optional | Internal | Not confirmed used anywhere | Looks like a raw catch-all blob duplicating the five individual UTM fields above, confirm nothing reads it before removing |
+| UTM_PARAMS | Retire | LARGE_TEXT | Optional | Internal | Confirmed unused | Checked all 5 workflows in the "3. Lead Sources" folder directly, none reference it. Raw catch-all blob duplicating the five individual UTM fields above, safe to retire |
 | Neighborhood | Clarify with Josh | MULTIPLE_OPTIONS (Exclusive/Custom/Commercial) | Optional | Internal | Not confirmed | Options don't read as actual neighborhoods, more like a project tier, likely confused with "Class" below, needs direct clarification before deciding |
 | Class | Clarify with Josh | SINGLE_OPTIONS (Semi-Custom/Custom/Luxury) | Optional | Internal | Not confirmed | Same overlap concern as Neighborhood above |
 | budget_range | Keep, rename | TEXT | Optional | Internal | Intake | Inconsistent naming style (snake_case vs. the rest of the account's Title Case fields), keep the data but rename for consistency |
@@ -77,7 +77,7 @@ the cleanup brief is meant to fix.
 | Window Count | Consolidate | SINGLE_OPTIONS | Optional | All | Pipeline | One of the four window-count fields, this one is the most reasonable to keep as the confirmed opportunity-level figure once the contact-level duplicates are retired |
 | Closing Date (opportunity) | Keep | DATE | Optional | All | Pipeline, synced to contact via the inactive workflow noted above | Reactivate the sync rather than retire either field |
 | Opportunity Referral | Keep, start using | SINGLE_OPTIONS (32 options) | Should be required | All | Not currently populated by active workflows | The single most valuable field in the whole audit, a real structured lead-source picklist that already includes "Lennar Sticker." Recommend wiring lead-source workflows to populate this directly instead of relying on tags alone |
-| TVA Deal Stage | Clarify with Josh | SINGLE_OPTIONS (New deal/Unpaid/Paid/Delivered) | Optional | Internal | Partner/referral tracking | Confirm this doesn't duplicate the native GHL pipeline stage before keeping both |
+| TVA Deal Stage | Keep | SINGLE_OPTIONS (New deal/Unpaid/Paid/Delivered) | Optional | Internal | Partner/referral tracking | Confirmed not a duplicate, checked directly against all 5 pipelines' native stage names, none match. Tracks partner payment status, a different axis from pipeline stage |
 | TVA Referral Value | Keep | MONETORY | Optional | Internal | Partner referral payout tracking | Real, used field |
 | Referral Partner | Clarify with Josh | TEXT (freeform) | Optional | Internal | Partner program | Possible overlap with "Contact Partner Name" (contact) and "Partner Referral Contact" below |
 | Partner Referral Contact | Clarify with Josh | TEXT | Optional | Internal | Partner program | Same overlap concern |
@@ -94,16 +94,38 @@ Stage, TVA Referral Value. Recommend a separate field layout/view for
 staff that excludes all of these, keeping only what they'd actually ask a
 customer or need to reference live.
 
+## Confirmed through live testing since this audit was first written
+
+Rather than rely only on documentation, the forms and workflows behind
+these fields were tested directly.
+
+- "1. New Lead" is confirmed working correctly for both Strategy-Hero
+  Lead Form and Strategy-Contact Us Form: a fresh test submission creates
+  an opportunity, assigns an owner, applies tags, and sends an SMS.
+- That same live test directly proves Finding #1 above: the resulting
+  opportunity's custom fields came back completely empty, "Opportunity
+  Referral" was not populated even though the workflow ran successfully.
+- TVA Deal Stage is confirmed not a duplicate of the native pipeline
+  stage (see the Opportunity Fields table above), no longer an open
+  question.
+- UTM_PARAMS is confirmed unused, checked all 5 workflows in the "3.
+  Lead Sources" folder directly, none reference it. Safe to retire.
+- Three other live forms (Consultation-Calendar, the "Website" form, and
+  the Lennar Window Cling Form) are confirmed to have zero automation
+  attached at all, no tag, no opportunity, no workflow. These sit outside
+  this field cleanup and are logged separately in the open items list.
+
 ## What still needs direct confirmation before Phase 3 is final
 
 - Confirm "Date of appointment" isn't a redundant shadow of the native
-  appointment/calendar object
-- Confirm whether UTM_PARAMS is read anywhere before recommending its removal
+  appointment/calendar object. Currently blocked: a separate, confirmed
+  bug in the live appointment booking calendar is preventing test
+  bookings from completing, so this can't be tested until that's fixed
+  (logged separately, not part of this field cleanup).
 - Get Josh's read on Neighborhood vs. Class, what each is actually meant
   to capture
 - Get Josh's read on the three partner-name-ish fields (Contact Partner
   Name, Referral Partner, Partner Referral Contact), confirm the intended
   distinction
-- Confirm whether TVA Deal Stage duplicates the native pipeline stage
 - Decide the consolidated field names/ranges for the window-count cleanup
   and the product-interest cleanup before touching either

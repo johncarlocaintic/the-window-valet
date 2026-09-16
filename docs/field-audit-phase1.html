@@ -1,0 +1,120 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Field Audit</title>
+<style>
+@page { size: Letter; margin: 0.85in 0.8in; }
+* { box-sizing: border-box; }
+body { font-family: "Segoe UI", -apple-system, Helvetica, Arial, sans-serif;
+  color: #1c2b33; font-size: 10.5pt; line-height: 1.55; margin: 0; }
+h1 { font-size: 26pt; font-weight: 700; margin: 0 0 6px; color: #12222c; letter-spacing: -.4px; }
+.byline { font-size: 8.5pt; color: #8a97a0; margin: 0 0 22px; }
+.note { background: #f4f6f6; padding: 13px 17px; margin: 0 0 18px; font-size: 10pt; border-radius: 2px; }
+.blocker { background: #fdf1f1; padding: 13px 17px; margin: 0 0 18px;
+  font-size: 10pt; color: #9d2f2f; border-radius: 2px; }
+h2 { background: #16232b; color: #fff; font-size: 13pt; font-weight: 700;
+  padding: 11px 18px; margin: 30px 0 16px; border-radius: 3px; }
+h2 .num { color: #4fbf8b; margin-right: 8px; }
+h3 { font-size: 11pt; font-weight: 700; color: #12222c; margin: 20px 0 8px; }
+p { margin: 0 0 14px; }
+ol, ul { padding-left: 22px; margin: 0 0 16px; }
+li { margin-bottom: 9px; }
+li b { color: #12222c; }
+table { width: 100%; border-collapse: collapse; margin: 0 0 18px; font-size: 8.7pt; }
+th { background: #16232b; color: #fff; text-align: left; padding: 7px 9px; font-weight: 600; }
+td { border-bottom: 1px solid #e3e8ea; padding: 7px 9px; vertical-align: top; }
+tr:nth-child(even) td { background: #fafbfb; }
+.action-keep { color: #2f7d5f; font-weight: 600; }
+.action-consolidate, .action-clarify { color: #b07d2a; font-weight: 600; }
+.action-retire { color: #9d2f2f; font-weight: 600; }
+.footer { margin-top: 34px; padding-top: 12px; border-top: 1px solid #e3e8ea;
+  font-size: 8pt; color: #98a4ac; }
+h2, .note, .blocker { break-after: avoid; page-break-after: avoid; }
+li, tr { break-inside: avoid; page-break-inside: avoid; }
+</style></head>
+<body>
+<h1>Field Audit</h1>
+<p class="byline">Prepared for Josh LeClair by John Carlo Caintic &middot; Marketing Strategy &amp; Automation &middot; September 15, 2026</p>
+
+<h2><span class="num">1.</span> What This Covers</h2>
+<p>Every contact and opportunity custom field currently in your account, 38 contact fields and 12 opportunity fields, 50 total. Pulled directly from your account and cross-checked against the workflow audit already on file, so every recommendation below is tied to what's actually confirmed active, not a guess. Nothing has been changed yet. This is the audit only, the cleanup itself waits for your sign-off in section 6.</p>
+
+<h2><span class="num">2.</span> The Two Findings That Matter Most</h2>
+<p><b>First, you already have a real, structured lead-source field that your automations aren't using.</b> "Opportunity Referral" is a 32-option list covering every real source your business has, including "Lennar Sticker," "Home Show," "HomeAdvisor," and "Referral." But your lead-source workflows currently tag the contact with a raw tag instead of filling in this field. The field is already built and well designed, it's just sitting empty. This affects every lead-source workflow already built or planned, including the Lennar Window Cling campaign.</p>
+<p><b>Second, real duplication across your window-count and product-interest fields.</b> Four separate fields track roughly "how many windows or openings," with inconsistent ranges between them (one range overlaps itself, 4 to 6 and 6 to 10 both include 6). Three separate fields ask essentially "what product are you interested in," each with a different set of options. This is exactly the kind of overlap your cleanup request was aimed at.</p>
+
+<h2><span class="num">3.</span> Contact Fields</h2>
+<table>
+<tr><th>Field</th><th>Action</th><th>Required</th><th>Used In</th><th>Reason</th></tr>
+<tr><td>ZIP Code</td><td class="action-keep">Keep</td><td>Required</td><td>Intake forms, service area/routing</td><td>Core to scheduling and Mapsly territory logic</td></tr>
+<tr><td>Message</td><td class="action-keep">Keep</td><td>Optional</td><td>Contact Us form</td><td>Standard freeform intake note</td></tr>
+<tr><td>Would you like to book an appointment?</td><td class="action-keep">Keep</td><td>Required</td><td>Intake forms</td><td>Direct scheduling intent signal</td></tr>
+<tr><td>Date of appointment</td><td class="action-clarify">Keep, verify</td><td>Optional</td><td>Referenced but not fully traced</td><td>Confirm this isn't just duplicating GHL's native appointment/calendar object before keeping it long term</td></tr>
+<tr><td>How soon are you looking to have your window furnishings installed?</td><td class="action-keep">Keep</td><td>Optional</td><td>Intake forms</td><td>Well-built timeline field, genuinely useful for prioritization</td></tr>
+<tr><td>Which type of window furnishing are you looking for?</td><td class="action-consolidate">Consolidate</td><td>Optional</td><td>Intake forms</td><td>Duplicate of "What type of window treatments are you interested in?" below, different options for the same question, pick one and retire the other</td></tr>
+<tr><td>What type of window treatments are you interested in?</td><td class="action-consolidate">Consolidate</td><td>Optional</td><td>Intake forms</td><td>Same duplication as above</td></tr>
+<tr><td>Approximately how many openings need treatments?</td><td class="action-consolidate">Consolidate</td><td>Optional</td><td>Intake forms</td><td>Overlapping ranges (4-6 and 6-10 both include 6), one of four window-count fields</td></tr>
+<tr><td>Number of Windows</td><td class="action-consolidate">Consolidate</td><td>Optional</td><td>Intake forms</td><td>One of four window-count fields</td></tr>
+<tr><td>What is the size of your project?</td><td class="action-consolidate">Consolidate</td><td>Optional</td><td>Intake forms</td><td>Worded differently but the same underlying data as the two above</td></tr>
+<tr><td>Lead Source</td><td class="action-retire">Retire or repurpose</td><td>Optional</td><td>Not confirmed written by any active workflow</td><td>Superseded by the opportunity-level "Opportunity Referral" field, freeform text isn't reportable the way a picklist is</td></tr>
+<tr><td>Form Source</td><td class="action-keep">Keep</td><td>Optional</td><td>Tracking/attribution</td><td>Distinct from Lead Source, appears to capture which specific form fired, keep pending confirmation</td></tr>
+<tr><td>Landing Page</td><td class="action-keep">Keep</td><td>Optional</td><td>UTM/tracking</td><td>Standard attribution field</td></tr>
+<tr><td>utmSource / utmMedium / utmCampaign / utmContent / campaignId</td><td class="action-keep">Keep</td><td>Optional</td><td>UTM/tracking, ad platform integrations</td><td>Standard attribution set, keep all five as-is</td></tr>
+<tr><td>UTM_PARAMS</td><td class="action-retire">Retire</td><td>Optional</td><td>Confirmed unused</td><td>Checked all 5 workflows in the "3. Lead Sources" folder directly, none reference it. Raw catch-all blob duplicating the five individual UTM fields above, safe to retire</td></tr>
+<tr><td>Neighborhood</td><td class="action-clarify">Clarify with you</td><td>Optional</td><td>Not confirmed</td><td>Options don't read as actual neighborhoods, more like a project tier, likely overlapping with "Class" below</td></tr>
+<tr><td>Class</td><td class="action-clarify">Clarify with you</td><td>Optional</td><td>Not confirmed</td><td>Same overlap concern as Neighborhood above</td></tr>
+<tr><td>budget_range</td><td class="action-keep">Keep, rename</td><td>Optional</td><td>Intake</td><td>Inconsistent naming style versus the rest of your fields, keep the data but rename for consistency</td></tr>
+<tr><td>How many stars would you rate our services?</td><td class="action-keep">Keep</td><td>Optional</td><td>Review/feedback flow</td><td>Active review-collection field</td></tr>
+<tr><td>How can we improve our services?</td><td class="action-keep">Keep</td><td>Optional</td><td>Review/feedback flow</td><td>Pairs with the star rating above</td></tr>
+<tr><td>Anything else we should know?</td><td class="action-keep">Keep</td><td>Optional</td><td>Intake forms</td><td>Standard open-notes field</td></tr>
+<tr><td>Scouting Report</td><td class="action-clarify">Keep, verify workflow status</td><td>Optional</td><td>Written by "Scouting report workflow" (currently Draft)</td><td>The only AI-powered workflow in your account writes here, confirm whether that workflow should be reactivated before treating this field as live</td></tr>
+<tr><td>MyBlindCo Lead ID</td><td class="action-keep">Keep</td><td>Optional</td><td>MyBlindCo webhook sync (confirmed)</td><td>Real integration field, actively used</td></tr>
+<tr><td>My Blind Co Contact ID</td><td class="action-clarify">Keep, clarify naming</td><td>Optional</td><td>MyBlindCo webhook sync (confirmed)</td><td>Two separately named MyBlindCo ID fields exist, confirm both are genuinely distinct, not an accidental duplicate</td></tr>
+<tr><td>MyBlindCo Appointment ID</td><td class="action-keep">Keep</td><td>Optional</td><td>MyBlindCo integration</td><td>Real integration field</td></tr>
+<tr><td>Closing Date (contact)</td><td class="action-clarify">Keep, reactivate sync</td><td>Optional</td><td>Synced from opportunity (currently Draft/inactive)</td><td>The sync workflow that keeps this matched to the opportunity version is sitting inactive, reactivate it or this field will drift out of sync</td></tr>
+<tr><td>Partner Referral Email</td><td class="action-keep">Keep</td><td>Optional</td><td>"(Partners) Write Referral Email to Opportunity" (confirmed active)</td><td>Actively used partner-program field</td></tr>
+<tr><td>Contact Partner Name</td><td class="action-clarify">Clarify with you</td><td>Optional</td><td>Partner program</td><td>Possible overlap with "Referral Partner" and "Partner Referral Contact" at the opportunity level, confirm the distinction is intentional</td></tr>
+<tr><td>Partner Record ID</td><td class="action-keep">Keep</td><td>Optional</td><td>Partner program</td><td>Internal reference ID</td></tr>
+<tr><td>Partner Contact Title</td><td class="action-keep">Keep</td><td>Optional</td><td>Partner program</td><td>Used for partner segmentation</td></tr>
+<tr><td>Contact Partner Status</td><td class="action-keep">Keep</td><td>Optional</td><td>Partner program</td><td>Active/Inactive/Potential Partner tracking</td></tr>
+<tr><td>Partner Days Available</td><td class="action-keep">Keep</td><td>Optional</td><td>Partner program</td><td>Scheduling field for partner outreach</td></tr>
+</table>
+
+<h2><span class="num">4.</span> Opportunity Fields</h2>
+<table>
+<tr><th>Field</th><th>Action</th><th>Required</th><th>Used In</th><th>Reason</th></tr>
+<tr><td>Lost - Reason</td><td class="action-keep">Keep</td><td>Optional</td><td>Pipeline management</td><td>Valuable for win/loss reporting</td></tr>
+<tr><td>Building Type</td><td class="action-keep">Keep</td><td>Required</td><td>Pipeline, builder/partner tracking</td><td>Directly relevant to the Lennar builder relationship and similar partner accounts</td></tr>
+<tr><td>Product Interest</td><td class="action-keep">Keep</td><td>Optional</td><td>Pipeline</td><td>Keep at the opportunity level as the confirmed product line, separate from the contact-level intake fields once those are consolidated</td></tr>
+<tr><td>Window Count</td><td class="action-consolidate">Consolidate</td><td>Optional</td><td>Pipeline</td><td>One of the four window-count fields, the most reasonable to keep as the confirmed opportunity-level figure once the contact-level duplicates are retired</td></tr>
+<tr><td>Closing Date (opportunity)</td><td class="action-clarify">Keep</td><td>Optional</td><td>Pipeline, synced to contact via the inactive workflow noted above</td><td>Reactivate the sync rather than retire either field</td></tr>
+<tr><td>Opportunity Referral</td><td class="action-keep">Keep, start using</td><td>Should be required</td><td>Not currently populated by active workflows</td><td>The single most valuable field in the whole audit, a real structured lead-source list that already includes "Lennar Sticker." Recommend wiring lead-source workflows to fill this directly instead of relying on tags alone</td></tr>
+<tr><td>TVA Deal Stage</td><td class="action-keep">Keep</td><td>Optional</td><td>Partner/referral tracking</td><td>Confirmed not a duplicate, checked directly against all 5 pipelines' native stage names, none match. Tracks partner payment status, a different axis from pipeline stage</td></tr>
+<tr><td>TVA Referral Value</td><td class="action-keep">Keep</td><td>Optional</td><td>Partner referral payout tracking</td><td>Real, used field</td></tr>
+<tr><td>Referral Partner</td><td class="action-clarify">Clarify with you</td><td>Optional</td><td>Partner program</td><td>Possible overlap with "Contact Partner Name" and "Partner Referral Contact"</td></tr>
+<tr><td>Partner Referral Contact</td><td class="action-clarify">Clarify with you</td><td>Optional</td><td>Partner program</td><td>Same overlap concern</td></tr>
+<tr><td>Partner Referral Email</td><td class="action-keep">Keep</td><td>Optional</td><td>"(Partners) Write Referral Email to Opportunity" (confirmed active)</td><td>Actively used, synced from the contact-level version</td></tr>
+<tr><td>Gift Card Number</td><td class="action-keep">Keep</td><td>Optional</td><td>Promotions</td><td>No overlap found</td></tr>
+</table>
+
+<h2><span class="num">5.</span> Fields to Hide From Employee View</h2>
+<p>These are backend or integration plumbing, not something Renee or Kelli need visible during a live customer call: MyBlindCo Lead ID, My Blind Co Contact ID, MyBlindCo Appointment ID, all five UTM fields, UTM_PARAMS, campaignId, Partner Record ID, Form Source, Landing Page, Scouting Report, TVA Deal Stage, and TVA Referral Value. Recommend a separate field layout for staff that leaves all of these out, keeping only what they'd actually ask a customer or need to reference live.</p>
+
+<h2><span class="num">6.</span> Confirmed Through Live Testing Since This Audit</h2>
+<p>Rather than rely only on documentation, the forms and workflows behind these fields were tested directly.</p>
+<ul>
+<li>"1. New Lead" is confirmed working correctly for both Strategy-Hero Lead Form and Strategy-Contact Us Form: a fresh test submission creates an opportunity, assigns an owner, applies tags, and sends an SMS.</li>
+<li>That same live test directly proves Finding #1 in section 2: the resulting opportunity's custom fields came back completely empty, "Opportunity Referral" was not populated even though the workflow ran successfully.</li>
+<li>TVA Deal Stage is confirmed not a duplicate of the native pipeline stage, no longer an open question.</li>
+<li>UTM_PARAMS is confirmed unused, checked all 5 workflows in the "3. Lead Sources" folder directly, none reference it. Safe to retire.</li>
+<li>Three other live forms (Consultation-Calendar, the "Website" form, and the Lennar Window Cling Form) are confirmed to have zero automation attached at all, no tag, no opportunity, no workflow. These sit outside this field cleanup and are logged separately.</li>
+</ul>
+
+<h2><span class="num">7.</span> What Needs Your Input Before This Is Final</h2>
+<ol>
+<li>Confirm "Date of appointment" isn't a redundant shadow of the native appointment/calendar object. Currently blocked: a separate, confirmed bug in the live appointment booking calendar is preventing test bookings from completing, so this can't be tested until that's fixed.</li>
+<li>Your read on Neighborhood versus Class, what each is actually meant to capture.</li>
+<li>Your read on the three partner-name-ish fields (Contact Partner Name, Referral Partner, Partner Referral Contact), confirm the intended distinction between them.</li>
+<li>Your preference on the consolidated field names and ranges for the window-count cleanup and the product-interest cleanup, before either gets touched.</li>
+</ol>
+
+<div class="footer">The Window Valet &middot; Field Audit &middot; September 15, 2026</div>
+</body></html>

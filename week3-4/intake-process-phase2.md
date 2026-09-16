@@ -51,7 +51,7 @@ conversation, not a form read aloud.
 ## Scheduling Information
 
 14. **"When works best for you for a free consultation?"**
-    Field: Would you like to book an appointment? + Date of appointment | Type: Yes/No + Date | Required | Purpose: existing fields, keep as-is
+    Field: Would you like to book an appointment? + Date of appointment | Type: Yes/No + Date | Required | Purpose: existing fields, keep as-is. Note: whether "Date of appointment" stays a manually-set field or gets replaced by the native booking calendar is still an open question from the field audit, currently blocked on a separate calendar bug getting fixed first
 
 15. **(Internal, not asked of the customer) Assigned designer**
     Field: (native) Assigned User | Type: User select | Required | Purpose: standard assignment, no change needed

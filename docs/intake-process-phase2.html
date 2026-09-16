@@ -1,0 +1,70 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Customer Intake Process</title>
+<style>
+@page { size: Letter; margin: 0.85in 0.8in; }
+* { box-sizing: border-box; }
+body { font-family: "Segoe UI", -apple-system, Helvetica, Arial, sans-serif;
+  color: #1c2b33; font-size: 10.5pt; line-height: 1.55; margin: 0; }
+h1 { font-size: 26pt; font-weight: 700; margin: 0 0 6px; color: #12222c; letter-spacing: -.4px; }
+.byline { font-size: 8.5pt; color: #8a97a0; margin: 0 0 22px; }
+.note { background: #f4f6f6; padding: 13px 17px; margin: 0 0 18px; font-size: 10pt; border-radius: 2px; }
+h2 { background: #16232b; color: #fff; font-size: 13pt; font-weight: 700;
+  padding: 11px 18px; margin: 30px 0 16px; border-radius: 3px; }
+h2 .num { color: #4fbf8b; margin-right: 8px; }
+p { margin: 0 0 14px; }
+ol, ul { padding-left: 22px; margin: 0 0 16px; }
+li { margin-bottom: 12px; }
+li b { color: #12222c; }
+.q { font-style: italic; color: #12222c; }
+.meta { font-size: 9pt; color: #5d6d77; margin-top: 3px; }
+.meta b { color: #16232b; }
+.footer { margin-top: 34px; padding-top: 12px; border-top: 1px solid #e3e8ea;
+  font-size: 8pt; color: #98a4ac; }
+h2, .note { break-after: avoid; page-break-after: avoid; }
+li { break-inside: avoid; page-break-inside: avoid; }
+</style></head>
+<body>
+<h1>Customer Intake Process</h1>
+<p class="byline">Prepared for Josh LeClair by John Carlo Caintic &middot; Marketing Strategy &amp; Automation &middot; September 15, 2026</p>
+
+<h2><span class="num">1.</span> What This Covers</h2>
+<p>A redesigned intake flow for Renee and Kelli, built on top of the field audit. It reuses the fields your account already has wherever the audit found a clean survivor field, and only adds three genuinely new fields, listed in section 5. Ordered the way Renee or Kelli would actually ask it on a first call, a natural conversation, not a form read aloud.</p>
+
+<h2><span class="num">2.</span> Customer Information</h2>
+<ol>
+<li><span class="q">"Can I get your name?"</span><div class="meta"><b>Field:</b> Contact Name (native) &middot; Text &middot; Required &middot; Basic identification</div></li>
+<li><span class="q">"What's the best phone number to reach you?"</span><div class="meta"><b>Field:</b> Phone (native) &middot; Phone &middot; Required &middot; Primary contact method</div></li>
+<li><span class="q">"And an email address, so I can send you anything we discuss?"</span><div class="meta"><b>Field:</b> Email (native) &middot; Email &middot; Optional &middot; Secondary contact, quote/confirmation delivery</div></li>
+</ol>
+
+<h2><span class="num">3.</span> Project Information</h2>
+<ol start="4">
+<li><span class="q">"What's the address for the project?"</span><div class="meta"><b>Field:</b> ZIP Code + Address (native) &middot; Text &middot; Required &middot; Service area confirmation, routing, Mapsly territory</div></li>
+<li><span class="q">"How did you hear about us?"</span><div class="meta"><b>Field:</b> Opportunity Referral &middot; Single select, 32 options &middot; Required &middot; This is the field your account already has and isn't using, fill it in directly at intake instead of relying only on automated tags</div></li>
+<li><span class="q">"Have we worked together before, or is this your first project with us?"</span><div class="meta"><b>Field (new):</b> New or Existing Customer &middot; Single select (New / Existing) &middot; Required &middot; Not currently a dedicated field, recommend adding one rather than inferring it from record history</div></li>
+<li><span class="q">"What are you looking to have done, blinds, shades, shutters, drapery, or outdoor shading?"</span><div class="meta"><b>Field:</b> What type of window treatments are you interested in? (the consolidated survivor of the two duplicate fields) &middot; Single select &middot; Required &middot; Product interest at intake</div></li>
+<li><span class="q">"Which rooms or areas are we talking about?"</span><div class="meta"><b>Field (new):</b> Rooms/Areas Involved &middot; Multi-select or text &middot; Optional &middot; Not currently a dedicated field, useful for scheduling and scoping</div></li>
+<li><span class="q">"Roughly how many windows or openings are we talking about?"</span><div class="meta"><b>Field:</b> Number of Windows (the consolidated survivor of the four window-count fields) &middot; Numerical or single select ranges &middot; Optional &middot; Sizing the job</div></li>
+<li><span class="q">"Is this a home, or a commercial property?"</span><div class="meta"><b>Field:</b> Building Type &middot; Single select (New Construction / Existing Home / Commercial) &middot; Required &middot; Already a strong existing field, keep as-is</div></li>
+<li><span class="q">"Are you the homeowner, or are you working with a builder on this?"</span><div class="meta"><b>Field (new):</b> Homeowner/Builder/Decision-Maker Status &middot; Single select &middot; Optional &middot; Not currently captured cleanly, relevant given the Lennar/builder partner relationship</div></li>
+<li><span class="q">"Do you have a rough budget in mind, or would you like our team to recommend options first?"</span><div class="meta"><b>Field:</b> budget_range (renamed for consistency) &middot; Text or range &middot; Optional &middot; Kept low-pressure, a soft ask, not a qualifying gate</div></li>
+<li><span class="q">"What's your timeline looking like?"</span><div class="meta"><b>Field:</b> How soon are you looking to have your window furnishings installed? &middot; Single select &middot; Optional &middot; Already a strong existing field, keep as-is</div></li>
+</ol>
+
+<h2><span class="num">4.</span> Scheduling Information</h2>
+<ol start="14">
+<li><span class="q">"When works best for you for a free consultation?"</span><div class="meta"><b>Field:</b> Would you like to book an appointment? + Date of appointment &middot; Yes/No + Date &middot; Required &middot; Existing fields, keep as-is. Whether "Date of appointment" stays manually-set or gets replaced by the native booking calendar is still open, currently blocked on a separate calendar bug getting fixed first</div></li>
+<li><span class="q">(Internal, not asked of the customer) Assigned designer</span><div class="meta"><b>Field:</b> Assigned User (native) &middot; User select &middot; Required &middot; Standard assignment, no change needed</div></li>
+<li><span class="q">"Is there anything else about the project we should know before we come out?"</span><div class="meta"><b>Field:</b> Anything else we should know? &middot; Large text &middot; Optional &middot; Existing field, catch-all for anything not covered above</div></li>
+</ol>
+
+<h2><span class="num">5.</span> New Fields This Recommends Adding</h2>
+<p>Everything else in this intake reuses fields your account already has, either as-is or after the consolidation from the field audit. No new field gets added unless it's listed here, and even these three are simple, single fields, not a return to over-collecting.</p>
+<ul>
+<li><b>New or Existing Customer</b> (single select)</li>
+<li><b>Rooms/Areas Involved</b> (multi-select or text)</li>
+<li><b>Homeowner/Builder/Decision-Maker Status</b> (single select)</li>
+</ul>
+
+<div class="footer">The Window Valet &middot; Customer Intake Process &middot; September 15, 2026</div>
+</body></html>
